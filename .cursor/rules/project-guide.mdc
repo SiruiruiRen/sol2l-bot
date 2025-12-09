@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Commit and Deployment Workflow Rule:
+https://github.com/SiruiruiRen/learning-bot
+
+Stage: After verifying all code changes, I will stage all modified files using git add ..
+Commit: I will commit the staged files with a clear, descriptive message summarizing the changes (e.g., git commit -m "feat: Implement Phase 5 and UI fixes").
+Push: I will push the commit to the main branch of the remote repository on GitHub, which will automatically trigger deployments.

@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# App Structure Guide
+
+## Overview
+This is a Next.js application for a learning platform with different phases.
+
+## Key Pages
+- [app/page.tsx](mdc:app/page.tsx) - Main entry point / home page
+- [app/summary/page.tsx](mdc:app/summary/page.tsx) - Final summary page with learning principles and feedback form
+
+## App Organization
+- The application is structured into different phases (phase1 through phase6)
+- Each phase represents a step in the learning journey
+- The summary page is the final destination for users to provide feedback
+- Components are reused across different phases
+
+## Summary Page Details
+The summary page displays key learning principles and collects user feedback via quantitative questions on a 1-5 scale. It's designed to be simple and user-friendly.

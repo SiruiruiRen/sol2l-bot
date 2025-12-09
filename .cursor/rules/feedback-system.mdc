@@ -1,0 +1,25 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Feedback System Guide
+
+## Overview
+The feedback system in the summary page collects user responses about their learning experience.
+
+## Key Components
+- [app/summary/page.tsx](mdc:app/summary/page.tsx) - Contains the feedback form implementation
+
+## Feedback Questions
+The system collects quantitative feedback using a 1-5 rating scale for three key metrics:
+1. Usefulness of learning strategies
+2. Overall satisfaction with the experience
+3. Likelihood to recommend to others
+
+There's also an optional text field for additional comments.
+
+## Implementation Details
+- Uses `RadioGroup` and `RadioGroupItem` components for the rating scale
+- Stores responses in a React state object
+- Has a submit function that currently displays an alert

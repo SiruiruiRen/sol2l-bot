@@ -1,0 +1,59 @@
+# SoLBot Learning Platform - Cursor Rules
+
+## Project Overview
+SoLBot is a research-focused AI learning platform implementing evidence-based learning techniques. This is an educational intervention system designed for academic research and publication.
+
+## Development Workflow
+1. **User-Centered Design**: All changes must be based on specific user feedback with documented rationale
+2. **Research Documentation**: Maintain detailed logs of design iterations for academic publication
+3. **Git Workflow**: Stage → Commit with descriptive messages → Push to main branch for auto-deployment
+4. **Testing Focus**: Prioritize efficient database setup and comprehensive analytics for research
+5. **Auto-Update Log**: When making significant changes, update `docs/design_iterations_log.md` with new iteration entry
+
+## Key Principles
+- **Cognitive Load Management**: Eliminate redundancy, use concise communication, maintain consistency
+- **Educational Value**: Transform all interactions into learning opportunities with research-backed approaches  
+- **Comprehensive Analytics**: Track detailed user behaviors for learning science research
+- **Iterative Improvement**: Document rationale for every design decision
+
+## Technical Guidelines
+- **Database**: Use Supabase with comprehensive analytics tables for research data collection
+- **UI/UX**: Single-column layouts, compact design, consistent "SoLBot" branding
+- **Components**: Follow established patterns (guided interactions, educational loading messages)
+- **Analytics**: Implement granular tracking (video engagement, chat patterns, revision attempts, learning efficiency)
+
+## File Structure Priorities
+- `/app` - Next.js application with phase-based learning modules
+- `/database` - SQL schemas and analytics queries for research
+- `/docs` - Design iteration logs and research documentation
+- `/components` - Reusable UI components following established patterns
+
+## Research Requirements
+- Track user revision patterns and score improvements
+- Monitor video engagement and chat interaction quality
+- Collect learning efficiency and progression metrics
+- Support evidence-based research conclusions for academic publication
+
+## Development Rules
+1. Make focused changes to satisfy current requirements - avoid unnecessary new features
+2. Avoid creating temporary files or too many new files to prevent confusion
+3. Always document design changes in the iteration log with user feedback rationale
+4. Ensure database queries handle empty tables gracefully for testing phase
+5. Maintain comprehensive data collection capabilities for research analysis
+
+## Log Update Template (Use for significant changes)
+```
+### Iteration X: [Title]
+**Date**: [Date] | **Commit**: `[hash]` | **Status**: ✅ Complete
+**User Need**: [Specific feedback or requirement]
+**Key Changes**: 
+- [Change 1]
+- [Change 2]
+**Files Modified**: [List key files]
+**Research Impact**: [How this supports research goals]
+```
+
+## Deployment
+- Repository: https://github.com/SiruiruiRen/learning-bot
+- Auto-deployment on push to main branch
+- No migrations needed during testing phase - direct SQL execution in Supabase 

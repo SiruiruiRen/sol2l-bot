@@ -1,0 +1,574 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { motion } from "framer-motion"
+import { useRouter } from "next/navigation"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import {
+  Target,
+  ChevronRight,
+  ChevronLeft,
+  ChevronUp,
+  ChevronDown,
+  PlayCircle,
+  BookOpen,
+  Search,
+  HelpCircle,
+  CheckCircle,
+  AlertCircle,
+  ArrowRight,
+  Map,
+  FileQuestion,
+  Video,
+  MessageCircle,
+} from "lucide-react"
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Label } from "@/components/ui/label"
+
+import ModuleBar from "@/components/module-bar"
+import VideoPlayer from "@/components/video-player"
+import { VerticalNav } from "@/components/vertical-nav"
+
+const LearningObjectiveAnalysis = () => {
+  return (
+    <div className="bg-slate-800/50 p-4 rounded-lg border border-teal-500/20 mb-4 max-w-4xl mx-auto">
+      <h3 className="text-lg font-medium text-teal-300 mb-2 flex items-center gap-2">
+        <div className="h-7 w-7 rounded-full bg-teal-900/60 flex items-center justify-center">
+          <span className="text-teal-400">🎯</span>
+        </div>
+        Cognitive Levels of Understanding
+      </h3>
+      <p className="text-white/80 mb-3">
+        Learning objectives reveal what your instructor expects you to know and the cognitive level required. The verb in the objective tells you what type of question the instructor will ask.
+      </p>
+      
+      {/* Visual hierarchy showing the three levels */}
+      <div className="bg-slate-700/30 p-4 rounded-lg border border-teal-500/10 mb-4">
+        <div className="flex items-center justify-between mb-4">
+          <div className="text-center flex-1">
+            <div className="text-orange-300 font-bold text-lg mb-1">KNOWLEDGE LEVEL</div>
+            <div className="text-orange-200 text-sm">Define, List, Recall, Identify, Recite</div>
+          </div>
+          <div className="text-center flex-1">
+            <div className="text-blue-300 font-bold text-lg mb-1">COMPREHENSION LEVEL</div>
+            <div className="text-blue-200 text-sm">Explain, Describe, Summarize, Interpret</div>
+          </div>
+          <div className="text-center flex-1">
+            <div className="text-purple-300 font-bold text-lg mb-1">ANALYSIS LEVEL</div>
+            <div className="text-purple-200 text-sm">Compare, Analyze, Differentiate, Evaluate</div>
+          </div>
+        </div>
+        
+        {/* Connecting line */}
+        <div className="relative">
+          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 via-blue-400 to-purple-400 transform -translate-y-1/2"></div>
+          <div className="flex justify-between relative z-10">
+            <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
+            <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+          </div>
+        </div>
+        
+        <div className="mt-4 text-center">
+          <p className="text-teal-200 text-sm">
+            <span className="font-medium">Key insight:</span> Different cognitive levels require different study strategies
+          </p>
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
+        <div className="bg-orange-900/20 p-3 rounded border border-orange-500/30">
+          <p className="text-orange-300 font-medium mb-1">Knowledge Level:</p>
+          <p className="text-white/70">Simple rehearsal, flashcards, memorization techniques</p>
+        </div>
+        <div className="bg-blue-900/20 p-3 rounded border border-blue-500/30">
+          <p className="text-blue-300 font-medium mb-1">Comprehension Level:</p>
+          <p className="text-white/70">Self-explanation, concept mapping, summarizing</p>
+        </div>
+        <div className="bg-purple-900/20 p-3 rounded border border-purple-500/30">
+          <p className="text-purple-300 font-medium mb-1">Analysis Level:</p>
+          <p className="text-white/70">Compare/contrast charts, critical thinking exercises</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const PriorKnowledgeResourceAnalysis = () => {
+  return (
+    <div className="bg-slate-800/50 p-4 rounded-lg border border-teal-500/20 mb-4 max-w-4xl mx-auto">
+      <h3 className="text-lg font-medium text-teal-300 mb-2 flex items-center gap-2">
+        <div className="h-7 w-7 rounded-full bg-teal-900/60 flex items-center justify-center">
+          <span className="text-teal-400">📚</span>
+        </div>
+        Why Prior Knowledge & Resources Matter
+      </h3>
+      
+      <p className="text-white/80 mb-3">
+        Connecting new learning to what you already know and selecting appropriate resources creates a foundation for efficient and effective learning.
+      </p>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="bg-slate-700/30 p-3 rounded border border-teal-500/10">
+          <h4 className="text-teal-300 text-sm font-medium mb-2 flex items-center">
+            <Search className="h-4 w-4 mr-1 text-teal-400" />
+            Analyzing Prior Knowledge:
+          </h4>
+          <ul className="space-y-1">
+            <li className="flex items-center text-white/70 text-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mr-2"></div>
+              Recognize knowledge gaps to address
+            </li>
+            <li className="flex items-center text-white/70 text-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mr-2"></div>
+              Connect new ideas to existing mental models
+            </li>
+          </ul>
+        </div>
+        
+        <div className="bg-slate-700/30 p-3 rounded border border-teal-500/10">
+          <h4 className="text-teal-300 text-sm font-medium mb-2 flex items-center">
+            <BookOpen className="h-4 w-4 mr-1 text-teal-400" />
+            Selecting Effective Resources:
+          </h4>
+          <ul className="space-y-1">
+            <li className="flex items-center text-white/70 text-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mr-2"></div>
+              Choose materials appropriate to your level
+            </li>
+            <li className="flex items-center text-white/70 text-sm">
+              <div className="w-1.5 h-1.5 rounded-full bg-teal-400 mr-2"></div>
+              Seek diverse formats for complex topics
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  );
+};
+
+const KnowledgeCheckQuestion = ({
+  question,
+  questionIndex,
+  totalQuestions,
+  onNextQuestion,
+}: {
+  question: any;
+  questionIndex: number;
+  totalQuestions: number;
+  onNextQuestion: () => void;
+}) => {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [isCorrect, setIsCorrect] = useState(false);
+
+  const handleSubmit = () => {
+    if (!selectedOption) return;
+    const correct = selectedOption === question.correctAnswer;
+    setIsCorrect(correct);
+    setSubmitted(true);
+
+    if (correct) {
+      if (questionIndex === totalQuestions - 1) {
+        onNextQuestion();
+      }
+    }
+  };
+
+  const handleTryAgain = () => {
+    setSelectedOption(null);
+    setSubmitted(false);
+    setIsCorrect(false);
+  };
+
+  return (
+    <Card className="bg-slate-800/50 border border-teal-500/30">
+      <CardContent className="pt-6">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-teal-500/20 flex items-center justify-center">
+              <HelpCircle className="h-5 w-5 text-teal-400" />
+            </div>
+            <h3 className="text-lg font-bold text-white">Knowledge Check {questionIndex + 1}</h3>
+          </div>
+          <span className="text-sm text-white/60">
+            Question {questionIndex + 1} of {totalQuestions}
+          </span>
+        </div>
+
+        <p className="text-white/90 mb-6">{question.question}</p>
+
+        <RadioGroup
+          value={selectedOption || ""}
+          onValueChange={setSelectedOption}
+          className="space-y-3"
+          disabled={submitted}
+        >
+          {question.options.map((option: string, index: number) => (
+            <div
+              key={index}
+              className={`flex items-start space-x-2 rounded-lg border p-3 transition-colors ${
+                submitted && option === question.correctAnswer
+                  ? "border-emerald-500/50 bg-emerald-500/10"
+                  : submitted && option === selectedOption
+                    ? "border-red-500/50 bg-red-500/10"
+                    : "border-slate-700 hover:border-teal-500/50 hover:bg-teal-500/10"
+              }`}
+            >
+              <RadioGroupItem value={option} id={`option-${index}`} className="mt-1" />
+              <div className="flex-1">
+                <Label
+                  htmlFor={`option-${index}`}
+                  className={`text-sm font-medium ${
+                    submitted && option === question.correctAnswer
+                      ? "text-emerald-400"
+                      : submitted && option === selectedOption
+                        ? "text-red-400"
+                        : "text-white/80"
+                  }`}
+                >
+                  {option}
+                </Label>
+              </div>
+              {submitted && option === question.correctAnswer && (
+                <CheckCircle className="h-5 w-5 text-emerald-500 flex-shrink-0" />
+              )}
+              {submitted && option === selectedOption && option !== question.correctAnswer && (
+                <AlertCircle className="h-5 w-5 text-red-500 flex-shrink-0" />
+              )}
+            </div>
+          ))}
+        </RadioGroup>
+
+        {submitted && (
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className={`mt-6 p-4 rounded-lg ${
+              isCorrect ? "bg-emerald-500/20 border border-emerald-500/30" : "bg-red-500/20 border border-red-500/30"
+            }`}
+          >
+            <div className="flex items-start gap-3">
+              {isCorrect ? (
+                <CheckCircle className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+              ) : (
+                <AlertCircle className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+              )}
+              <div>
+                <h4 className={`font-bold ${isCorrect ? "text-emerald-400" : "text-red-400"}`}>
+                  {isCorrect ? "Correct!" : "Not quite right"}
+                </h4>
+                <p className="text-white/80 mt-1">{question.explanation}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+
+        <div className="mt-6 flex justify-between items-center">
+          <div>
+            {!submitted ? (
+              <Button
+                onClick={handleSubmit}
+                disabled={!selectedOption}
+                className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 shadow-lg shadow-teal-500/30 disabled:opacity-50"
+              >
+                Submit Answer
+              </Button>
+            ) : !isCorrect ? (
+              <Button
+                onClick={handleTryAgain}
+                variant="outline"
+                className="border-teal-500/30 text-teal-400 hover:bg-teal-500/10 hover:text-teal-300"
+              >
+                Try Again
+              </Button>
+            ) : null}
+          </div>
+          
+          {/* Next/Complete button for correct answers */}
+          {submitted && isCorrect && questionIndex < totalQuestions - 1 && (
+            <Button
+              onClick={onNextQuestion}
+              className="bg-teal-600 hover:bg-teal-700 text-white flex items-center gap-2 shadow-lg"
+            >
+              Next Question <ArrowRight className="h-4 w-4" />
+            </Button>
+          )}
+          {submitted && isCorrect && questionIndex === totalQuestions - 1 && (
+            <div className="text-emerald-400 font-medium flex items-center gap-2">
+              <CheckCircle className="h-5 w-5" />
+              Quiz Completed!
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const KnowledgeCheckQuiz = ({ onComplete, knowledgeChecks }: { onComplete: () => void, knowledgeChecks: any[] }) => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const handleNextQuestion = () => {
+    if (currentQuestionIndex < knowledgeChecks.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      onComplete();
+    }
+  };
+
+  const currentQuestion = knowledgeChecks[currentQuestionIndex];
+
+  return (
+    <KnowledgeCheckQuestion
+      key={currentQuestion.id}
+      question={currentQuestion}
+      questionIndex={currentQuestionIndex}
+      totalQuestions={knowledgeChecks.length}
+      onNextQuestion={handleNextQuestion}
+    />
+  );
+};
+
+export default function Phase2Page() {
+  const router = useRouter()
+  const [userName, setUserName] = useState("")
+  const [currentCardIndex, setCurrentCardIndex] = useState(0)
+  const [videoWatched, setVideoWatched] = useState(false)
+  const [quizCompleted, setQuizCompleted] = useState(false)
+
+  const cards = [
+    { id: "intro", title: "Understand Your Task" },
+    { id: "objectives", title: "Cognitive Levels of Understanding" },
+    { id: "resources", title: "Why Prior Knowledge & Resources Matter" },
+    { id: "knowledge-check", title: "Knowledge Check" },
+    { id: "video", title: "Watch: Introduction to Learning Task Analysis" },
+  ]
+
+  const knowledgeChecks = [
+    {
+      id: 1,
+      title: "Learning Objectives Importance",
+      question: "Why are learning objectives important to study?",
+      options: [
+        "They are like a study guide where the verb gives you the type of question that the instructor will ask",
+        "They should be studied verbatim because the instructor will ask you a question about what the learning objective said",
+        "They aren't important to study and you should ignore them",
+        "They help give you a brief overview of the course concepts so you can gauge the difficulty of the course"
+      ],
+      correctAnswer: "They are like a study guide where the verb gives you the type of question that the instructor will ask",
+      explanation: "Learning objectives are like a hidden study guide. The verb in the objective reveals a lot about the concepts instructors want to emphasize and the type of questions they will ask on exams."
+    },
+    {
+      id: 2,
+      title: "Interpreting Learning Objectives",
+      question: "Ms. Anna gave her students the following learning objective: \"Identify the characteristics and basic needs of living organisms and ecosystems.\" Based on this learning objective, which student did the best job interpreting the objective and selecting an appropriate learning strategy?",
+      options: [
+        "Ally finds the information in her textbook and class notes and chooses to rehearse it using retrieval practice strategies every few days",
+        "Barry rereads the textbook with this information in it until he is confident he knows the material",
+        "Claire studies the basic definition of living organisms and ecosystems using her textbook and her notes she took during the lecture",
+        "Dan decides to focus in lecture whenever the keywords in this learning objective are recited"
+      ],
+      correctAnswer: "Ally finds the information in her textbook and class notes and chooses to rehearse it using retrieval practice strategies every few days",
+      explanation: "We can classify this learning objective as knowledge level (the verb 'identify' indicates recall/recognition). To solidify knowledge-level information, we need to find the information in our resources and use effective memorization strategies like retrieval practice."
+    },
+    {
+      id: 3,
+      title: "Cognitive Level Analysis",
+      question: "Which student approaches the following learning objective correctly? \"Describe the intricate relationship between various cellular structures and their corresponding functions.\"",
+      options: [
+        "Andy finds the word \"cellular structure\" and \"function\" in his textbook and memorizes/defines these words",
+        "Brad creates a relationship diagram to analyze the connections between different cellular structures and their functions",
+        "Cory discusses the definition of cellular structures and functions and writes it down to memorize later",
+        "Dani rereads the textbook with this information until it is memorized"
+      ],
+      correctAnswer: "Brad creates a relationship diagram to analyze the connections between different cellular structures and their functions",
+      explanation: "The verb 'describe' and the phrase 'intricate relationship' indicate this is a comprehension or analysis level objective. Brad's approach of creating a relationship diagram helps him understand and explain the connections, which matches the cognitive level required."
+    }
+  ]
+
+  const nextCard = () => {
+    if (currentCardIndex < cards.length - 1) {
+      setCurrentCardIndex(currentCardIndex + 1)
+    } else {
+      router.push("/phase2/chat")
+    }
+  }
+
+  const prevCard = () => {
+    if (currentCardIndex > 0) {
+      setCurrentCardIndex(currentCardIndex - 1)
+    }
+  }
+
+  const handleVideoComplete = () => {
+    setVideoWatched(true)
+  }
+
+  const onKnowledgeCheckComplete = () => {
+    setQuizCompleted(true)
+  }
+
+  useEffect(() => {
+    const storedName = localStorage.getItem("solbot_user_name")
+    if (storedName) {
+      setUserName(storedName)
+    }
+  }, [])
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="stars"></div>
+        <div className="stars2"></div>
+        <div className="stars3"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-900/10 via-transparent to-transparent opacity-30"></div>
+      </div>
+
+      <div className="container mx-auto px-4">
+        <ModuleBar currentPhase={2} />
+        <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-teal-500/20 py-3 px-4">
+          <div className="container mx-auto">
+            <div className="flex items-center justify-center">
+              <Target className="h-6 w-6 text-teal-500 mr-2" />
+              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text">
+                Phase 2: Understand Your Tasks
+              </h2>
+            </div>
+          </div>
+        </div>
+        <VerticalNav
+          currentCardIndex={currentCardIndex}
+          totalCards={cards.length}
+          onPrev={prevCard}
+          onNext={nextCard}
+          isNextDisabled={currentCardIndex === 3 && !quizCompleted}
+        />
+        
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto mt-16"
+        >
+          <Card className="bg-slate-900/60 backdrop-blur-md border border-teal-500/30 shadow-xl mb-6">
+            <CardHeader className="pb-2">
+              <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
+                <Target className="h-8 w-8 text-teal-500" />
+                <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
+                  {cards[currentCardIndex].title}
+                </span>
+              </CardTitle>
+            </CardHeader>
+
+            <CardContent>
+              {currentCardIndex === 0 && (
+                <div className="text-white/80 space-y-4 mb-6">
+                  <div className="bg-slate-800/50 p-4 rounded-lg border border-teal-500/20 mb-6 text-left">
+                    <h3 className="text-lg font-medium text-teal-300 mb-3 flex items-center gap-2">
+                      <Map className="h-5 w-5" />
+                      Phase 2 Workflow
+                    </h3>
+                    <div className="flex items-center justify-center space-x-2 sm:space-x-4 text-white/80">
+                      <div className="flex flex-col items-center text-center">
+                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
+                          <Target className="h-6 w-6 text-teal-300" />
+                        </div>
+                        <span className="text-xs font-medium">Analyze Tasks</span>
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
+                          <FileQuestion className="h-6 w-6 text-teal-300" />
+                        </div>
+                        <span className="text-xs font-medium">Knowledge Check</span>
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
+                          <Video className="h-6 w-6 text-teal-300" />
+                        </div>
+                        <span className="text-xs font-medium">Watch Video</span>
+                      </div>
+                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <div className="flex flex-col items-center text-center">
+                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
+                          <MessageCircle className="h-6 w-6 text-teal-300" />
+                        </div>
+                        <span className="text-xs font-medium">Chat w/ SoL2LBot</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p>
+                    {userName ? `Great work, ${userName}!` : "Great work!"} Now let's define your learning task in a way that sets you up for success.
+                  </p>
+                  <p>Define what you want to learn, how your current knowledge relates to it, and what resources you'll use.</p>
+                </div>
+              )}
+              {currentCardIndex === 1 && <LearningObjectiveAnalysis />}
+              {currentCardIndex === 2 && <PriorKnowledgeResourceAnalysis />}
+              {currentCardIndex === 3 && (
+                <div>
+                  <div className="text-white/80 mb-4">
+                    <p>Let's check your understanding of learning objectives and cognitive levels before watching the video.</p>
+                  </div>
+                  <KnowledgeCheckQuiz onComplete={onKnowledgeCheckComplete} knowledgeChecks={knowledgeChecks} />
+                </div>
+              )}
+              {currentCardIndex === 4 && (
+                <div className="mt-6 space-y-6">
+                  <p className="text-center text-white/80">
+                    Learn how to analyze learning objectives and select effective learning strategies.
+                  </p>
+                  <VideoPlayer 
+                    src="/video/SoL_phase2.mp4"
+                    onComplete={handleVideoComplete}
+                    phase="phase2"
+                    videoTitle="Learning Task Analysis"
+                  />
+                  <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-teal-500/30 text-center">
+                    <p className="font-semibold text-teal-300">After the video:</p>
+                    <p className="text-white/80 text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
+                  </div>
+                </div>
+              )}
+              
+              <div className="flex justify-between mt-8">
+                {currentCardIndex > 0 ? (
+                  <Button 
+                    variant="outline"
+                    className="text-teal-400 border-teal-500/30 hover:bg-teal-900/20"
+                    onClick={prevCard}
+                  >
+                    <ChevronLeft className="h-4 w-4 mr-2" /> Previous
+                  </Button>
+                ) : <div/>}
+                
+                {currentCardIndex < cards.length - 1 ? (
+                  <Button 
+                    className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-6 py-2 rounded-lg"
+                    onClick={nextCard}
+                    disabled={(currentCardIndex === 3 && !quizCompleted)}
+                  >
+                    Next <ChevronRight className="h-4 w-4 ml-2" />
+                  </Button>
+                ) : (
+                  <Button 
+                    className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-6 py-3 rounded-full font-medium shadow-lg"
+                    onClick={nextCard}
+                  >
+                    Continue to Chat <ChevronRight className="h-5 w-5 ml-2" />
+                  </Button>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
