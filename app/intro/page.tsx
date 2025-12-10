@@ -536,10 +536,9 @@ export default function IntroPage() {
               <div className="bg-[rgba(19,26,38,0.85)] p-5 rounded-2xl border border-white/10 mb-6 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-semibold text-white">Intervention Structure</h3>
-                  <div className="text-sm text-white/70">One color = one phase</div>
                 </div>
                 <p className="text-white/80 mb-5">
-                  Six sequential phases with videos, knowledge checks, and AI-guided reflection. Click any phase to jump in.
+                  Six sequential phases with videos, knowledge checks, and AI-guided reflection.
                 </p>
                 
                 <div className="grid gap-4 md:grid-cols-2">
@@ -568,19 +567,6 @@ export default function IntroPage() {
                           <h4 className="text-lg font-semibold text-white">{phase.title}</h4>
                           <p className="text-sm text-white/80">{phase.description}</p>
                         </div>
-                      </div>
-                      <div className="mt-3 flex justify-end">
-                        <Button
-                          size="sm"
-                          className="px-4 py-2 text-sm font-semibold"
-                          style={{
-                            backgroundColor: phase.colors.accent,
-                            color: "#102033",
-                            boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
-                          }}
-                        >
-                          Start
-                        </Button>
                       </div>
                     </motion.div>
                   ))}

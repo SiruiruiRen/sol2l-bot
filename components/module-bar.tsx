@@ -42,13 +42,16 @@ interface ModuleBarProps {
 }
 
 // Define color types
-type ModuleColor = 'blue' | 'purple' | 'indigo';
+type ModuleColor = 'phase1' | 'phase2' | 'phase3' | 'phase4' | 'phase5' | 'phase6';
 type ColorClasses = {
   bg: string;
   bgLight: string;
   text: string;
   border: string;
   gradient: string;
+  hex: string;
+  textHex: string;
+  accentHex: string;
 };
 
 export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
@@ -81,43 +84,76 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
   // Define the modules and their phases
   const modules = [
     {
-      name: "Goal Setting",
-      icon: <Flag className="h-5 w-5" />,
-      color: "blue" as ModuleColor,
-      phases: [1, 2],
-      phaseNames: ["What's SRL", "Understand Your Tasks"],
-      phaseIcons: [<BrainCircuit className="h-5 w-5" />, <Target className="h-5 w-5" />],
+      name: "Phase 1",
+      icon: <BrainCircuit className="h-5 w-5" />,
+      color: "phase1" as ModuleColor,
+      phases: [1],
+      phaseNames: ["What's SRL"],
+      phaseIcons: [<BrainCircuit className="h-5 w-5" />],
       phaseDescriptions: [
         "Understand the self-regulated learning framework that will guide your learning journey",
+      ],
+      description: "Understand SRL",
+    },
+    {
+      name: "Phase 2",
+      icon: <Target className="h-5 w-5" />,
+      color: "phase2" as ModuleColor,
+      phases: [2],
+      phaseNames: ["Understand Your Tasks"],
+      phaseIcons: [<Target className="h-5 w-5" />],
+      phaseDescriptions: [
         "Define your learning objectives and identify resources to support your learning goals",
       ],
-      description: "Understanding how to organize your learning process",
+      description: "Clarify tasks",
     },
     {
-      name: "Learning Strategies",
-      icon: <Lightbulb className="h-5 w-5" />,
-      color: "purple" as ModuleColor,
-      phases: [3, 4],
-      phaseNames: ["Effective Learning Strategies", "Achieve Your Goals"],
-      phaseIcons: [<BookMarked className="h-5 w-5" />, <ListTodo className="h-5 w-5" />],
+      name: "Phase 3",
+      icon: <BookMarked className="h-5 w-5" />,
+      color: "phase3" as ModuleColor,
+      phases: [3],
+      phaseNames: ["Effective Learning Strategies"],
+      phaseIcons: [<BookMarked className="h-5 w-5" />],
       phaseDescriptions: [
         "Discover evidence-based learning techniques like retrieval practice and spaced repetition",
-        "Create a structured plan with specific goals and contingency strategies for obstacles",
       ],
-      description: "Applying evidence-based techniques to learn effectively",
+      description: "Learn strategies",
     },
     {
-      name: "Monitor & Adapt",
-      icon: <BarChart2 className="h-5 w-5" />,
-      color: "indigo" as ModuleColor,
-      phases: [5, 6],
-      phaseNames: ["Monitor Your Learning", "Learning Journey Summary"],
-      phaseIcons: [<TrendingUp className="h-5 w-5" />, <Medal className="h-5 w-5" />],
+      name: "Phase 4",
+      icon: <ListTodo className="h-5 w-5" />,
+      color: "phase4" as ModuleColor,
+      phases: [4],
+      phaseNames: ["Achieve Your Goals"],
+      phaseIcons: [<ListTodo className="h-5 w-5" />],
+      phaseDescriptions: [
+        "Create a structured plan with specific goals and contingency strategies for obstacles",
+      ],
+      description: "Plan goals",
+    },
+    {
+      name: "Phase 5",
+      icon: <TrendingUp className="h-5 w-5" />,
+      color: "phase5" as ModuleColor,
+      phases: [5],
+      phaseNames: ["Monitor Your Learning"],
+      phaseIcons: [<TrendingUp className="h-5 w-5" />],
       phaseDescriptions: [
         "Build a system to track your progress and adjust your approach",
+      ],
+      description: "Monitor progress",
+    },
+    {
+      name: "Phase 6",
+      icon: <Medal className="h-5 w-5" />,
+      color: "phase6" as ModuleColor,
+      phases: [6],
+      phaseNames: ["Learning Journey Summary"],
+      phaseIcons: [<Medal className="h-5 w-5" />],
+      phaseDescriptions: [
         "Review your complete learning system and prepare for implementation",
       ],
-      description: "Tracking progress and adjusting your approach",
+      description: "Summarize",
     },
   ]
 
@@ -168,29 +204,68 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
 
   // Get color classes for the current module
   const colorMap: Record<ModuleColor, ColorClasses> = {
-    blue: {
-      bg: "bg-blue-500",
-      bgLight: "bg-blue-500/20",
-      text: "text-blue-400",
-      border: "border-blue-500/30",
-      gradient: "from-blue-600 to-blue-400",
+    phase1: {
+      bg: "bg-[#2c3e59]",
+      bgLight: "bg-[#2c3e59]/30",
+      text: "text-[#9fc5ff]",
+      border: "border-[#3c5376]/50",
+      gradient: "from-[#243147] to-[#2c3e59]",
+      hex: "#2c3e59",
+      textHex: "#9fc5ff",
+      accentHex: "#9fc5ff",
     },
-    purple: {
-      bg: "bg-purple-500",
-      bgLight: "bg-purple-500/20",
-      text: "text-purple-400",
-      border: "border-purple-500/30",
-      gradient: "from-purple-600 to-purple-400",
+    phase2: {
+      bg: "bg-[#386254]",
+      bgLight: "bg-[#386254]/30",
+      text: "text-[#9be7c0]",
+      border: "border-[#3f6b5a]/50",
+      gradient: "from-[#2f4a44] to-[#386254]",
+      hex: "#386254",
+      textHex: "#9be7c0",
+      accentHex: "#9be7c0",
     },
-    indigo: {
-      bg: "bg-indigo-500",
-      bgLight: "bg-indigo-500/20",
-      text: "text-indigo-400",
-      border: "border-indigo-500/30",
-      gradient: "from-indigo-600 to-indigo-400",
+    phase3: {
+      bg: "bg-[#5c433d]",
+      bgLight: "bg-[#5c433d]/30",
+      text: "text-[#f5c09a]",
+      border: "border-[#80523e]/50",
+      gradient: "from-[#4f3a36] to-[#5c433d]",
+      hex: "#5c433d",
+      textHex: "#f5c09a",
+      accentHex: "#f5c09a",
+    },
+    phase4: {
+      bg: "bg-[#554470]",
+      bgLight: "bg-[#554470]/30",
+      text: "text-[#d9c7ff]",
+      border: "border-[#6f568c]/50",
+      gradient: "from-[#46385c] to-[#554470]",
+      hex: "#554470",
+      textHex: "#d9c7ff",
+      accentHex: "#d9c7ff",
+    },
+    phase5: {
+      bg: "bg-[#5c5035]",
+      bgLight: "bg-[#5c5035]/30",
+      text: "text-[#f7e3a5]",
+      border: "border-[#7a6a3c]/50",
+      gradient: "from-[#4a422c] to-[#5c5035]",
+      hex: "#5c5035",
+      textHex: "#f7e3a5",
+      accentHex: "#f7e3a5",
+    },
+    phase6: {
+      bg: "bg-[#2f6d73]",
+      bgLight: "bg-[#2f6d73]/30",
+      text: "text-[#9fe2de]",
+      border: "border-[#2f6d73]/50",
+      gradient: "from-[#24464a] to-[#2f6d73]",
+      hex: "#2f6d73",
+      textHex: "#9fe2de",
+      accentHex: "#9fe2de",
     },
   }
-  const colors = currentModule ? colorMap[currentModule.color] : colorMap.indigo
+  const colors = currentModule ? colorMap[currentModule.color] : colorMap.phase1
 
   // Mobile header bar
   if (isMobile) {
@@ -323,7 +398,7 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
   // Desktop sidebar - using the original vertical circle navigation design with improved usability
   return (
     <div className="fixed left-3 top-1/2 transform -translate-y-1/2 z-30 hidden lg:block">
-      <div className="bg-gray-900/80 backdrop-blur-md border border-white/10 rounded-2xl p-3 shadow-xl w-auto">
+      <div className="bg-[rgba(16,22,32,0.9)] backdrop-blur-md border border-white/10 rounded-2xl p-3 shadow-xl w-auto">
         <div className="flex flex-col items-center">
           {/* Title */}
           <div className="text-white/70 text-xs font-medium mb-3 px-1">JOURNEY</div>
@@ -357,174 +432,56 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
               )}
             </div>
             
-            {/* Phase 1 */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 1 ? "bg-blue-600/80 text-white" : 
-                          completedPhases.includes(1) ? "bg-blue-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={() => navigateToPhase(1)}
-                    >
-                      <BrainCircuit className="h-4 w-4" />
+            {[
+              { id: 1, label: "Phase 1: What's SRL", icon: <BrainCircuit className="h-4 w-4" />, color: colorMap.phase1, action: () => navigateToPhase(1) },
+              { id: 2, label: "Phase 2: Understand Your Tasks", icon: <Target className="h-4 w-4" />, color: colorMap.phase2, action: () => router.push("/phase2") },
+              { id: 3, label: "Phase 3: Effective Learning Strategies", icon: <BookMarked className="h-4 w-4" />, color: colorMap.phase3, action: () => router.push("/phase3") },
+              { id: 4, label: "Phase 4: Achieve Your Goals", icon: <ListTodo className="h-4 w-4" />, color: colorMap.phase4, action: () => router.push("/phase4") },
+              { id: 5, label: "Phase 5: Monitor Your Learning", icon: <TrendingUp className="h-4 w-4" />, color: colorMap.phase5, action: navigateToPhase5 },
+              { id: 6, label: "Phase 6: Learning Journey Summary", icon: <Medal className="h-4 w-4" />, color: colorMap.phase6, action: () => router.push("/summary") },
+            ].map((phase) => {
+              const isActive = displayPhase === phase.id;
+              const isCompleted = completedPhases.includes(phase.id);
+              const bg = isActive
+                ? phase.color.hex
+                : isCompleted
+                  ? `${phase.color.hex}66`
+                  : "rgba(30,41,59,0.85)";
+              const textColor = isActive ? phase.color.textHex : isCompleted ? "#e2e8f0" : "#cbd5e1";
+              const borderColor = isActive ? `${phase.color.textHex}80` : "rgba(255,255,255,0.08)";
+              const pulseColor = `${phase.color.textHex}80`;
+              return (
+                <div className="relative mb-4 z-10" key={phase.id}>
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger asChild>
+                        <div
+                          className="w-10 h-10 rounded-full flex items-center justify-center cursor-pointer"
+                          style={{ backgroundColor: bg, color: textColor, border: borderColor }}
+                          onClick={phase.action}
+                        >
+                          {phase.icon}
+                        </div>
+                      </TooltipTrigger>
+                      <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
+                        <p>{phase.label}</p>
+                      </TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                  {isActive && (
+                    <div
+                      className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 animate-pulse"
+                      style={{ borderColor: pulseColor }}
+                    ></div>
+                  )}
+                  {isCompleted && (
+                    <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                      <CheckCircle className="h-3 w-3 text-emerald-500" />
                     </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 1: What's SRL</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 1 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-blue-400/50 animate-pulse"></div>
-              )}
-              {completedPhases.includes(1) && (
-                <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-emerald-500" />
+                  )}
                 </div>
-              )}
-            </div>
-            
-            {/* Phase 2 */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 2 ? "bg-teal-600/80 text-white" : 
-                          completedPhases.includes(2) ? "bg-teal-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={() => router.push("/phase2")}
-                    >
-                      <Target className="h-4 w-4" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 2: Understand Your Tasks</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 2 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-teal-400/50 animate-pulse"></div>
-              )}
-              {completedPhases.includes(2) && (
-                <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-emerald-500" />
-                </div>
-              )}
-            </div>
-            
-            {/* Phase 3 */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 3 ? "bg-purple-600/80 text-white" : 
-                          completedPhases.includes(3) ? "bg-purple-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={() => router.push("/phase3")}
-                    >
-                      <BookMarked className="h-4 w-4" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 3: Effective Learning Strategies</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 3 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-purple-400/50 animate-pulse"></div>
-              )}
-              {completedPhases.includes(3) && (
-                <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-emerald-500" />
-                </div>
-              )}
-            </div>
-            
-            {/* Phase 4 */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 4 ? "bg-orange-600/80 text-white" : 
-                          completedPhases.includes(4) ? "bg-orange-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={() => router.push("/phase4")}
-                    >
-                      <ListTodo className="h-4 w-4" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 4: Achieve Your Goals</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 4 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-orange-400/50 animate-pulse"></div>
-              )}
-              {completedPhases.includes(4) && (
-                <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-emerald-500" />
-                </div>
-              )}
-            </div>
-            
-            {/* Phase 5 */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 5 ? "bg-amber-600/80 text-white" : 
-                          completedPhases.includes(5) ? "bg-amber-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={navigateToPhase5}
-                    >
-                      <TrendingUp className="h-4 w-4" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 5: Monitor Your Learning</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 5 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-amber-400/50 animate-pulse"></div>
-              )}
-              {completedPhases.includes(5) && (
-                <div className="absolute -right-1 -top-1 w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center">
-                  <CheckCircle className="h-3 w-3 text-emerald-500" />
-                </div>
-              )}
-            </div>
-            
-            {/* Phase 6/Summary */}
-            <div className="relative mb-4 z-10">
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer
-                        ${displayPhase === 6 ? "bg-rose-600/80 text-white" : 
-                          completedPhases.includes(6) ? "bg-rose-800/50 text-white/80" : "bg-slate-800 text-white/50 hover:bg-slate-700/70 hover:text-white/80"}`}
-                      onClick={() => router.push("/summary")}
-                    >
-                      <Medal className="h-4 w-4" />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent side="right" className="bg-slate-800 border-slate-700 text-xs">
-                    <p>Phase 6: Learning Journey Summary</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-              {displayPhase === 6 && (
-                <div className="absolute -left-1 -top-1 w-12 h-12 rounded-full border-2 border-rose-400/50 animate-pulse"></div>
-              )}
-            </div>
+              )
+            })}
             
             {/* Progress line overlay */}
             <div 
