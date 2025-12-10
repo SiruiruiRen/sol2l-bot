@@ -63,7 +63,7 @@ deploy-fix/
 deploy-package/
 deploy-render/
 patterns.txt
-video/
+/video/
 .vercel/
 prompt_engineering/evaluation/results/~.xlsx
 ~.xlsx
