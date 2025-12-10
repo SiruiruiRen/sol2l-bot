@@ -32,46 +32,52 @@ import { Label } from "@/components/ui/label"
 
 const phaseInfo = [
   {
+    id: 1,
     title: "Phase 1: What's SRL",
     description: "Understand the self-regulated learning framework.",
     icon: BrainCircuit,
-    color: "blue",
     path: "/phase1",
+    colors: { bg: "#243147", bg2: "#2c3e59", accent: "#7DB3FF", icon: "#3c5376" },
   },
   {
+    id: 2,
     title: "Phase 2: Understand Your Tasks",
     description: "Define learning objectives and identify resources.",
     icon: Target,
-    color: "teal",
     path: "/phase2",
+    colors: { bg: "#2f4a44", bg2: "#386254", accent: "#6ED3A0", icon: "#3f6b5a" },
   },
   {
+    id: 3,
     title: "Phase 3: Effective Learning Strategies",
     description: "Discover evidence-based learning techniques.",
     icon: BookMarked,
-    color: "purple",
     path: "/phase3",
+    colors: { bg: "#4f3a36", bg2: "#5c433d", accent: "#F5A97A", icon: "#80523e" },
   },
   {
+    id: 4,
     title: "Phase 4: Achieve Your Goals",
     description: "Create a structured plan with specific goals.",
     icon: ListTodo,
-    color: "orange",
     path: "/phase4",
+    colors: { bg: "#46385c", bg2: "#554470", accent: "#C6B0F5", icon: "#6f568c" },
   },
   {
+    id: 5,
     title: "Phase 5: Monitor Your Learning",
     description: "Build a system to track your progress and adjust.",
     icon: TrendingUp,
-    color: "amber",
     path: "/phase5",
+    colors: { bg: "#4a422c", bg2: "#5c5035", accent: "#F0D17B", icon: "#7a6a3c" },
   },
   {
+    id: 6,
     title: "Phase 6: Learning Journey Summary",
     description: "Review your complete learning system.",
     icon: Medal,
-    color: "rose",
     path: "/phase6",
+    colors: { bg: "#24464a", bg2: "#2f6d73", accent: "#74D1CC", icon: "#2f6d73" },
   },
 ]
 
@@ -256,29 +262,54 @@ export default function IntroPage() {
                 </div>
 
                 {/* Intervention Structure */}
-                <div className="bg-slate-800/50 p-5 rounded-lg border border-indigo-500/20 mb-6">
-                  <h3 className="text-lg font-semibold text-indigo-300 mb-3">Intervention Structure</h3>
-                  <p className="text-white/80 mb-4">
-                    The program consists of six sequential phases, each incorporating instructional videos, 
-                    knowledge assessments, and AI-guided reflection exercises.
+                <div className="bg-[rgba(19,26,38,0.85)] p-5 rounded-2xl border border-white/10 mb-6 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-semibold text-white">Intervention Structure</h3>
+                    <div className="text-sm text-white/70">One color = one phase</div>
+                  </div>
+                  <p className="text-white/80 mb-5">
+                    Six sequential phases with videos, knowledge checks, and AI-guided reflection. Click any phase to jump in.
                   </p>
                   
-                  <div className="space-y-3">
+                  <div className="grid gap-4 md:grid-cols-2">
                     {phaseInfo.map((phase, index) => (
                       <motion.div
                         key={phase.path}
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: index * 0.1 }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: index * 0.05 }}
                         onClick={() => router.push(phase.path)}
-                        className={`flex items-start gap-3 p-3 bg-${phase.color}-900/20 rounded border border-${phase.color}-500/10 hover:bg-${phase.color}-900/40 cursor-pointer transition-all`}
+                        className="group relative rounded-2xl border border-white/10 p-4 cursor-pointer overflow-hidden"
+                        style={{
+                          background: `linear-gradient(135deg, ${phase.colors.bg}, ${phase.colors.bg2})`,
+                          boxShadow: "0 18px 36px rgba(0,0,0,0.35)",
+                        }}
                       >
-                        <div className={`w-10 h-10 rounded bg-${phase.color}-600/80 flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                          <phase.icon className={`h-5 w-5 text-white`} />
+                        <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" style={{ background: `radial-gradient(circle at 20% 20%, ${phase.colors.accent}, transparent 45%)` }}></div>
+                        <div className="flex items-start gap-3">
+                          <div
+                            className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_10px_22px_rgba(0,0,0,0.35)]"
+                            style={{ backgroundColor: phase.colors.icon }}
+                          >
+                            <phase.icon className="h-6 w-6 text-white" />
+                          </div>
+                          <div className="flex-1">
+                            <h4 className="text-lg font-semibold text-white">{phase.title}</h4>
+                            <p className="text-sm text-white/80">{phase.description}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className={`text-${phase.color}-400 font-medium`}>{phase.title}</h4>
-                          <p className="text-sm text-white/70">{phase.description}</p>
+                        <div className="mt-3 flex justify-end">
+                          <Button
+                            size="sm"
+                            className="px-4 py-2 text-sm font-semibold"
+                            style={{
+                              backgroundColor: phase.colors.accent,
+                              color: "#102033",
+                              boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                            }}
+                          >
+                            Start
+                          </Button>
                         </div>
                       </motion.div>
                     ))}
@@ -502,29 +533,54 @@ export default function IntroPage() {
               </div>
 
               {/* Intervention Structure */}
-              <div className="bg-slate-800/50 p-5 rounded-lg border border-indigo-500/20 mb-6">
-                <h3 className="text-lg font-semibold text-indigo-300 mb-3">Intervention Structure</h3>
-                <p className="text-white/80 mb-4">
-                  The program consists of six sequential phases, each incorporating instructional videos, 
-                  knowledge assessments, and AI-guided reflection exercises.
+              <div className="bg-[rgba(19,26,38,0.85)] p-5 rounded-2xl border border-white/10 mb-6 shadow-[0_14px_30px_rgba(0,0,0,0.35)]">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-semibold text-white">Intervention Structure</h3>
+                  <div className="text-sm text-white/70">One color = one phase</div>
+                </div>
+                <p className="text-white/80 mb-5">
+                  Six sequential phases with videos, knowledge checks, and AI-guided reflection. Click any phase to jump in.
                 </p>
                 
-                <div className="space-y-3">
+                <div className="grid gap-4 md:grid-cols-2">
                   {phaseInfo.map((phase, index) => (
                     <motion.div
                       key={phase.path}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.35, delay: index * 0.05 }}
                       onClick={() => router.push(phase.path)}
-                      className={`flex items-start gap-3 p-3 bg-${phase.color}-900/20 rounded border border-${phase.color}-500/10 hover:bg-${phase.color}-900/40 cursor-pointer transition-all`}
+                      className="group relative rounded-2xl border border-white/10 p-4 cursor-pointer overflow-hidden"
+                      style={{
+                        background: `linear-gradient(135deg, ${phase.colors.bg}, ${phase.colors.bg2})`,
+                        boxShadow: "0 18px 36px rgba(0,0,0,0.35)",
+                      }}
                     >
-                      <div className={`w-10 h-10 rounded bg-${phase.color}-600/80 flex items-center justify-center flex-shrink-0 mt-0.5`}>
-                        <phase.icon className={`h-5 w-5 text-white`} />
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" style={{ background: `radial-gradient(circle at 20% 20%, ${phase.colors.accent}, transparent 45%)` }}></div>
+                      <div className="flex items-start gap-3">
+                        <div
+                          className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-[0_10px_22px_rgba(0,0,0,0.35)]"
+                          style={{ backgroundColor: phase.colors.icon }}
+                        >
+                          <phase.icon className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-lg font-semibold text-white">{phase.title}</h4>
+                          <p className="text-sm text-white/80">{phase.description}</p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className={`text-${phase.color}-400 font-medium`}>{phase.title}</h4>
-                        <p className="text-sm text-white/70">{phase.description}</p>
+                      <div className="mt-3 flex justify-end">
+                        <Button
+                          size="sm"
+                          className="px-4 py-2 text-sm font-semibold"
+                          style={{
+                            backgroundColor: phase.colors.accent,
+                            color: "#102033",
+                            boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                          }}
+                        >
+                          Start
+                        </Button>
                       </div>
                     </motion.div>
                   ))}
