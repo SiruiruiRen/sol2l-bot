@@ -23,6 +23,7 @@ Track design changes based on user feedback for research documentation and futur
 - Upgraded Next.js from 15.1.0 to the patched 15.1.9 release to remediate CVE-2025-66478.
 - Aligned React/React DOM and type packages to the React 19 line required by the patched Next.js build.
 - Refreshed the npm lockfile to capture the patched dependency graph for deployment.
+- Added phase video assets into `public/video` so Phase 1–5 videos deploy and play in Vercel.
 **Files Modified**: `package.json`, `package-lock.json`, `docs/design_iterations_log.md`
 **Research Impact**: Restores secure deployments and protects research data collection from the React2Shell RCE vector, keeping analytics environments safe for ongoing studies.
 

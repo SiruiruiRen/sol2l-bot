@@ -34,7 +34,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: 'https://solbot-backend.onrender.com/api/:path*',
+        destination: 'https://sol2l-bot.onrender.com/api/:path*',
       },
     ]
   },

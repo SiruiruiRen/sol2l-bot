@@ -25,7 +25,7 @@ This guide shows how to deploy the SoLBot backend to Render.com and update the V
 
 7. Wait for the deployment to complete - it might take a few minutes
 
-8. Once deployed, you'll get a URL like `https://solbot-backend.onrender.com`
+8. Once deployed, you'll get a URL like `https://sol2l-bot.onrender.com`
 
 ## Update Vercel Environment Variables
 
@@ -36,7 +36,7 @@ This guide shows how to deploy the SoLBot backend to Render.com and update the V
 3. Navigate to "Settings" → "Environment Variables"
 
 4. Add or update the following environment variables:
-   - `BACKEND_URL`: The URL of your Render deployment (e.g., `https://solbot-backend.onrender.com`)
+   - `BACKEND_URL`: The URL of your Render deployment (e.g., `https://sol2l-bot.onrender.com`)
    - `DATABASE_ENABLED`: false (Keep database disabled for now)
 
 5. Click "Save"
