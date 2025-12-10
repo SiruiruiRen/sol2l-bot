@@ -1,9 +1,19 @@
 import type React from "react"
 import "./globals.css"
-import { Inter } from "next/font/google"
+import { Merriweather, Nunito } from "next/font/google"
 import ClientLayout from "./client-layout"
 
-const inter = Inter({ subsets: ["latin"] })
+const headingFont = Merriweather({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-heading",
+})
+
+const bodyFont = Nunito({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-body",
+})
 
 export const metadata = {
   title: "SoL2LBot - Science of Learning",
@@ -17,8 +27,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
-      <body className={inter.className}>
+    <html
+      lang="en"
+      className={`dark ${headingFont.variable} ${bodyFont.variable}`}
+      style={{ colorScheme: "dark" }}
+    >
+      <body className={bodyFont.className}>
         <ClientLayout children={children} />
       </body>
     </html>
