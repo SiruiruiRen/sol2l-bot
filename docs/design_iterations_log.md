@@ -25,6 +25,7 @@ Track design changes based on user feedback for research documentation and futur
 - Refreshed the npm lockfile to capture the patched dependency graph for deployment.
 - Added phase video assets into `public/video` so Phase 1–5 videos deploy and play in Vercel.
 - Updated global typography (Merriweather + Nunito) and softened the dark palette and buttons to reduce the cyberpunk feel while keeping module colors.
+- Applied warm glassmorphism for cards/background in Phase 1 to align with the new style guide.
 **Files Modified**: `package.json`, `package-lock.json`, `docs/design_iterations_log.md`
 **Research Impact**: Restores secure deployments and protects research data collection from the React2Shell RCE vector, keeping analytics environments safe for ongoing studies.
 

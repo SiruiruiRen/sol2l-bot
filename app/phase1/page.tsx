@@ -270,14 +270,9 @@ export default function Phase1Content() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
-      {/* Animated stars background */}
+    <div className="min-h-screen bg-gradient-to-b from-[#0f1420] via-[#101827] to-[#0f1420] text-white/95 py-8">
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
-        {/* Nebula effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-900/10 via-transparent to-transparent opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(148,163,184,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(168,85,247,0.08),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(251,211,141,0.08),transparent)]"></div>
       </div>
 
       <div className="container mx-auto px-4">
@@ -294,7 +289,7 @@ export default function Phase1Content() {
         ) : (
           <>
             {/* Fixed Title Header */}
-            <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-indigo-500/20 py-3 px-4">
+            <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(17,23,34,0.9)] backdrop-blur-md border-b border-white/10 py-3 px-4">
               <div className="container mx-auto">
                 <div className="flex items-center justify-center">
                   <BrainCircuit className="h-6 w-6 text-indigo-500 mr-2" />
@@ -342,7 +337,7 @@ export default function Phase1Content() {
               transition={{ duration: 0.5 }}
               className="max-w-4xl mx-auto mt-16"
             >
-              <Card className="bg-slate-900/60 backdrop-blur-md border border-indigo-500/30 shadow-xl mb-6">
+              <Card className="border border-white/10 bg-[rgba(23,30,40,0.82)] shadow-[0_14px_36px_rgba(0,0,0,0.35)]">
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                     <BrainCircuit className="h-8 w-8 text-indigo-500" />
@@ -356,7 +351,7 @@ export default function Phase1Content() {
                   {/* Video Component */}
                   {currentCardIndex === 0 && (
                     <div className="space-y-4 text-center">
-                      <div className="bg-slate-800/50 p-4 rounded-lg border border-indigo-500/20 mb-6 text-left">
+                      <div className="bg-[rgba(20,26,36,0.8)] p-4 rounded-2xl border border-white/10 mb-6 text-left shadow-[0_10px_26px_rgba(0,0,0,0.3)]">
                         <h3 className="text-lg font-medium text-indigo-300 mb-3 flex items-center gap-2">
                           <Map className="h-5 w-5" />
                           Phase 1 Workflow
@@ -389,7 +384,7 @@ export default function Phase1Content() {
                         videoTitle="Self-Regulated Learning Introduction"
                       />
 
-                      <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-indigo-500/30 text-center">
+                      <div className="mt-4 p-3 bg-[rgba(20,26,36,0.8)] rounded-2xl border border-white/10 text-center shadow-[0_10px_26px_rgba(0,0,0,0.3)]">
                         <p className="font-semibold text-indigo-300">After the video:</p>
                         <p className="text-white/80 text-sm">You will proceed to a Knowledge Check.</p>
                       </div>
