@@ -16,6 +16,16 @@ Track design changes based on user feedback for research documentation and futur
 
 ## Recent Iterations (Last 6 Major Changes)
 
+### Iteration 11: React2Shell Security Patch
+**Date**: 2025-12-10 | **Commit**: `[pending]` | **Status**: ✅ Complete
+**User Need**: Vercel flagged the deployment for the React Server Components RCE (React2Shell) and required a patched Next.js version to proceed.
+**Key Changes**: 
+- Upgraded Next.js from 15.1.0 to the patched 15.1.9 release to remediate CVE-2025-66478.
+- Aligned React/React DOM and type packages to the React 19 line required by the patched Next.js build.
+- Refreshed the npm lockfile to capture the patched dependency graph for deployment.
+**Files Modified**: `package.json`, `package-lock.json`, `docs/design_iterations_log.md`
+**Research Impact**: Restores secure deployments and protects research data collection from the React2Shell RCE vector, keeping analytics environments safe for ongoing studies.
+
 ### Iteration 10: Motivation Quotes + Phase 5 Vignette
 **Date**: 2025-09-19 | **Commit**: `[pending]` | **Status**: ✅ Complete
 **User Need**: "Add short quotes for each motivation showing how the chatbot talks to students, and a vignette about student–chatbot interaction for presenting the app."
