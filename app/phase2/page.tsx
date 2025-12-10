@@ -419,22 +419,31 @@ export default function Phase2Page() {
     }
   }, [])
 
+  const phaseColor = {
+    bg1: "#0f1418",
+    bg2: "#1c2b2b",
+    accent: "#9be7c0",
+    cardBorder: "rgba(155,231,192,0.35)",
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
+    <div
+      className="min-h-screen text-white py-8"
+      style={{
+        background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)`,
+      }}
+    >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-teal-900/10 via-transparent to-transparent opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(155,231,192,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(116,180,150,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(155,231,192,0.05),transparent)]"></div>
       </div>
 
       <div className="container mx-auto px-4">
         <ModuleBar currentPhase={2} />
-        <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-teal-500/20 py-3 px-4">
+        <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(17,26,24,0.9)] backdrop-blur-md border-b border-[rgba(155,231,192,0.25)] py-3 px-4">
           <div className="container mx-auto">
             <div className="flex items-center justify-center">
-              <Target className="h-6 w-6 text-teal-500 mr-2" />
-              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text">
+              <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
+              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text">
                 Phase 2: Understand Your Tasks
               </h2>
             </div>

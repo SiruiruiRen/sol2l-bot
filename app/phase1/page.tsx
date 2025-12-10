@@ -270,7 +270,10 @@ export default function Phase1Content() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0f1420] via-[#101827] to-[#0f1420] text-white/95 py-8">
+    <div
+      className="min-h-screen text-white/95 py-8"
+      style={{ background: "linear-gradient(180deg, #111827 0%, #2c3e59 100%)" }}
+    >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(148,163,184,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(168,85,247,0.08),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(251,211,141,0.08),transparent)]"></div>
       </div>
@@ -289,11 +292,11 @@ export default function Phase1Content() {
         ) : (
           <>
             {/* Fixed Title Header */}
-            <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(17,23,34,0.9)] backdrop-blur-md border-b border-white/10 py-3 px-4">
+            <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(23,35,52,0.9)] backdrop-blur-md border-b border-[rgba(159,197,255,0.25)] py-3 px-4">
               <div className="container mx-auto">
                 <div className="flex items-center justify-center">
-                  <BrainCircuit className="h-6 w-6 text-indigo-500 mr-2" />
-                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text">
+                  <BrainCircuit className="h-6 w-6 mr-2" style={{ color: "#9fc5ff" }} />
+                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[#9fc5ff] to-[#b7d6ff] bg-clip-text">
                     Phase 1: What's SRL
                   </h2>
                 </div>

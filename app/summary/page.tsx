@@ -324,7 +324,10 @@ export default function SummaryPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8 flex items-center justify-center">
+      <div
+        className="min-h-screen text-white py-8 flex items-center justify-center"
+        style={{ background: "linear-gradient(180deg, #0f1719 0%, #24464a 100%)" }}
+      >
         <div className="text-center">
           <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500 mb-4"></div>
           <p className="text-indigo-400">Loading your learning system summary...</p>
@@ -334,7 +337,10 @@ export default function SummaryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-indigo-900 text-white py-8">
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: "linear-gradient(180deg, #0f1719 0%, #2f6d73 100%)" }}
+    >
       <div className="container mx-auto px-4">
         <ModuleBar currentPhase={6} />
         <motion.div
@@ -343,11 +349,11 @@ export default function SummaryPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-indigo-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(20,30,36,0.8)] backdrop-blur-md border border-[rgba(159,226,222,0.35)] shadow-xl mb-6">
             <CardHeader>
               <CardTitle className="flex items-center justify-center text-3xl font-bold">
-                <Medal className="mr-3 h-8 w-8 text-rose-400" />
-                <span className="bg-gradient-to-r from-rose-400 to-red-500 bg-clip-text text-transparent">
+                <Medal className="mr-3 h-8 w-8 text-[#9fe2de]" />
+                <span className="bg-gradient-to-r from-[#9fe2de] to-[#7fd9d3] bg-clip-text text-transparent">
                   Learning Journey Summary
                 </span>
               </CardTitle>
