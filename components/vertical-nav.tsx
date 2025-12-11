@@ -17,6 +17,10 @@ export function VerticalNav({
   onNext,
   isNextDisabled = false,
 }: VerticalNavProps) {
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border))"
+  const neutralMuted = "hsl(var(--muted-foreground))"
+
   return (
     <div className="fixed right-6 top-1/2 transform -translate-y-1/2 z-30 flex flex-col gap-2">
       <button
@@ -25,8 +29,9 @@ export function VerticalNav({
         className={`rounded-full p-2 transition-all ${
           currentCardIndex === 0
             ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100 bg-slate-700/50 hover:bg-slate-700/80"
+            : "opacity-80 hover:opacity-100"
         }`}
+        style={currentCardIndex === 0 ? undefined : { backgroundColor: neutralSurface, border: `1px solid ${neutralBorder}`, color: neutralMuted }}
       >
         <ChevronUp className="h-4 w-4" />
       </button>
@@ -36,7 +41,7 @@ export function VerticalNav({
           <div
             key={i}
             className={`rounded-full transition-all ${
-              i === currentCardIndex ? "w-2 h-2 bg-white" : "w-1.5 h-1.5 bg-white/50"
+              i === currentCardIndex ? "w-2 h-2 bg-foreground" : "w-1.5 h-1.5 bg-foreground/50"
             }`}
           />
         ))}
@@ -48,8 +53,9 @@ export function VerticalNav({
         className={`rounded-full p-2 transition-all ${
           isNextDisabled
             ? "opacity-30 cursor-not-allowed"
-            : "opacity-80 hover:opacity-100 bg-slate-700/50 hover:bg-slate-700/80"
+            : "opacity-80 hover:opacity-100"
         }`}
+        style={isNextDisabled ? undefined : { backgroundColor: neutralSurface, border: `1px solid ${neutralBorder}`, color: neutralMuted }}
       >
         <ChevronDown className="h-4 w-4" />
       </button>

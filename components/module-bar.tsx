@@ -396,17 +396,25 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
   }
 
   // Desktop sidebar - using the original vertical circle navigation design with improved usability
+  const neutralSurface = "hsl(var(--card) / 0.92)"
+  const neutralBorder = "hsl(var(--border))"
+  const neutralMuted = "hsl(var(--muted-foreground))"
+
   return (
     <div className="fixed left-3 top-1/2 transform -translate-y-1/2 z-30 hidden lg:block">
-      <div className="bg-[rgba(16,22,32,0.9)] backdrop-blur-md border border-white/10 rounded-2xl p-3 shadow-xl w-auto">
+      <div
+        className="backdrop-blur-md rounded-2xl p-3 shadow-xl w-auto border"
+        style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
+      >
         <div className="flex flex-col items-center">
           {/* Title */}
-          <div className="text-white/70 text-xs font-medium mb-3 px-1">JOURNEY</div>
+          <div className="text-xs font-medium mb-3 px-1" style={{ color: neutralMuted }}>JOURNEY</div>
 
           {/* Learning Journey Path */}
           <div className="relative flex flex-col items-center">
             {/* Background Path - positioned to not overlap with icons */}
-            <div className="absolute top-[60px] bottom-0 w-0.5 bg-slate-700/50 left-1/2 transform -translate-x-1/2" 
+            <div className="absolute top-[60px] bottom-0 w-0.5 left-1/2 transform -translate-x-1/2" 
+              style={{ backgroundColor: "hsl(var(--muted) / 0.5)", height: 'calc(100% - 120px)' }}></div>
               style={{ height: 'calc(100% - 120px)' }}></div>
             
             {/* Start point */}
@@ -414,9 +422,9 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <div 
-                      className={`w-10 h-10 flex items-center justify-center cursor-pointer
-                        ${displayPhase === 0 ? "text-indigo-400" : "text-white/50 hover:text-white/80"}`}
+                      <div 
+                        className="w-10 h-10 flex items-center justify-center cursor-pointer"
+                        style={{ color: displayPhase === 0 ? "#9fc5ff" : neutralMuted }}
                       onClick={() => router.push("/intro")}
                     >
                       <Compass className="h-5 w-5" />
@@ -447,8 +455,8 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
                 : isCompleted
                   ? `${phase.color.hex}66`
                   : "rgba(30,41,59,0.85)";
-              const textColor = isActive ? phase.color.textHex : isCompleted ? "#e2e8f0" : "#cbd5e1";
-              const borderColor = isActive ? `${phase.color.textHex}80` : "rgba(255,255,255,0.08)";
+              const textColor = isActive ? phase.color.textHex : isCompleted ? "hsl(var(--foreground))" : neutralMuted;
+              const borderColor = isActive ? `${phase.color.textHex}80` : neutralBorder;
               const pulseColor = `${phase.color.textHex}80`;
               return (
                 <div className="relative mb-4 z-10" key={phase.id}>
