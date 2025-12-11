@@ -322,15 +322,24 @@ export default function SummaryPage() {
     }
   };
 
+  const phaseColor = {
+    bg1: "#0f1719",
+    bg2: "#2f6d73",
+    accent: "#9fe2de",
+    cardBorder: "rgba(159,226,222,0.35)",
+    surface: "rgba(20,30,36,0.82)",
+    pill: "rgba(159,226,222,0.15)",
+  }
+
   if (loading) {
     return (
       <div
         className="min-h-screen text-white py-8 flex items-center justify-center"
-        style={{ background: "linear-gradient(180deg, #0f1719 0%, #24464a 100%)" }}
+        style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
       >
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500 mb-4"></div>
-          <p className="text-indigo-400">Loading your learning system summary...</p>
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-[rgba(159,226,222,0.8)] mb-4"></div>
+          <p style={{ color: phaseColor.accent }}>Loading your learning system summary...</p>
         </div>
       </div>
     )
@@ -339,7 +348,7 @@ export default function SummaryPage() {
   return (
     <div
       className="min-h-screen text-white py-8"
-      style={{ background: "linear-gradient(180deg, #0f1719 0%, #2f6d73 100%)" }}
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
     >
       <div className="container mx-auto px-4">
         <ModuleBar currentPhase={6} />
@@ -349,10 +358,13 @@ export default function SummaryPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-[rgba(20,30,36,0.8)] backdrop-blur-md border border-[rgba(159,226,222,0.35)] shadow-xl mb-6">
+          <Card
+            className="backdrop-blur-md border shadow-xl mb-6"
+            style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}
+          >
             <CardHeader>
               <CardTitle className="flex items-center justify-center text-3xl font-bold">
-                <Medal className="mr-3 h-8 w-8 text-[#9fe2de]" />
+                <Medal className="mr-3 h-8 w-8" style={{ color: phaseColor.accent }} />
                 <span className="bg-gradient-to-r from-[#9fe2de] to-[#7fd9d3] bg-clip-text text-transparent">
                   Learning Journey Summary
                 </span>
@@ -366,7 +378,8 @@ export default function SummaryPage() {
           <div className="text-center mt-6">
             <Button
               variant="outline"
-              className="text-white/80 border-white/30 hover:bg-white/10"
+              className="text-white/90"
+              style={{ borderColor: phaseColor.cardBorder }}
               onClick={handleGoHome}
             >
               <Home className="mr-2 h-4 w-4" />

@@ -29,8 +29,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${headingFont.variable} ${bodyFont.variable}`}
-      style={{ colorScheme: "dark" }}
+      className={`${headingFont.variable} ${bodyFont.variable}`}
+      suppressHydrationWarning
     >
       <body className={bodyFont.className}>
         <ClientLayout children={children} />
