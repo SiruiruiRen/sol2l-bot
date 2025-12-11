@@ -99,29 +99,35 @@ export default function Phase4IntroPage() {
             <CardContent>
               <div className="space-y-6">
                 <div className="text-white/80 space-y-4">
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-orange-500/20 mb-6 text-left">
-                    <h3 className="text-lg font-medium text-orange-300 mb-3 flex items-center gap-2">
+                  <div
+                    className="p-4 rounded-lg border mb-6 text-left"
+                    style={{
+                      backgroundColor: "rgba(24,17,28,0.78)",
+                      borderColor: phaseColor.cardBorder,
+                    }}
+                  >
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 4 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-4 text-white/80">
+                    <div className="flex items-center justify-center space-x-4 text-white/85">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-orange-500/20 mb-1">
-                          <Video className="h-6 w-6 text-orange-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-orange-500/20 mb-1">
-                          <Edit className="h-6 w-6 text-orange-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                          <Edit className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Build Plan</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-orange-500/20 mb-1">
-                          <Bot className="h-6 w-6 text-orange-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                          <Bot className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">AI Coaching</span>
                       </div>
@@ -131,20 +137,26 @@ export default function Phase4IntroPage() {
                     Welcome {userName}! In this phase, we'll turn your learning intentions into a concrete strategic plan.
                   </p>
 
-                  <div className="bg-orange-900/20 p-4 rounded-lg border border-orange-500/20">
-                    <h3 className="text-lg font-medium text-orange-300 mb-3">📋 What's in This Phase:</h3>
+                  <div
+                    className="p-4 rounded-lg border"
+                    style={{
+                      backgroundColor: "rgba(24,17,28,0.78)",
+                      borderColor: phaseColor.cardBorder,
+                    }}
+                  >
+                    <h3 className="text-lg font-medium mb-3" style={{ color: phaseColor.accent }}>📋 What's in This Phase:</h3>
                     <div className="grid grid-cols-1 gap-3 text-sm">
                       <div className="flex items-start gap-2">
-                        <div className="text-orange-400 mt-0.5">🎥</div>
-                        <p className="text-white/80"><span className="text-orange-300 font-medium">Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🎥</div>
+                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="text-orange-400 mt-0.5">📝</div>
-                        <p className="text-white/80"><span className="text-orange-300 font-medium">3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>📝</div>
+                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="text-orange-400 mt-0.5">🤖</div>
-                        <p className="text-white/80"><span className="text-orange-300 font-medium">AI Coaching:</span> Personalized feedback to refine each task</p>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🤖</div>
+                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>AI Coaching:</span> Personalized feedback to refine each task</p>
                       </div>
                     </div>
                   </div>
@@ -164,8 +176,14 @@ export default function Phase4IntroPage() {
                     phase="phase4"
                     videoTitle="MCII Framework for Strategic Planning"
                   />
-                  <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-cyan-500/30 text-center">
-                    <p className="font-semibold text-cyan-300">After the video:</p>
+                  <div
+                    className="mt-4 p-3 rounded-lg text-center"
+                    style={{
+                      backgroundColor: "rgba(24,17,28,0.78)",
+                      border: `1px solid ${phaseColor.cardBorder}`,
+                    }}
+                  >
+                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
                     <p className="text-white/80 text-sm">You will proceed to interactive tasks to build your strategic plan.</p>
                   </div>
                 </div>
@@ -180,7 +198,11 @@ export default function Phase4IntroPage() {
 
                 <div className="flex justify-end mt-8">
                   <Button 
-                    className="bg-gradient-to-r from-cyan-500 to-sky-600 hover:from-cyan-600 hover:to-sky-700 text-white px-8 py-3 rounded-lg text-lg"
+                    className="text-[#1a1524] font-semibold px-8 py-3 rounded-lg text-lg"
+                    style={{
+                      background: "linear-gradient(135deg, #d9c7ff, #efe4ff)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                    }}
                     onClick={handleComplete}
                   >
                     Continue to Tasks <ArrowRight className="h-4 w-4 ml-2" />

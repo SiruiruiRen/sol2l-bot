@@ -323,6 +323,8 @@ export default function Phase5Content() {
     bg2: "#4a422c",
     accent: "#f7e3a5",
     cardBorder: "rgba(247,227,165,0.35)",
+    surface: "rgba(24,18,12,0.8)",
+    pill: "rgba(247,227,165,0.15)",
   }
 
   return (
@@ -376,29 +378,32 @@ export default function Phase5Content() {
               {/* Introduction Card */}
               {currentCardIndex === 0 && (
                 <div className="space-y-6">
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-purple-500/20 mb-6 text-left">
-                    <h3 className="text-lg font-medium text-purple-300 mb-3 flex items-center gap-2">
+                  <div
+                    className="p-4 rounded-lg border mb-6 text-left"
+                    style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}
+                  >
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 5 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-4 text-white/80">
+                    <div className="flex items-center justify-center space-x-4 text-white/85">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <FileQuestion className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Pre-Assessment</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <Video className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <MessageCircle className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Chat w/ SoL2LBot</span>
                       </div>

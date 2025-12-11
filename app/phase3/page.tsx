@@ -55,11 +55,18 @@ const cleanScoresFromMessage = (message: string): string => {
 
 // Add this component after any existing imports but before the main component
 const SelfExplanationTips = () => {
+  const accent = "#f5c09a"
+  const surface = "rgba(26,19,17,0.72)"
+  const border = "rgba(245,192,154,0.28)"
+  const pill = "rgba(245,192,154,0.15)"
   return (
-    <div className="bg-slate-800/50 p-4 rounded-lg border border-blue-500/20 mb-6">
-      <h3 className="text-lg font-medium text-blue-300 mb-2 flex items-center gap-2">
-        <div className="h-7 w-7 rounded-full bg-blue-900/60 flex items-center justify-center">
-          <span className="text-blue-400">💭</span>
+    <div
+      className="p-4 rounded-lg mb-6"
+      style={{ backgroundColor: surface, border: `1px solid ${border}` }}
+    >
+      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: accent }}>
+        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: pill }}>
+          <span style={{ color: accent }}>💭</span>
         </div>
         Self-Explanation Strategy Guide
       </h3>
@@ -68,15 +75,15 @@ const SelfExplanationTips = () => {
       </p>
       <div className="space-y-1">
         <div className="flex items-start gap-2">
-          <div className="text-blue-400 mt-0.5">1️⃣</div>
+          <div className="mt-0.5" style={{ color: accent }}>1️⃣</div>
           <p className="text-white/80">Read through new material to get a general understanding</p>
         </div>
         <div className="flex items-start gap-2">
-          <div className="text-blue-400 mt-0.5">2️⃣</div>
+          <div className="mt-0.5" style={{ color: accent }}>2️⃣</div>
           <p className="text-white/80">Close the source material and explain the concept in your own words</p>
         </div>
         <div className="flex items-start gap-2">
-          <div className="text-blue-400 mt-0.5">3️⃣</div>
+          <div className="mt-0.5" style={{ color: accent }}>3️⃣</div>
           <p className="text-white/80">Check your explanation against the source to identify gaps</p>
         </div>
       </div>
@@ -84,13 +91,19 @@ const SelfExplanationTips = () => {
   );
 };
 
-// Add this component near the imports but before the main component
 const SpacingEffectGuide = () => {
+  const accent = "#f5c09a"
+  const surface = "rgba(26,19,17,0.72)"
+  const border = "rgba(245,192,154,0.28)"
+  const pill = "rgba(245,192,154,0.15)"
   return (
-    <div className="bg-slate-800/50 p-4 rounded-lg border border-emerald-500/20 mb-6">
-      <h3 className="text-lg font-medium text-emerald-300 mb-2 flex items-center gap-2">
-        <div className="h-7 w-7 rounded-full bg-emerald-900/60 flex items-center justify-center">
-          <span className="text-emerald-400">⏱️</span>
+    <div
+      className="p-4 rounded-lg mb-6"
+      style={{ backgroundColor: surface, border: `1px solid ${border}` }}
+    >
+      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: accent }}>
+        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: pill }}>
+          <span style={{ color: accent }}>⏱️</span>
         </div>
         The Power of Spacing Effect
       </h3>
@@ -99,31 +112,39 @@ const SpacingEffectGuide = () => {
       </p>
       <div className="space-y-2">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          <div className="bg-red-900/20 p-2 rounded-md border border-red-500/30">
-            <h4 className="text-red-300 font-medium mb-1 flex items-center gap-1">
+          <div className="p-2 rounded-md border" style={{ backgroundColor: "rgba(26,19,17,0.6)", borderColor: border }}>
+            <h4 className="font-medium mb-1 flex items-center gap-1" style={{ color: accent }}>
               <span>❌</span> Cramming
             </h4>
             <p className="text-white/70 text-sm">Studying all content in a single marathon session</p>
             <p className="text-white/70 text-sm">Result: Short-term retention only</p>
           </div>
-          <div className="bg-green-900/20 p-2 rounded-md border border-green-500/30">
-            <h4 className="text-green-300 font-medium mb-1 flex items-center gap-1">
+          <div className="p-2 rounded-md border" style={{ backgroundColor: "rgba(26,19,17,0.6)", borderColor: border }}>
+            <h4 className="font-medium mb-1 flex items-center gap-1" style={{ color: accent }}>
               <span>✅</span> Spacing
             </h4>
             <p className="text-white/70 text-sm">Studying the same content across multiple sessions</p>
             <p className="text-white/70 text-sm">Result: Long-term retention and deeper understanding</p>
           </div>
         </div>
-        <div className="p-2 bg-emerald-900/30 rounded-md border border-emerald-500/30">
-          <h4 className="text-emerald-300 font-medium mb-1">Optimal Spacing Schedule</h4>
+        <div className="p-2 rounded-md border" style={{ backgroundColor: "rgba(26,19,17,0.6)", borderColor: border }}>
+          <h4 className="font-medium mb-1" style={{ color: accent }}>Optimal Spacing Schedule</h4>
           <div className="grid grid-cols-2 gap-1 text-sm">
             <div className="flex items-center gap-1">
-              <div className="text-emerald-400">1️⃣</div>
-              <p className="text-white/80">First review: Right after learning</p>
+              <div>Day 1:</div>
+              <div className="text-white/90">Learn / review</div>
             </div>
             <div className="flex items-center gap-1">
-              <div className="text-emerald-400">2️⃣</div>
-              <p className="text-white/80">Second review: 1-2 days later</p>
+              <div>Day 2:</div>
+              <div className="text-white/90">Quick recall practice</div>
+            </div>
+            <div className="flex items-center gap-1">
+              <div>Day 4:</div>
+              <div className="text-white/90">Short quiz or flashcards</div>
+            </div>
+            <div className="flex items-center gap-1">
+              <div>Day 7:</div>
+              <div className="text-white/90">Summarize in your own words</div>
             </div>
           </div>
         </div>
@@ -473,7 +494,9 @@ export default function Phase3Content() {
     bg1: "#1a1412",
     bg2: "#4f3a36",
     accent: "#f5c09a",
-    cardBorder: "rgba(245,192,154,0.35)",
+    cardBorder: "rgba(245,192,154,0.28)",
+    surface: "rgba(26,19,17,0.72)",
+    pill: "rgba(245,192,154,0.15)",
   }
 
   return (
@@ -515,7 +538,7 @@ export default function Phase3Content() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-[rgba(26,19,17,0.75)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
+          <Card className="backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder, backgroundColor: phaseColor.surface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                 <BookMarked className="h-8 w-8" style={{ color: phaseColor.accent }} />
@@ -532,8 +555,8 @@ export default function Phase3Content() {
                   <div
                     className="p-4 rounded-lg mb-6 text-left"
                     style={{
-                      backgroundColor: "rgba(26,19,17,0.72)",
-                      border: "1px solid rgba(245,192,154,0.28)",
+                      backgroundColor: phaseColor.surface,
+                      border: `1px solid ${phaseColor.cardBorder}`,
                     }}
                   >
                     <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
@@ -542,21 +565,21 @@ export default function Phase3Content() {
                     </h3>
                     <div className="flex items-center justify-center space-x-4 text-white/85">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <BookOpen className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Learn Strategies</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Knowledge Check</span>
@@ -575,8 +598,8 @@ export default function Phase3Content() {
                   <div
                     className="p-4 rounded-lg"
                     style={{
-                      backgroundColor: "rgba(26,19,17,0.72)",
-                      border: "1px solid rgba(245,192,154,0.28)",
+                      backgroundColor: phaseColor.surface,
+                      border: `1px solid ${phaseColor.cardBorder}`,
                     }}
                   >
                     <h3 className="text-lg font-medium mb-2" style={{ color: phaseColor.accent }}>In This Phase You'll Learn:</h3>
@@ -626,8 +649,8 @@ export default function Phase3Content() {
                   <div
                     className="mt-4 p-3 rounded-lg text-center"
                     style={{
-                      backgroundColor: "rgba(26,19,17,0.72)",
-                      border: "1px solid rgba(245,192,154,0.28)",
+                      backgroundColor: phaseColor.surface,
+                      border: `1px solid ${phaseColor.cardBorder}`,
                     }}
                   >
                     <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>

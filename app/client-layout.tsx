@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import HomeButton from "@/components/home-button"
 import { usePathname } from "next/navigation"
 import { UserDataTracker } from "@/components/UserDataTracker"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function ClientLayout({
   children,
@@ -22,6 +23,7 @@ export default function ClientLayout({
       {children}
       <HomeButtonWrapper />
       <UserDataTracker />
+      <ThemeToggle />
     </ThemeProvider>
   )
 }
