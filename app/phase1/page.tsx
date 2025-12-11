@@ -17,6 +17,14 @@ import { useSessionManager } from "@/lib/session-manager"
 export default function Phase1Content() {
   const router = useRouter()
   const { getOrCreateSession, isFallbackSession } = useSessionManager()
+  const phaseColor = {
+    bg1: "#111827",
+    bg2: "#1b2a3a",
+    accent: "#9fc5ff",
+    cardBorder: "rgba(159,197,255,0.35)",
+    surface: "rgba(17,24,39,0.82)",
+    pill: "rgba(159,197,255,0.15)",
+  }
   const [videoWatched, setVideoWatched] = useState(false)
   const [videoLoading, setVideoLoading] = useState(true)
   const [quizStarted, setQuizStarted] = useState(false)
@@ -272,7 +280,7 @@ export default function Phase1Content() {
   return (
     <div
       className="min-h-screen text-white/95 py-8"
-      style={{ background: "linear-gradient(180deg, #111827 0%, #2c3e59 100%)" }}
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(148,163,184,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(168,85,247,0.08),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(251,211,141,0.08),transparent)]"></div>
@@ -295,7 +303,7 @@ export default function Phase1Content() {
             <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(23,35,52,0.9)] backdrop-blur-md border-b border-[rgba(159,197,255,0.25)] py-3 px-4">
               <div className="container mx-auto">
                 <div className="flex items-center justify-center">
-                  <BrainCircuit className="h-6 w-6 mr-2" style={{ color: "#9fc5ff" }} />
+                  <BrainCircuit className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
                   <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[#9fc5ff] to-[#b7d6ff] bg-clip-text">
                     Phase 1: What's SRL
                   </h2>
@@ -340,7 +348,7 @@ export default function Phase1Content() {
               transition={{ duration: 0.5 }}
               className="max-w-4xl mx-auto mt-16"
             >
-              <Card className="border border-white/10 bg-[rgba(23,30,40,0.82)] shadow-[0_14px_36px_rgba(0,0,0,0.35)]">
+              <Card className="border shadow-[0_14px_36px_rgba(0,0,0,0.35)]" style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}>
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                     <BrainCircuit className="h-8 w-8 text-indigo-500" />
@@ -416,22 +424,23 @@ export default function Phase1Content() {
 
                 <CardFooter className="flex justify-between pt-2">
                   {currentCardIndex > 0 ? (
-                    <Button 
-                      onClick={prevCard}
-                      variant="outline" 
-                    className="border-[rgba(159,197,255,0.35)] text-white/90 hover:bg-white/10"
-                    >
+                  <Button 
+                    onClick={prevCard}
+                    variant="outline" 
+                    className="text-white/90"
+                    style={{ borderColor: phaseColor.cardBorder }}
+                  >
                       <ChevronLeft className="mr-1 h-4 w-4" /> Back
                     </Button>
                   ) : <div></div>} {/* Empty div for spacing */}
                   
                   <Button 
                     onClick={nextCard}
-                  className="text-[#102033] font-semibold"
-                  style={{
-                    background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)",
-                    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
-                  }}
+                    className="text-[#102033] font-semibold"
+                    style={{
+                      background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                    }}
                     disabled={currentCardIndex === 1 && !quizCompleted}
                   >
                     {currentCardIndex < cards.length - 1 ? 'Next' : 'Complete Phase'} <ChevronRight className="ml-1 h-4 w-4" />

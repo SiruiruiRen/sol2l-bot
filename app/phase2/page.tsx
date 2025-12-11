@@ -30,12 +30,22 @@ import ModuleBar from "@/components/module-bar"
 import VideoPlayer from "@/components/video-player"
 import { VerticalNav } from "@/components/vertical-nav"
 
+const phase2Colors = {
+  accent: "#9be7c0",
+  surface: "rgba(20,26,28,0.8)",
+  cardBorder: "rgba(155,231,192,0.35)",
+  pill: "rgba(155,231,192,0.15)",
+};
+
 const LearningObjectiveAnalysis = () => {
   return (
-    <div className="bg-slate-800/50 p-4 rounded-lg border border-teal-500/20 mb-4 max-w-4xl mx-auto">
-      <h3 className="text-lg font-medium text-teal-300 mb-2 flex items-center gap-2">
-        <div className="h-7 w-7 rounded-full bg-teal-900/60 flex items-center justify-center">
-          <span className="text-teal-400">🎯</span>
+    <div
+      className="p-4 rounded-lg border mb-4 max-w-4xl mx-auto"
+      style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}
+    >
+      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: phase2Colors.accent }}>
+        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: phase2Colors.pill }}>
+          <span style={{ color: phase2Colors.accent }}>🎯</span>
         </div>
         Cognitive Levels of Understanding
       </h3>
@@ -44,52 +54,45 @@ const LearningObjectiveAnalysis = () => {
       </p>
       
       {/* Visual hierarchy showing the three levels */}
-      <div className="bg-slate-700/30 p-4 rounded-lg border border-teal-500/10 mb-4">
-        <div className="flex items-center justify-between mb-4">
+      <div
+        className="p-4 rounded-lg border mb-4"
+        style={{ backgroundColor: "rgba(16,22,24,0.7)", borderColor: "rgba(155,231,192,0.18)" }}
+      >
+        <div className="flex items-center justify-between mb-4 text-white/85 text-sm">
           <div className="text-center flex-1">
-            <div className="text-orange-300 font-bold text-lg mb-1">KNOWLEDGE LEVEL</div>
-            <div className="text-orange-200 text-sm">Define, List, Recall, Identify, Recite</div>
+            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Knowledge</div>
+            <div>Define, List, Recall, Identify, Recite</div>
           </div>
           <div className="text-center flex-1">
-            <div className="text-blue-300 font-bold text-lg mb-1">COMPREHENSION LEVEL</div>
-            <div className="text-blue-200 text-sm">Explain, Describe, Summarize, Interpret</div>
+            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Comprehension</div>
+            <div>Explain, Describe, Summarize, Interpret</div>
           </div>
           <div className="text-center flex-1">
-            <div className="text-purple-300 font-bold text-lg mb-1">ANALYSIS LEVEL</div>
-            <div className="text-purple-200 text-sm">Compare, Analyze, Differentiate, Evaluate</div>
+            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Analysis</div>
+            <div>Compare, Analyze, Differentiate, Evaluate</div>
           </div>
         </div>
         
-        {/* Connecting line */}
-        <div className="relative">
-          <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-orange-400 via-blue-400 to-purple-400 transform -translate-y-1/2"></div>
-          <div className="flex justify-between relative z-10">
-            <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
-            <div className="w-3 h-3 bg-blue-400 rounded-full"></div>
-            <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
-          </div>
-        </div>
-        
-        <div className="mt-4 text-center">
-          <p className="text-teal-200 text-sm">
-            <span className="font-medium">Key insight:</span> Different cognitive levels require different study strategies
-          </p>
+        <div className="mt-4 text-center text-white/80 text-sm">
+          <span className="font-medium" style={{ color: phase2Colors.accent }}>Key insight:</span> Different cognitive levels require different study strategies.
         </div>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm">
-        <div className="bg-orange-900/20 p-3 rounded border border-orange-500/30">
-          <p className="text-orange-300 font-medium mb-1">Knowledge Level:</p>
-          <p className="text-white/70">Simple rehearsal, flashcards, memorization techniques</p>
-        </div>
-        <div className="bg-blue-900/20 p-3 rounded border border-blue-500/30">
-          <p className="text-blue-300 font-medium mb-1">Comprehension Level:</p>
-          <p className="text-white/70">Self-explanation, concept mapping, summarizing</p>
-        </div>
-        <div className="bg-purple-900/20 p-3 rounded border border-purple-500/30">
-          <p className="text-purple-300 font-medium mb-1">Analysis Level:</p>
-          <p className="text-white/70">Compare/contrast charts, critical thinking exercises</p>
-        </div>
+        {[
+          { title: "Knowledge Level", text: "Simple rehearsal, flashcards, memorization techniques" },
+          { title: "Comprehension Level", text: "Self-explanation, concept mapping, summarizing" },
+          { title: "Analysis Level", text: "Compare/contrast charts, critical thinking exercises" },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="p-3 rounded border"
+            style={{ backgroundColor: "rgba(16,22,24,0.7)", borderColor: "rgba(155,231,192,0.18)" }}
+          >
+            <p className="font-medium mb-1" style={{ color: phase2Colors.accent }}>{item.title}</p>
+            <p className="text-white/75">{item.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -424,6 +427,8 @@ export default function Phase2Page() {
     bg2: "#1c2b2b",
     accent: "#9be7c0",
     cardBorder: "rgba(155,231,192,0.35)",
+    surface: "rgba(20,26,28,0.8)",
+    pill: "rgba(155,231,192,0.15)",
   }
 
   return (
@@ -463,11 +468,14 @@ export default function Phase2Page() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-teal-500/30 shadow-xl mb-6">
+          <Card
+            className="backdrop-blur-md border shadow-xl mb-6"
+            style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}
+          >
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Target className="h-8 w-8 text-teal-500" />
-                <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
+                <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
               </CardTitle>
@@ -476,38 +484,41 @@ export default function Phase2Page() {
             <CardContent>
               {currentCardIndex === 0 && (
                 <div className="text-white/80 space-y-4 mb-6">
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-teal-500/20 mb-6 text-left">
-                    <h3 className="text-lg font-medium text-teal-300 mb-3 flex items-center gap-2">
+                  <div
+                    className="p-4 rounded-lg border mb-6 text-left"
+                    style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}
+                  >
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 2 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-2 sm:space-x-4 text-white/80">
+                    <div className="flex items-center justify-center space-x-2 sm:space-x-4 text-white/85">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
-                          <Target className="h-6 w-6 text-teal-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <Target className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Analyze Tasks</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Analyze Tasks</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
-                          <FileQuestion className="h-6 w-6 text-teal-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Knowledge Check</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Knowledge Check</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
-                          <Video className="h-6 w-6 text-teal-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-teal-500/20 mb-1">
-                          <MessageCircle className="h-6 w-6 text-teal-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                          <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Chat w/ SoL2LBot</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Chat w/ SoL2LBot</span>
                       </div>
                     </div>
                   </div>
@@ -538,8 +549,11 @@ export default function Phase2Page() {
                     phase="phase2"
                     videoTitle="Learning Task Analysis"
                   />
-                  <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-teal-500/30 text-center">
-                    <p className="font-semibold text-teal-300">After the video:</p>
+                  <div
+                    className="mt-4 p-3 rounded-lg text-center"
+                    style={{ backgroundColor: phaseColor.surface, border: `1px solid ${phaseColor.cardBorder}` }}
+                  >
+                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
                     <p className="text-white/80 text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
                   </div>
                 </div>
@@ -549,7 +563,8 @@ export default function Phase2Page() {
                 {currentCardIndex > 0 ? (
                   <Button 
                     variant="outline"
-                    className="text-teal-400 border-teal-500/30 hover:bg-teal-900/20"
+                    className="text-white/90"
+                    style={{ borderColor: phaseColor.cardBorder }}
                     onClick={prevCard}
                   >
                     <ChevronLeft className="h-4 w-4 mr-2" /> Previous
@@ -558,7 +573,11 @@ export default function Phase2Page() {
                 
                 {currentCardIndex < cards.length - 1 ? (
                   <Button 
-                    className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-6 py-2 rounded-lg"
+                    className="text-[#0e1c1a] font-semibold px-6 py-2 rounded-lg"
+                    style={{
+                      background: "linear-gradient(135deg, #9be7c0, #b4f1d4)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                    }}
                     onClick={nextCard}
                     disabled={(currentCardIndex === 3 && !quizCompleted)}
                   >
@@ -566,7 +585,11 @@ export default function Phase2Page() {
                   </Button>
                 ) : (
                   <Button 
-                    className="bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white px-6 py-3 rounded-full font-medium shadow-lg"
+                    className="text-[#0e1c1a] font-semibold px-6 py-3 rounded-full shadow-lg"
+                    style={{
+                      background: "linear-gradient(135deg, #9be7c0, #b4f1d4)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                    }}
                     onClick={nextCard}
                   >
                     Continue to Chat <ChevronRight className="h-5 w-5 ml-2" />
