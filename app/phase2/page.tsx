@@ -438,11 +438,11 @@ export default function Phase2Page() {
   const phaseColor = {
     accent: "#7acfa8", // slightly deeper mint for better contrast
   }
-  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
-  const neutralSurface = "hsl(var(--card) / 0.82)"
-  const neutralBorder = "hsl(var(--border) / 0.65)"
-  const headerSurface = "hsl(var(--card) / 0.9)"
-  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border) / 0.75)"
+  const headerSurface = "hsl(var(--card) / 0.95)"
+  const pillSurface = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   return (

@@ -51,17 +51,15 @@ export default function Phase4IntroPage() {
   };
 
   const phaseColor = {
-    bg1: "#161019",
-    bg2: "#46385c",
-    accent: "#d9c7ff",
-    cardBorder: "rgba(217,199,255,0.35)",
+    accent: "#c2a7ff",
+    border: "rgba(194,167,255,0.5)",
   }
 
-  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
-  const neutralSurface = "hsl(var(--card) / 0.82)"
-  const neutralBorder = "hsl(var(--border) / 0.65)"
-  const headerSurface = "hsl(var(--card) / 0.9)"
-  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border) / 0.75)"
+  const headerSurface = "hsl(var(--card) / 0.95)"
+  const pillSurface = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   return (
@@ -70,19 +68,19 @@ export default function Phase4IntroPage() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(217,199,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(111,86,140,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(217,199,255,0.05),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(194,167,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(120,90,150,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(194,167,255,0.05),transparent)]"></div>
       </div>
 
       <ModuleBar currentPhase={4} />
 
-      <div
-        className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md border-b py-3 px-4"
-        style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
-      >
+        <div
+          className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md border-b py-3 px-4"
+          style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
+        >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
             <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text">
+              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(194,167,255,1)] to-[rgba(220,200,255,1)] bg-clip-text">
               Phase 4: Strategic Learning Plan
             </h2>
           </div>
@@ -100,7 +98,7 @@ export default function Phase4IntroPage() {
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                 <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                <span className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[rgba(194,167,255,1)] to-[rgba(220,200,255,1)] bg-clip-text text-transparent">
                   Introduction to Strategic Planning
                 </span>
               </CardTitle>
@@ -125,25 +123,25 @@ export default function Phase4IntroPage() {
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Edit className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Build Plan</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Build Plan</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Bot className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">AI Coaching</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>AI Coaching</span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-center">
+                  <p className="text-center text-muted-foreground">
                     Welcome {userName}! In this phase, we'll turn your learning intentions into a concrete strategic plan.
                   </p>
 
@@ -210,8 +208,8 @@ export default function Phase4IntroPage() {
                   <Button 
                     className="text-[#1a1524] font-semibold px-8 py-3 rounded-lg text-lg"
                     style={{
-                      background: "linear-gradient(135deg, #d9c7ff, #efe4ff)",
-                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                      background: "linear-gradient(135deg, #c2a7ff, #b28bff)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
                     }}
                     onClick={handleComplete}
                   >
