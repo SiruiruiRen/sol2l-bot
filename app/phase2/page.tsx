@@ -436,7 +436,7 @@ export default function Phase2Page() {
   }, [])
 
   const phaseColor = {
-    accent: "#9be7c0",
+    accent: "#7acfa8", // slightly deeper mint for better contrast
   }
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
   const neutralSurface = "hsl(var(--card) / 0.82)"
@@ -589,10 +589,10 @@ export default function Phase2Page() {
                 {currentCardIndex < cards.length - 1 ? (
                   <Button 
                     className="text-[#0e1c1a] font-semibold px-6 py-2 rounded-lg"
-                    style={{
-                      background: "linear-gradient(135deg, #9be7c0, #b4f1d4)",
-                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
-                    }}
+            style={{
+              background: "linear-gradient(135deg, #7acfa8, #5fbf95)",
+              boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
+            }}
                     onClick={nextCard}
                     disabled={(currentCardIndex === 3 && !quizCompleted)}
                   >
@@ -602,8 +602,8 @@ export default function Phase2Page() {
                   <Button 
                     className="text-[#0e1c1a] font-semibold px-6 py-3 rounded-full shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #9be7c0, #b4f1d4)",
-                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                      background: "linear-gradient(135deg, #7acfa8, #5fbf95)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
                     }}
                     onClick={nextCard}
                   >

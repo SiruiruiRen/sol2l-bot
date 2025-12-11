@@ -455,13 +455,14 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
             ].map((phase) => {
               const isActive = displayPhase === phase.id;
               const isCompleted = completedPhases.includes(phase.id);
+              const accentBg = `${phase.color.textHex}33`;
               const bg = isActive
-                ? `${phase.color.textHex}22`
+                ? accentBg
                 : isCompleted
-                  ? "hsl(var(--card) / 0.8)"
+                  ? "hsl(var(--card) / 0.82)"
                   : "hsl(var(--card) / 0.78)";
               const textColor = isActive ? phase.color.textHex : isCompleted ? "hsl(var(--foreground))" : neutralMuted;
-              const borderColor = isActive ? `${phase.color.textHex}55` : neutralBorder;
+              const borderColor = isActive ? `${phase.color.textHex}66` : neutralBorder;
               const pulseColor = `${phase.color.textHex}80`;
               return (
                 <div className="relative mb-4 z-10" key={phase.id}>
