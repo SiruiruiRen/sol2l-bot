@@ -17,14 +17,13 @@ import { useSessionManager } from "@/lib/session-manager"
 export default function Phase1Content() {
   const router = useRouter()
   const { getOrCreateSession, isFallbackSession } = useSessionManager()
-  const phaseColor = {
-    bg1: "#111827",
-    bg2: "#1b2a3a",
-    accent: "#9fc5ff",
-    cardBorder: "rgba(159,197,255,0.35)",
-    surface: "rgba(17,24,39,0.82)",
-    pill: "rgba(159,197,255,0.15)",
-  }
+  const accent = "#d8b26f"
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border) / 0.75)"
+  const headerSurface = "hsl(var(--card) / 0.95)"
+  const pillSurface = "hsl(var(--muted) / 0.4)"
+  const mutedText = "hsl(var(--muted-foreground))"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
   const neutralSurface = "hsl(var(--card) / 0.82)"
   const neutralBorder = "hsl(var(--border) / 0.65)"
@@ -293,7 +292,7 @@ export default function Phase1Content() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(148,163,184,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(168,85,247,0.08),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(251,211,141,0.08),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(216,178,111,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(0,0,0,0.04),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(216,178,111,0.05),transparent)]"></div>
       </div>
 
       <div className="container mx-auto px-4">
@@ -316,8 +315,8 @@ export default function Phase1Content() {
             >
               <div className="container mx-auto">
                 <div className="flex items-center justify-center">
-                  <BrainCircuit className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[#9fc5ff] to-[#b7d6ff] bg-clip-text">
+                  <BrainCircuit className="h-6 w-6 mr-2" style={{ color: accent }} />
+                  <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text">
                     Phase 1: What's SRL
                   </h2>
                 </div>
@@ -366,8 +365,8 @@ export default function Phase1Content() {
               <Card className="border shadow-[0_14px_36px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                    <BrainCircuit className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                    <span className="bg-gradient-to-r from-[#9fc5ff] to-[#b7d6ff] bg-clip-text text-transparent">
+                    <BrainCircuit className="h-8 w-8" style={{ color: accent }} />
+                    <span className="bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text text-transparent">
                       {cards[currentCardIndex].title}
                     </span>
                   </CardTitle>
@@ -378,23 +377,23 @@ export default function Phase1Content() {
                   {currentCardIndex === 0 && (
                     <div className="space-y-4 text-center">
                       <div className="p-4 rounded-2xl border mb-6 text-left shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
-                        <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
+                        <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: accent }}>
                           <Map className="h-5 w-5" />
                           Phase 1 Workflow
                         </h3>
                         <div className="flex items-center justify-center space-x-4 text-muted-foreground">
                           <div className="flex flex-col items-center text-center">
                             <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                              <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                              <Video className="h-6 w-6" style={{ color: accent }} />
                             </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
+                            <span className="text-xs font-medium" style={{ color: accent }}>Watch Video</span>
                           </div>
                           <ChevronRight className="h-5 w-5 text-slate-600" />
                           <div className="flex flex-col items-center text-center">
                             <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                              <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                              <FileQuestion className="h-6 w-6" style={{ color: accent }} />
                             </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Knowledge Check</span>
+                            <span className="text-xs font-medium" style={{ color: accent }}>Knowledge Check</span>
                           </div>
                         </div>
                       </div>
@@ -428,7 +427,7 @@ export default function Phase1Content() {
                           <Button
                             onClick={handleStartQuiz}
                             className="px-6 py-3 rounded-md shadow-md"
-                            style={{ background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)", color: "#0f172a" }}
+                            style={{ background: "linear-gradient(135deg, #d8b26f, #c89b51)", color: "#3b2a1c" }}
                           >
                             Start Knowledge Check
                           </Button>
@@ -452,10 +451,10 @@ export default function Phase1Content() {
                   
                   <Button 
                     onClick={nextCard}
-                    className="text-[#102033] font-semibold"
+                    className="text-[#3b2a1c] font-semibold"
                     style={{
-                      background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)",
-                      boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                      background: "linear-gradient(135deg, #d8b26f, #c89b51)",
+                      boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
                     }}
                     disabled={currentCardIndex === 1 && !quizCompleted}
                   >

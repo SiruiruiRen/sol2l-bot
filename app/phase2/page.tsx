@@ -436,7 +436,7 @@ export default function Phase2Page() {
   }, [])
 
   const phaseColor = {
-    accent: "#7acfa8", // slightly deeper mint for better contrast
+    accent: "#d8b26f",
   }
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
   const neutralSurface = "hsl(var(--card) / 0.9)"
@@ -590,7 +590,7 @@ export default function Phase2Page() {
                   <Button 
                     className="text-[#0e1c1a] font-semibold px-6 py-2 rounded-lg"
             style={{
-              background: "linear-gradient(135deg, #7acfa8, #5fbf95)",
+              background: "linear-gradient(135deg, #d8b26f, #c89b51)",
               boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
             }}
                     onClick={nextCard}
@@ -602,7 +602,7 @@ export default function Phase2Page() {
                   <Button 
                     className="text-[#0e1c1a] font-semibold px-6 py-3 rounded-full shadow-lg"
                     style={{
-                      background: "linear-gradient(135deg, #7acfa8, #5fbf95)",
+                      background: "linear-gradient(135deg, #d8b26f, #c89b51)",
                       boxShadow: "0 10px 24px rgba(0,0,0,0.25)",
                     }}
                     onClick={nextCard}

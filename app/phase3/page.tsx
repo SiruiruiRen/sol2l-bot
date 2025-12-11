@@ -55,10 +55,10 @@ const cleanScoresFromMessage = (message: string): string => {
 
 // Add this component after any existing imports but before the main component
 const SelfExplanationTips = () => {
-  const accent = "#f5c09a"
-  const surface = "hsl(var(--card) / 0.82)"
-  const border = "hsl(var(--border) / 0.65)"
-  const pill = "hsl(var(--muted) / 0.35)"
+  const accent = "#d8b26f"
+  const surface = "hsl(var(--card) / 0.9)"
+  const border = "hsl(var(--border) / 0.75)"
+  const pill = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
   return (
     <div
@@ -93,10 +93,10 @@ const SelfExplanationTips = () => {
 };
 
 const SpacingEffectGuide = () => {
-  const accent = "#f5c09a"
-  const surface = "hsl(var(--card) / 0.82)"
-  const border = "hsl(var(--border) / 0.65)"
-  const pill = "hsl(var(--muted) / 0.35)"
+  const accent = "#d8b26f"
+  const surface = "hsl(var(--card) / 0.9)"
+  const border = "hsl(var(--border) / 0.75)"
+  const pill = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
   return (
     <div
@@ -172,10 +172,10 @@ const KnowledgeCheckQuestion = ({
   const [submitted, setSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
-  const accent = "#f5c09a"
-  const surface = "hsl(var(--card) / 0.82)"
-  const border = "hsl(var(--border) / 0.65)"
-  const pill = "hsl(var(--muted) / 0.35)"
+  const accent = "#d8b26f"
+  const surface = "hsl(var(--card) / 0.9)"
+  const border = "hsl(var(--border) / 0.75)"
+  const pill = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   const handleSubmit = () => {
@@ -520,11 +520,11 @@ export default function Phase3Content() {
   }
 
   // Theme-aware neutrals so light/dark share the same structure
-  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
-  const neutralSurface = "hsl(var(--card) / 0.82)"
-  const neutralBorder = "hsl(var(--border) / 0.65)"
-  const headerSurface = "hsl(var(--card) / 0.9)"
-  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border) / 0.75)"
+  const headerSurface = "hsl(var(--card) / 0.95)"
+  const pillSurface = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   return (
@@ -533,7 +533,7 @@ export default function Phase3Content() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(245,192,154,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(128,82,62,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(245,192,154,0.05),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(216,178,111,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(0,0,0,0.04),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(216,178,111,0.05),transparent)]"></div>
       </div>
 
       {/* Add Module Bar */}
@@ -569,11 +569,11 @@ export default function Phase3Content() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
+            <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <BookMarked className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                <span className="bg-gradient-to-r from-[rgba(245,192,154,1)] to-[rgba(255,210,180,1)] bg-clip-text text-transparent">
+                <BookMarked className="h-8 w-8" style={{ color: "#d8b26f" }} />
+                <span className="bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
               </CardTitle>
