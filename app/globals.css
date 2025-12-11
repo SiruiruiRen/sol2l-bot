@@ -7,50 +7,51 @@
 
 @layer base {
   :root {
-    /* Light mode (not primary default) */
-    --background: 46 36% 94%;
-    --foreground: 220 23% 25%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 23% 25%;
+    /* Warm light */
+    --background: 40 36% 96%;      /* soft cream */
+    --foreground: 26 32% 24%;      /* warm brown */
+    --card: 0 0% 100%;             /* white cards */
+    --card-foreground: 26 32% 24%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 23% 25%;
-    --primary: 262 48% 62%;
-    --primary-foreground: 220 23% 15%;
-    --secondary: 210 16% 90%;
-    --secondary-foreground: 220 23% 25%;
-    --muted: 210 12% 85%;
-    --muted-foreground: 216 11% 40%;
-    --accent: 43 92% 74%;
-    --accent-foreground: 220 23% 25%;
-    --destructive: 4 75% 55%;
-    --destructive-foreground: 46 36% 96%;
-    --border: 210 18% 86%;
-    --input: 210 18% 86%;
-    --ring: 262 48% 62%;
+    --popover-foreground: 26 32% 24%;
+    --primary: 35 55% 55%;         /* warm gold accent */
+    --primary-foreground: 26 32% 20%;
+    --secondary: 35 28% 88%;
+    --secondary-foreground: 26 32% 24%;
+    --muted: 35 24% 86%;
+    --muted-foreground: 26 20% 45%;
+    --accent: 35 55% 55%;
+    --accent-foreground: 26 32% 20%;
+    --destructive: 4 70% 50%;
+    --destructive-foreground: 35 36% 96%;
+    --border: 35 20% 80%;
+    --input: 35 20% 80%;
+    --ring: 35 55% 55%;
     --radius: 1rem;
   }
 
   .dark {
-    /* Default theme (warm, low-glare) */
-    --background: 215 25% 11%;
-    --foreground: 45 20% 92%;
-    --card: 215 22% 16%;
-    --card-foreground: 45 20% 92%;
-    --popover: 215 22% 16%;
-    --popover-foreground: 45 20% 92%;
-    --primary: 262 45% 64%;
-    --primary-foreground: 220 30% 14%;
-    --secondary: 204 16% 24%;
-    --secondary-foreground: 45 20% 92%;
-    --muted: 215 15% 28%;
-    --muted-foreground: 214 20% 72%;
-    --accent: 43 92% 68%;
-    --accent-foreground: 220 30% 14%;
-    --destructive: 4 72% 52%;
-    --destructive-foreground: 46 36% 96%;
-    --border: 215 15% 30%;
-    --input: 215 15% 30%;
-    --ring: 262 45% 64%;
+    /* Warm dark */
+    --background: 220 12% 14%;     /* soft charcoal */
+    --foreground: 40 35% 92%;      /* warm cream text */
+    --card: 220 10% 18%;
+    --card-foreground: 40 35% 92%;
+    --popover: 220 10% 18%;
+    --popover-foreground: 40 35% 92%;
+    --primary: 35 50% 60%;         /* same accent, slightly lighter */
+    --primary-foreground: 26 32% 18%;
+    --secondary: 220 12% 22%;
+    --secondary-foreground: 40 35% 92%;
+    --muted: 220 12% 24%;
+    --muted-foreground: 40 25% 78%;
+    --accent: 35 50% 60%;
+    --accent-foreground: 26 32% 18%;
+    --destructive: 4 70% 52%;
+    --destructive-foreground: 40 35% 96%;
+    --border: 220 12% 28%;
+    --input: 220 12% 28%;
+    --ring: 35 50% 60%;
+    --radius: 1rem;
   }
 }
 
