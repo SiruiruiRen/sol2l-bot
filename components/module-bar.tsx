@@ -413,22 +413,23 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
           {/* Learning Journey Path */}
           <div className="relative flex flex-col items-center">
             {/* Background Path - positioned to not overlap with icons */}
-            <div className="absolute top-[60px] bottom-0 w-0.5 left-1/2 transform -translate-x-1/2" 
-              style={{ backgroundColor: "hsl(var(--muted) / 0.45)", height: 'calc(100% - 120px)' }}></div>
-              style={{ height: 'calc(100% - 120px)' }}></div>
+            <div
+              className="absolute top-[60px] bottom-0 w-0.5 left-1/2 transform -translate-x-1/2"
+              style={{ backgroundColor: "hsl(var(--muted) / 0.45)", height: "calc(100% - 120px)" }}
+            />
             
             {/* Start point */}
             <div className="relative mb-4 z-10">
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                      <div 
+                    <div 
                         className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full border"
                         style={{
                           color: displayPhase === 0 ? "#9fc5ff" : neutralMuted,
                           borderColor: neutralBorder,
                           backgroundColor: displayPhase === 0 ? "hsl(var(--muted) / 0.25)" : "hsl(var(--card) / 0.75)"
-                        }}
+                      }}
                       onClick={() => router.push("/intro")}
                     >
                       <Compass className="h-5 w-5" />
