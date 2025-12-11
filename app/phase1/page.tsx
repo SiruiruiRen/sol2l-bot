@@ -366,8 +366,8 @@ export default function Phase1Content() {
               <Card className="border shadow-[0_14px_36px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                    <BrainCircuit className="h-8 w-8 text-indigo-500" />
-                    <span className="bg-gradient-to-r from-indigo-400 to-purple-500 bg-clip-text text-transparent">
+                    <BrainCircuit className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                    <span className="bg-gradient-to-r from-[#9fc5ff] to-[#b7d6ff] bg-clip-text text-transparent">
                       {cards[currentCardIndex].title}
                     </span>
                   </CardTitle>
@@ -387,14 +387,14 @@ export default function Phase1Content() {
                             <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                               <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                             </div>
-                            <span className="text-xs font-medium">Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
                           </div>
                           <ChevronRight className="h-5 w-5 text-slate-600" />
                           <div className="flex flex-col items-center text-center">
                             <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                               <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                             </div>
-                            <span className="text-xs font-medium">Knowledge Check</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Knowledge Check</span>
                           </div>
                         </div>
                       </div>

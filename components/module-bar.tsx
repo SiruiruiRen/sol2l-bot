@@ -395,7 +395,7 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
     );
   }
 
-  // Desktop sidebar - using the original vertical circle navigation design with improved usability
+  // Desktop sidebar - theme-aware neutrals with phase accents
   const neutralSurface = "hsl(var(--card) / 0.92)"
   const neutralBorder = "hsl(var(--border))"
   const neutralMuted = "hsl(var(--muted-foreground))"
@@ -414,7 +414,7 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
           <div className="relative flex flex-col items-center">
             {/* Background Path - positioned to not overlap with icons */}
             <div className="absolute top-[60px] bottom-0 w-0.5 left-1/2 transform -translate-x-1/2" 
-              style={{ backgroundColor: "hsl(var(--muted) / 0.5)", height: 'calc(100% - 120px)' }}></div>
+              style={{ backgroundColor: "hsl(var(--muted) / 0.45)", height: 'calc(100% - 120px)' }}></div>
               style={{ height: 'calc(100% - 120px)' }}></div>
             
             {/* Start point */}
@@ -423,8 +423,12 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
                 <Tooltip>
                   <TooltipTrigger asChild>
                       <div 
-                        className="w-10 h-10 flex items-center justify-center cursor-pointer"
-                        style={{ color: displayPhase === 0 ? "#9fc5ff" : neutralMuted }}
+                        className="w-10 h-10 flex items-center justify-center cursor-pointer rounded-full border"
+                        style={{
+                          color: displayPhase === 0 ? "#9fc5ff" : neutralMuted,
+                          borderColor: neutralBorder,
+                          backgroundColor: displayPhase === 0 ? "hsl(var(--muted) / 0.25)" : "hsl(var(--card) / 0.75)"
+                        }}
                       onClick={() => router.push("/intro")}
                     >
                       <Compass className="h-5 w-5" />
@@ -451,12 +455,12 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
               const isActive = displayPhase === phase.id;
               const isCompleted = completedPhases.includes(phase.id);
               const bg = isActive
-                ? phase.color.hex
+                ? `${phase.color.textHex}22`
                 : isCompleted
-                  ? `${phase.color.hex}66`
-                  : "rgba(30,41,59,0.85)";
+                  ? "hsl(var(--card) / 0.8)"
+                  : "hsl(var(--card) / 0.78)";
               const textColor = isActive ? phase.color.textHex : isCompleted ? "hsl(var(--foreground))" : neutralMuted;
-              const borderColor = isActive ? `${phase.color.textHex}80` : neutralBorder;
+              const borderColor = isActive ? `${phase.color.textHex}55` : neutralBorder;
               const pulseColor = `${phase.color.textHex}80`;
               return (
                 <div className="relative mb-4 z-10" key={phase.id}>
@@ -509,7 +513,8 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
           <Button
             size="icon"
             variant="ghost"
-            className="rounded-full w-10 h-10 text-white/50 hover:text-white hover:bg-white/10 mt-2"
+            className="rounded-full w-10 h-10 mt-2"
+            style={{ color: neutralMuted }}
             onClick={() => router.push("/")}
             title="Return Home"
           >
@@ -517,7 +522,10 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
           </Button>
           
           {/* Progress percentage */}
-          <div className="mt-2 bg-slate-800/80 px-2 py-1 rounded-full text-[10px] font-medium text-white/70">
+          <div
+            className="mt-2 px-2 py-1 rounded-full text-[10px] font-medium"
+            style={{ backgroundColor: "hsl(var(--card) / 0.7)", color: neutralMuted }}
+          >
             {Math.round(progressPercentage)}%
           </div>
         </div>
