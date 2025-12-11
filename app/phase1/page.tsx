@@ -25,6 +25,12 @@ export default function Phase1Content() {
     surface: "rgba(17,24,39,0.82)",
     pill: "rgba(159,197,255,0.15)",
   }
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.82)"
+  const neutralBorder = "hsl(var(--border) / 0.65)"
+  const headerSurface = "hsl(var(--card) / 0.9)"
+  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const mutedText = "hsl(var(--muted-foreground))"
   const [videoWatched, setVideoWatched] = useState(false)
   const [videoLoading, setVideoLoading] = useState(true)
   const [quizStarted, setQuizStarted] = useState(false)
@@ -189,23 +195,24 @@ export default function Phase1Content() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="bg-slate-800/80 backdrop-blur-sm p-6 rounded-lg border border-indigo-500/30 mt-8"
+        className="backdrop-blur-md p-6 rounded-lg border mt-8"
+        style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
       >
         <div className="flex items-center gap-3 mb-6">
-          <FileQuestion className="h-6 w-6 text-indigo-400" />
-          <h3 className="text-xl font-medium text-white">Knowledge Check</h3>
+          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+          <h3 className="text-xl font-medium text-foreground">Knowledge Check</h3>
         </div>
         
         <div className="mb-6">
-          <p className="text-white/90 mb-3">List all stages of the four-stage model of self-regulated learning:</p>
-          <div className="bg-indigo-900/20 p-4 rounded-lg border border-indigo-500/20 mb-4">
+          <p className="text-muted-foreground mb-3">List all stages of the four-stage model of self-regulated learning:</p>
+          <div className="p-4 rounded-lg border mb-4" style={{ backgroundColor: "hsl(var(--card) / 0.78)", borderColor: neutralBorder }}>
             <div className="flex items-start gap-2 mb-2">
-              <div className="text-indigo-400 mt-0.5">💡</div>
-              <p className="text-white/80"><span className="text-indigo-300 font-medium">Remember:</span> Self-testing helps you remember information longer, find gaps in your knowledge, and improves future studying.</p>
+              <div className="mt-0.5" style={{ color: phaseColor.accent }}>💡</div>
+              <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>Remember:</span> Self-testing helps you remember information longer, find gaps in your knowledge, and improves future studying.</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="text-indigo-400 mt-0.5">🧠</div>
-              <p className="text-white/80">Actively recalling information now creates stronger neural connections that make it easier to retrieve later!</p>
+              <div className="mt-0.5" style={{ color: phaseColor.accent }}>🧠</div>
+              <p className="text-muted-foreground">Actively recalling information now creates stronger neural connections that make it easier to retrieve later!</p>
             </div>
           </div>
         </div>
@@ -214,32 +221,33 @@ export default function Phase1Content() {
           <table className="w-full border-collapse">
             <thead>
               <tr>
-                <th className="p-3 border border-indigo-500/30 bg-indigo-900/20 text-left w-24"></th>
-                <th className="p-3 border border-indigo-500/30 bg-indigo-900/20 text-left">{answersSubmitted ? "Your Answers:" : "Your Response:"}</th>
+                <th className="p-3 border text-left w-24" style={{ borderColor: neutralBorder, backgroundColor: "hsl(var(--card) / 0.9)" }}></th>
+                <th className="p-3 border text-left" style={{ borderColor: neutralBorder, backgroundColor: "hsl(var(--card) / 0.9)" }}>{answersSubmitted ? "Your Answers:" : "Your Response:"}</th>
                 {answersSubmitted && (
-                  <th className="p-3 border border-indigo-500/30 bg-indigo-900/20 text-left">Sample Answers:</th>
+                  <th className="p-3 border text-left" style={{ borderColor: neutralBorder, backgroundColor: "hsl(var(--card) / 0.9)" }}>Sample Answers:</th>
                 )}
               </tr>
             </thead>
             <tbody>
               {["Stage 1:", "Stage 2:", "Stage 3:", "Stage 4:"].map((stage, index) => (
-                <tr key={stage} className="border-b border-indigo-500/20">
-                  <td className="p-3 border-r border-indigo-500/30 font-medium">{stage}</td>
-                  <td className="p-3 border-r border-indigo-500/30">
+                <tr key={stage} className="border-b" style={{ borderColor: neutralBorder }}>
+                  <td className="p-3 border-r font-medium" style={{ borderColor: neutralBorder }}>{stage}</td>
+                  <td className="p-3 border-r" style={{ borderColor: neutralBorder }}>
                     {answersSubmitted ? (
-                      <div className="text-white">{stageAnswers[index]}</div>
+                      <div className="text-foreground">{stageAnswers[index]}</div>
                     ) : (
                       <input
                         type="text"
                         value={localAnswers[index]}
                         onChange={(e) => handleLocalChange(index, e.target.value)}
                         placeholder={`Enter ${stage.replace(':', '')} here`}
-                        className="w-full bg-slate-700/50 border border-indigo-500/30 rounded p-2 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500/50"
+                        className="w-full rounded p-2 focus:outline-none focus:ring-2"
+                        style={{ backgroundColor: "hsl(var(--card) / 0.78)", borderColor: neutralBorder, color: "hsl(var(--foreground))", boxShadow: `0 0 0 0px transparent` }}
                       />
                     )}
                   </td>
                   {answersSubmitted && (
-                    <td className="p-3 text-indigo-300">
+                    <td className="p-3" style={{ color: phaseColor.accent }}>
                       {index === 0 && "Define the task"}
                       {index === 1 && "Set goals and develop a plan"}
                       {index === 2 && "Execute the plan"}
@@ -256,7 +264,8 @@ export default function Phase1Content() {
           <Button
             onClick={handleSubmit}
             disabled={localAnswers.some(answer => !answer.trim())}
-            className="mt-6 bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-6 rounded-md flex items-center gap-2"
+            className="mt-6 font-medium py-2 px-6 rounded-md flex items-center gap-2 shadow-md"
+            style={{ background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)", color: "#0f172a" }}
           >
             Submit Answers
             <ArrowRight className="h-4 w-4" />
@@ -268,9 +277,10 @@ export default function Phase1Content() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="mt-6 p-4 rounded-md bg-green-800/20 border border-green-600/40"
+            className="mt-6 p-4 rounded-md border"
+            style={{ backgroundColor: "hsl(var(--muted) / 0.25)", borderColor: "hsl(var(--border))" }}
           >
-            <p className="text-white">{feedback}</p>
+            <p className="text-foreground">{feedback}</p>
           </motion.div>
         )}
       </motion.div>
@@ -279,8 +289,8 @@ export default function Phase1Content() {
 
   return (
     <div
-      className="min-h-screen text-white/95 py-8"
-      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+      className="min-h-screen text-foreground py-8"
+      style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_15%_10%,rgba(148,163,184,0.08),transparent),radial-gradient(120%_120%_at_85%_15%,rgba(168,85,247,0.08),transparent),radial-gradient(140%_120%_at_50%_80%,rgba(251,211,141,0.08),transparent)]"></div>
@@ -294,13 +304,16 @@ export default function Phase1Content() {
           <div className="flex items-center justify-center min-h-screen">
             <div className="text-center">
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500 mx-auto mb-4"></div>
-              <p className="text-white/80">Initializing session...</p>
+                <p className="text-muted-foreground">Initializing session...</p>
             </div>
           </div>
         ) : (
           <>
             {/* Fixed Title Header */}
-            <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(23,35,52,0.9)] backdrop-blur-md border-b border-[rgba(159,197,255,0.25)] py-3 px-4">
+            <div
+              className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md border-b py-3 px-4"
+              style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
+            >
               <div className="container mx-auto">
                 <div className="flex items-center justify-center">
                   <BrainCircuit className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
@@ -316,7 +329,8 @@ export default function Phase1Content() {
               <button 
                 onClick={prevCard}
                 disabled={currentCardIndex === 0}
-                className={`rounded-full p-2 transition-all ${currentCardIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-80 hover:opacity-100 bg-slate-700/50 hover:bg-slate-700/80'}`}
+                className={`rounded-full p-2 transition-all border ${currentCardIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-80 hover:opacity-100'}`}
+                style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
               >
                 <ChevronUp className="h-4 w-4" />
               </button>
@@ -326,7 +340,7 @@ export default function Phase1Content() {
                 {cards.map((_, i) => (
                   <div 
                     key={i}
-                    className={`rounded-full transition-all ${i === currentCardIndex ? 'w-2 h-2 bg-white' : 'w-1.5 h-1.5 bg-white/50'}`}
+                    className={`rounded-full transition-all ${i === currentCardIndex ? 'w-2 h-2 bg-foreground' : 'w-1.5 h-1.5 bg-foreground/50'}`}
                     onClick={() => setCurrentCardIndex(i)}
                   ></div>
                 ))}
@@ -335,7 +349,8 @@ export default function Phase1Content() {
               <button 
                 onClick={nextCard}
                 disabled={currentCardIndex === cards.length - 1}
-                className={`rounded-full p-2 transition-all ${currentCardIndex === cards.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-80 hover:opacity-100 bg-slate-700/50 hover:bg-slate-700/80'}`}
+                className={`rounded-full p-2 transition-all border ${currentCardIndex === cards.length - 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-80 hover:opacity-100'}`}
+                style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
               >
                 <ChevronDown className="h-4 w-4" />
               </button>
@@ -348,7 +363,7 @@ export default function Phase1Content() {
               transition={{ duration: 0.5 }}
               className="max-w-4xl mx-auto mt-16"
             >
-              <Card className="border shadow-[0_14px_36px_rgba(0,0,0,0.35)]" style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}>
+              <Card className="border shadow-[0_14px_36px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
                 <CardHeader className="pb-2">
                   <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                     <BrainCircuit className="h-8 w-8 text-indigo-500" />
@@ -362,28 +377,28 @@ export default function Phase1Content() {
                   {/* Video Component */}
                   {currentCardIndex === 0 && (
                     <div className="space-y-4 text-center">
-                      <div className="bg-[rgba(20,26,36,0.8)] p-4 rounded-2xl border border-white/10 mb-6 text-left shadow-[0_10px_26px_rgba(0,0,0,0.3)]">
-                        <h3 className="text-lg font-medium text-indigo-300 mb-3 flex items-center gap-2">
+                      <div className="p-4 rounded-2xl border mb-6 text-left shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+                        <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                           <Map className="h-5 w-5" />
                           Phase 1 Workflow
                         </h3>
-                        <div className="flex items-center justify-center space-x-4 text-white/80">
+                        <div className="flex items-center justify-center space-x-4 text-muted-foreground">
                           <div className="flex flex-col items-center text-center">
-                            <div className="p-2 rounded-full bg-indigo-500/20 mb-1">
-                              <Video className="h-6 w-6 text-indigo-300" />
+                            <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
+                              <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                             </div>
                             <span className="text-xs font-medium">Watch Video</span>
                           </div>
                           <ChevronRight className="h-5 w-5 text-slate-600" />
                           <div className="flex flex-col items-center text-center">
-                            <div className="p-2 rounded-full bg-indigo-500/20 mb-1">
-                              <FileQuestion className="h-6 w-6 text-indigo-300" />
+                            <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
+                              <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                             </div>
                             <span className="text-xs font-medium">Knowledge Check</span>
                           </div>
                         </div>
                       </div>
-                      <p className="text-white/80">
+                      <p className="text-muted-foreground">
                         Learn the Self-Regulated Learning (SRL) cycle - a powerful framework for mastering any subject.
                       </p>
                       
@@ -395,9 +410,9 @@ export default function Phase1Content() {
                         videoTitle="Self-Regulated Learning Introduction"
                       />
 
-                      <div className="mt-4 p-3 bg-[rgba(20,26,36,0.8)] rounded-2xl border border-white/10 text-center shadow-[0_10px_26px_rgba(0,0,0,0.3)]">
-                        <p className="font-semibold text-indigo-300">After the video:</p>
-                        <p className="text-white/80 text-sm">You will proceed to a Knowledge Check.</p>
+                      <div className="mt-4 p-3 rounded-2xl border text-center shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+                        <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                        <p className="text-muted-foreground text-sm">You will proceed to a Knowledge Check.</p>
                       </div>
                     </div>
                   )}
@@ -405,14 +420,15 @@ export default function Phase1Content() {
                   {/* Quiz Component */}
                   {currentCardIndex === 1 && (
                     <div>
-                      <div className="text-white/80 mb-4">
+                      <div className="text-muted-foreground mb-4">
                         <p>Let's check your understanding of the Self-Regulated Learning framework.</p>
                       </div>
                       {quizStarted ? <QuizComponent /> : (
                         <div className="text-center py-6">
                           <Button
                             onClick={handleStartQuiz}
-                            className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-md shadow-md"
+                            className="px-6 py-3 rounded-md shadow-md"
+                            style={{ background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)", color: "#0f172a" }}
                           >
                             Start Knowledge Check
                           </Button>
@@ -427,8 +443,8 @@ export default function Phase1Content() {
                   <Button 
                     onClick={prevCard}
                     variant="outline" 
-                    className="text-white/90"
-                    style={{ borderColor: phaseColor.cardBorder }}
+                    className="border"
+                    style={{ borderColor: neutralBorder, color: mutedText }}
                   >
                       <ChevronLeft className="mr-1 h-4 w-4" /> Back
                     </Button>

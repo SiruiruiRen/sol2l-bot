@@ -45,6 +45,12 @@ const KnowledgeCheckQuestion = ({
   const [isCorrect, setIsCorrect] = useState(false);
   const explanation = isCorrect ? question.explanation : (question.explanations && selectedOption ? question.explanations[selectedOption] : question.explanation);
 
+  const accent = "#f7e3a5"
+  const surface = "hsl(var(--card) / 0.82)"
+  const border = "hsl(var(--border) / 0.65)"
+  const pill = "hsl(var(--muted) / 0.35)"
+  const mutedText = "hsl(var(--muted-foreground))"
+
   const handleSubmit = () => {
     if (!selectedOption) return;
     const correct = selectedOption === question.correctAnswer;
@@ -70,21 +76,21 @@ const KnowledgeCheckQuestion = ({
   };
 
   return (
-    <Card className="bg-slate-800/70 border-purple-500/20">
+    <Card className="backdrop-blur-md" style={{ backgroundColor: surface, borderColor: border }}>
       <CardContent className="pt-6">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-full bg-indigo-500/20 flex items-center justify-center">
-              <HelpCircle className="h-5 w-5 text-indigo-400" />
+            <div className="h-10 w-10 rounded-full flex items-center justify-center" style={{ backgroundColor: pill }}>
+              <HelpCircle className="h-5 w-5" style={{ color: accent }} />
             </div>
-            <h3 className="text-lg font-bold text-white">Knowledge Check {questionIndex + 1}</h3>
+            <h3 className="text-lg font-bold text-foreground">Knowledge Check {questionIndex + 1}</h3>
           </div>
-          <span className="text-sm text-white/60">
+          <span className="text-sm opacity-80" style={{ color: mutedText }}>
             Question {questionIndex + 1} of {totalQuestions}
           </span>
         </div>
 
-        <p className="text-white/90 mb-6">{question.question}</p>
+        <p className="text-foreground opacity-90 mb-6" style={{ color: mutedText }}>{question.question}</p>
 
         <RadioGroup
           value={selectedOption || ""}
@@ -100,8 +106,12 @@ const KnowledgeCheckQuestion = ({
                   ? "border-emerald-500/50 bg-emerald-500/10"
                   : submitted && option === selectedOption
                     ? "border-red-500/50 bg-red-500/10"
-                    : "border-slate-700 hover:border-indigo-500/50 hover:bg-indigo-500/10"
+                    : "hover:bg-[hsl(var(--muted)_/_0.25)]"
               }`}
+              style={{
+                borderColor: submitted ? undefined : border,
+                backgroundColor: submitted ? undefined : "hsl(var(--card) / 0.78)",
+              }}
             >
               <RadioGroupItem value={option} id={`option-${index}`} className="mt-1" />
               <div className="flex-1">
@@ -109,11 +119,12 @@ const KnowledgeCheckQuestion = ({
                   htmlFor={`option-${index}`}
                   className={`text-sm font-medium ${
                     submitted && option === question.correctAnswer
-                      ? "text-emerald-400"
+                      ? "text-emerald-500"
                       : submitted && option === selectedOption
-                        ? "text-red-400"
-                        : "text-white/80"
+                        ? "text-red-500"
+                        : "text-foreground opacity-80"
                   }`}
+                  style={!submitted ? { color: mutedText } : undefined}
                 >
                   {option}
                 </Label>
@@ -147,7 +158,7 @@ const KnowledgeCheckQuestion = ({
                 <h4 className={`font-bold ${isCorrect ? "text-emerald-400" : "text-red-400"}`}>
                   {isCorrect ? "Correct!" : "Not quite right"}
                 </h4>
-                <p className="text-white/80 mt-1">{explanation}</p>
+                <p className="text-muted-foreground mt-1">{explanation}</p>
               </div>
             </div>
           </motion.div>
@@ -178,7 +189,8 @@ const KnowledgeCheckQuestion = ({
             questionIndex < totalQuestions - 1 ? (
               <Button
                 onClick={onNextQuestion}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white flex items-center gap-2 shadow-lg"
+                className="flex items-center gap-2 shadow-md"
+                style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
               >
                 Next Question <ArrowRight className="h-4 w-4" />
               </Button>
@@ -327,10 +339,17 @@ export default function Phase5Content() {
     pill: "rgba(247,227,165,0.15)",
   }
 
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.82)"
+  const neutralBorder = "hsl(var(--border) / 0.65)"
+  const headerSurface = "hsl(var(--card) / 0.9)"
+  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const mutedText = "hsl(var(--muted-foreground))"
+
   return (
     <div
-      className="min-h-screen text-white py-8"
-      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+      className="min-h-screen text-foreground py-8"
+      style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(247,227,165,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(122,106,60,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(247,227,165,0.05),transparent)]"></div>
@@ -338,7 +357,10 @@ export default function Phase5Content() {
 
         <ModuleBar currentPhase={5} />
 
-      <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(24,18,12,0.9)] backdrop-blur-md border-b border-[rgba(247,227,165,0.35)] py-3 px-4">
+      <div
+        className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md border-b py-3 px-4"
+        style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
+      >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
             <Brain className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
@@ -364,7 +386,7 @@ export default function Phase5Content() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-[rgba(24,18,12,0.8)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
+          <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                 <Brain className="h-8 w-8" style={{ color: phaseColor.accent }} />
@@ -380,36 +402,36 @@ export default function Phase5Content() {
                 <div className="space-y-6">
                   <div
                     className="p-4 rounded-lg border mb-6 text-left"
-                    style={{ backgroundColor: phaseColor.surface, borderColor: phaseColor.cardBorder }}
+                    style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
                   >
                     <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 5 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-4 text-white/85">
+                    <div className="flex items-center justify-center space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Pre-Assessment</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Chat w/ SoL2LBot</span>
                       </div>
                     </div>
                   </div>
-                  <div className="text-white/80 space-y-4">
+                  <div className="text-muted-foreground space-y-4">
                     <p>
                       {userName ? `Welcome, ${userName}!` : "Welcome!"} This phase is about monitoring your learning and adapting your strategies.
                     </p>
@@ -423,7 +445,7 @@ export default function Phase5Content() {
               {/* Knowledge Check Card */}
               {currentCardIndex === 1 && (
                 <div>
-                  <div className="text-white/80 mb-4">
+                  <div className="text-muted-foreground mb-4">
                     <p>Let's check the knowledge you already have about this topic. Please read and respond to the following question(s):</p>
                   </div>
                   <KnowledgeCheckQuiz onComplete={() => setQuizCompleted(true)} knowledgeChecks={knowledgeChecks} sessionId={sessionId} />
@@ -433,7 +455,7 @@ export default function Phase5Content() {
               {/* Video Card */}
               {currentCardIndex === 2 && (
                 <div className="space-y-4 text-center">
-                  <p className="text-white/80">
+                  <p className="text-muted-foreground">
                     Learn effective strategies for monitoring your learning progress and adapting when needed.
                   </p>
                   
@@ -443,9 +465,9 @@ export default function Phase5Content() {
                     phase="phase5"
                     videoTitle="Monitoring Your Learning"
                   />
-                  <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-amber-500/30 text-center">
-                    <p className="font-semibold text-amber-300">After the video:</p>
-                    <p className="text-white/80 text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
+                  <div className="mt-4 p-3 rounded-lg border text-center" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                    <p className="text-muted-foreground text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
                   </div>
                 </div>
               )}
@@ -454,7 +476,8 @@ export default function Phase5Content() {
                 {currentCardIndex > 0 ? (
                   <Button 
                     variant="outline"
-                    className="text-purple-400 border-purple-500/30 hover:bg-purple-900/20"
+                    className="border"
+                    style={{ borderColor: neutralBorder, color: mutedText }}
                     onClick={prevCard}
                   >
                     <ChevronLeft className="h-4 w-4 mr-2" /> Previous
@@ -463,7 +486,8 @@ export default function Phase5Content() {
                 
                 {currentCardIndex < cards.length - 1 ? (
                   <Button 
-                    className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white"
+                    className="shadow-md"
+                    style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
                     onClick={nextCard}
                     disabled={currentCardIndex === 1 && !quizCompleted}
                   >
@@ -471,7 +495,8 @@ export default function Phase5Content() {
                   </Button>
                 ) : (
                   <Button 
-                    className="bg-gradient-to-r from-purple-500 to-fuchsia-600 hover:from-purple-600 hover:to-fuchsia-700 text-white px-6 py-2 rounded-lg"
+                    className="px-6 py-2 rounded-lg shadow-md"
+                    style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
                     onClick={handleComplete}
                   >
                     Continue to Chat <ChevronRight className="h-4 w-4 ml-2" />

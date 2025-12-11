@@ -57,10 +57,17 @@ export default function Phase4IntroPage() {
     cardBorder: "rgba(217,199,255,0.35)",
   }
 
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.82)"
+  const neutralBorder = "hsl(var(--border) / 0.65)"
+  const headerSurface = "hsl(var(--card) / 0.9)"
+  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const mutedText = "hsl(var(--muted-foreground))"
+
   return (
     <div
-      className="min-h-screen text-white py-8"
-      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+      className="min-h-screen text-foreground py-8"
+      style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(217,199,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(111,86,140,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(217,199,255,0.05),transparent)]"></div>
@@ -68,7 +75,10 @@ export default function Phase4IntroPage() {
 
       <ModuleBar currentPhase={4} />
 
-      <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(28,20,35,0.9)] backdrop-blur-md border-b border-[rgba(217,199,255,0.35)] py-3 px-4">
+      <div
+        className="fixed top-0 left-0 right-0 z-20 backdrop-blur-md border-b py-3 px-4"
+        style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
+      >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
             <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
@@ -86,7 +96,7 @@ export default function Phase4IntroPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-[rgba(24,17,28,0.78)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
+          <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                 <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
@@ -98,35 +108,35 @@ export default function Phase4IntroPage() {
 
             <CardContent>
               <div className="space-y-6">
-                <div className="text-white/80 space-y-4">
+                <div className="text-muted-foreground space-y-4">
                   <div
                     className="p-4 rounded-lg border mb-6 text-left"
                     style={{
-                      backgroundColor: "rgba(24,17,28,0.78)",
-                      borderColor: phaseColor.cardBorder,
+                      backgroundColor: neutralSurface,
+                      borderColor: neutralBorder,
                     }}
                   >
                     <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 4 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-4 text-white/85">
+                    <div className="flex items-center justify-center space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Edit className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Build Plan</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(217,199,255,0.15)" }}>
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
                           <Bot className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">AI Coaching</span>
@@ -140,34 +150,34 @@ export default function Phase4IntroPage() {
                   <div
                     className="p-4 rounded-lg border"
                     style={{
-                      backgroundColor: "rgba(24,17,28,0.78)",
-                      borderColor: phaseColor.cardBorder,
+                      backgroundColor: neutralSurface,
+                      borderColor: neutralBorder,
                     }}
                   >
                     <h3 className="text-lg font-medium mb-3" style={{ color: phaseColor.accent }}>📋 What's in This Phase:</h3>
                     <div className="grid grid-cols-1 gap-3 text-sm">
                       <div className="flex items-start gap-2">
                         <div className="mt-0.5" style={{ color: phaseColor.accent }}>🎥</div>
-                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="mt-0.5" style={{ color: phaseColor.accent }}>📝</div>
-                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
                       </div>
                       <div className="flex items-start gap-2">
                         <div className="mt-0.5" style={{ color: phaseColor.accent }}>🤖</div>
-                        <p className="text-white/80"><span className="font-medium" style={{ color: phaseColor.accent }}>AI Coaching:</span> Personalized feedback to refine each task</p>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>AI Coaching:</span> Personalized feedback to refine each task</p>
                       </div>
                     </div>
                   </div>
                   
-                  <p className="text-center text-white/80">
+                  <p className="text-center text-muted-foreground">
                     Set effective goals and plan for challenges using the MCII technique.
                   </p>
                 </div>
                 
                 <div className="space-y-4">
-                  <p className="text-center text-white/80">
+                  <p className="text-center text-muted-foreground">
                     Learn the MCII framework (Mental Contrasting with Implementation Intentions) to build an effective study plan.
                   </p>
                   <VideoPlayer
@@ -179,12 +189,12 @@ export default function Phase4IntroPage() {
                   <div
                     className="mt-4 p-3 rounded-lg text-center"
                     style={{
-                      backgroundColor: "rgba(24,17,28,0.78)",
-                      border: `1px solid ${phaseColor.cardBorder}`,
+                      backgroundColor: neutralSurface,
+                      border: `1px solid ${neutralBorder}`,
                     }}
                   >
                     <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
-                    <p className="text-white/80 text-sm">You will proceed to interactive tasks to build your strategic plan.</p>
+                    <p className="text-muted-foreground text-sm">You will proceed to interactive tasks to build your strategic plan.</p>
                   </div>
                 </div>
                 

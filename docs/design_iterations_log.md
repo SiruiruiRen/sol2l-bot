@@ -16,6 +16,16 @@ Track design changes based on user feedback for research documentation and futur
 
 ## Recent Iterations (Last 6 Major Changes)
 
+### Iteration 12: Warm Light/Dark Parity for Phases 1–5
+**Date**: 2025-12-11 | **Commit**: `[pending]` | **Status**: ✅ Complete  
+**User Need**: “Light mode is not working and dark cards look wrong; make colors consistent with the Warm Cognition style across all phases.”  
+**Key Changes**: 
+- Rebased Phase 1, 3, 4, and 5 layouts onto theme tokens (`--background`, `--card`, `--border`, `--muted`) so light/dark mode swaps neutral surfaces without breaking phase accents.
+- Kept per-phase accents (Phase 1 blue, Phase 3 amber, Phase 4 lilac, Phase 5 gold) while moving cards, headers, workflow blocks, quizzes, and nav buttons onto neutral glassy surfaces for readability.
+- Updated knowledge checks, pills, and navigation dots to use muted foregrounds/borders instead of hard-coded dark fills; softened shadows to match the Warm Cognition style.
+**Files Modified**: `app/phase1/page.tsx`, `app/phase3/page.tsx`, `app/phase4/page.tsx`, `app/phase5/page.tsx`  
+**Research Impact**: Ensures accessibility and cognitive load alignment across modes, supporting consistent UX for participants in both light and dark settings while preserving per-phase research instrumentation.
+
 ### Iteration 11: React2Shell Security Patch
 **Date**: 2025-12-10 | **Commit**: `[pending]` | **Status**: ✅ Complete
 **User Need**: Vercel flagged the deployment for the React Server Components RCE (React2Shell) and required a patched Next.js version to proceed.
