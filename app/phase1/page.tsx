@@ -192,7 +192,7 @@ export default function Phase1Content() {
         style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
       >
         <div className="flex items-center gap-3 mb-6">
-          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+          <FileQuestion className="h-6 w-6" style={{ color: accent }} />
           <h3 className="text-xl font-medium text-foreground">Knowledge Check</h3>
         </div>
         
@@ -200,11 +200,11 @@ export default function Phase1Content() {
           <p className="text-muted-foreground mb-3">List all stages of the four-stage model of self-regulated learning:</p>
           <div className="p-4 rounded-lg border mb-4" style={{ backgroundColor: "hsl(var(--card) / 0.78)", borderColor: neutralBorder }}>
             <div className="flex items-start gap-2 mb-2">
-              <div className="mt-0.5" style={{ color: phaseColor.accent }}>💡</div>
-              <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>Remember:</span> Self-testing helps you remember information longer, find gaps in your knowledge, and improves future studying.</p>
+              <div className="mt-0.5" style={{ color: accent }}>💡</div>
+              <p className="text-muted-foreground"><span className="font-medium" style={{ color: accent }}>Remember:</span> Self-testing helps you remember information longer, find gaps in your knowledge, and improves future studying.</p>
             </div>
             <div className="flex items-start gap-2">
-              <div className="mt-0.5" style={{ color: phaseColor.accent }}>🧠</div>
+              <div className="mt-0.5" style={{ color: accent }}>🧠</div>
               <p className="text-muted-foreground">Actively recalling information now creates stronger neural connections that make it easier to retrieve later!</p>
             </div>
           </div>
@@ -240,7 +240,7 @@ export default function Phase1Content() {
                     )}
                   </td>
                   {answersSubmitted && (
-                    <td className="p-3" style={{ color: phaseColor.accent }}>
+                    <td className="p-3" style={{ color: accent }}>
                       {index === 0 && "Define the task"}
                       {index === 1 && "Set goals and develop a plan"}
                       {index === 2 && "Execute the plan"}
@@ -404,7 +404,7 @@ export default function Phase1Content() {
                       />
 
                       <div className="mt-4 p-3 rounded-2xl border text-center shadow-[0_10px_26px_rgba(0,0,0,0.2)] backdrop-blur-md" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
-                        <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                        <p className="font-semibold" style={{ color: accent }}>After the video:</p>
                         <p className="text-muted-foreground text-sm">You will proceed to a Knowledge Check.</p>
                       </div>
                     </div>
