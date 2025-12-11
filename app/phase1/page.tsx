@@ -419,7 +419,7 @@ export default function Phase1Content() {
                     <Button 
                       onClick={prevCard}
                       variant="outline" 
-                      className="border-indigo-500/50 text-indigo-400 hover:bg-indigo-950/50"
+                    className="border-[rgba(159,197,255,0.35)] text-white/90 hover:bg-white/10"
                     >
                       <ChevronLeft className="mr-1 h-4 w-4" /> Back
                     </Button>
@@ -427,7 +427,11 @@ export default function Phase1Content() {
                   
                   <Button 
                     onClick={nextCard}
-                    className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white"
+                  className="text-[#102033] font-semibold"
+                  style={{
+                    background: "linear-gradient(135deg, #9fc5ff, #b7d6ff)",
+                    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                  }}
                     disabled={currentCardIndex === 1 && !quizCompleted}
                   >
                     {currentCardIndex < cards.length - 1 ? 'Next' : 'Complete Phase'} <ChevronRight className="ml-1 h-4 w-4" />

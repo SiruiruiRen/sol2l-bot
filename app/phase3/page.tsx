@@ -651,7 +651,7 @@ export default function Phase3Content() {
                 {currentCardIndex > 0 ? (
                   <Button 
                     variant="outline"
-                    className="text-purple-400 border-purple-500/30 hover:bg-purple-900/20"
+                    className="text-white/90 border-[rgba(245,192,154,0.35)] hover:bg-white/10"
                     onClick={prevCard}
                   >
                     <ChevronLeft className="h-4 w-4 mr-2" /> Previous
@@ -659,7 +659,11 @@ export default function Phase3Content() {
                 ) : null}
                 
                 <Button 
-                  className="bg-gradient-to-r from-purple-500 to-fuchsia-600 hover:from-purple-600 hover:to-fuchsia-700 text-white px-6 py-2 rounded-lg"
+                  className="text-[#1a1524] font-semibold px-6 py-2 rounded-lg"
+                  style={{
+                    background: "linear-gradient(135deg, #f5c09a, #ffd2b4)",
+                    boxShadow: "0 10px 24px rgba(0,0,0,0.35)",
+                  }}
                   onClick={nextCard}
                   disabled={(currentCardIndex === 4 && !quizCompleted)}
                 >
