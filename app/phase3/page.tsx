@@ -529,29 +529,35 @@ export default function Phase3Content() {
               {/* Introduction Card */}
               {currentCardIndex === 0 && (
                 <div className="space-y-6">
-                  <div className="bg-slate-800/50 p-4 rounded-lg border border-purple-500/20 mb-6 text-left">
-                    <h3 className="text-lg font-medium text-purple-300 mb-3 flex items-center gap-2">
+                  <div
+                    className="p-4 rounded-lg mb-6 text-left"
+                    style={{
+                      backgroundColor: "rgba(26,19,17,0.72)",
+                      border: "1px solid rgba(245,192,154,0.28)",
+                    }}
+                  >
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
                       <Map className="h-5 w-5" />
                       Phase 3 Workflow
                     </h3>
-                    <div className="flex items-center justify-center space-x-4 text-white/80">
+                    <div className="flex items-center justify-center space-x-4 text-white/85">
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <BookOpen className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                          <BookOpen className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Learn Strategies</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <Video className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
-                        <div className="p-2 rounded-full bg-purple-500/20 mb-1">
-                          <FileQuestion className="h-6 w-6 text-purple-300" />
+                        <div className="p-2 rounded-full mb-1" style={{ backgroundColor: "rgba(245,192,154,0.15)" }}>
+                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
                         <span className="text-xs font-medium">Knowledge Check</span>
                       </div>
@@ -566,19 +572,25 @@ export default function Phase3Content() {
                     </p>
                   </div>
                   
-                  <div className="bg-purple-900/20 p-4 rounded-lg border border-purple-500/20">
-                    <h3 className="text-lg font-medium text-purple-300 mb-2">In This Phase You'll Learn:</h3>
+                  <div
+                    className="p-4 rounded-lg"
+                    style={{
+                      backgroundColor: "rgba(26,19,17,0.72)",
+                      border: "1px solid rgba(245,192,154,0.28)",
+                    }}
+                  >
+                    <h3 className="text-lg font-medium mb-2" style={{ color: phaseColor.accent }}>In This Phase You'll Learn:</h3>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <div className="text-purple-400 mt-0.5">📊</div>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>📊</div>
                         <p className="text-white/80">How to use evidence-based learning strategies</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="text-purple-400 mt-0.5">🔄</div>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🔄</div>
                         <p className="text-white/80">The power of spacing effect and distributed practice</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="text-purple-400 mt-0.5">🧠</div>
+                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🧠</div>
                         <p className="text-white/80">Self-explanation techniques for deeper understanding</p>
                       </div>
                     </div>
@@ -611,8 +623,14 @@ export default function Phase3Content() {
                       <p>If video doesn't load, try refreshing the page or check browser console for errors.</p>
                     </div>
                   </div>
-                  <div className="mt-4 p-3 bg-slate-800/60 rounded-lg border border-indigo-500/30 text-center">
-                    <p className="font-semibold text-indigo-300">After the video:</p>
+                  <div
+                    className="mt-4 p-3 rounded-lg text-center"
+                    style={{
+                      backgroundColor: "rgba(26,19,17,0.72)",
+                      border: "1px solid rgba(245,192,154,0.28)",
+                    }}
+                  >
+                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
                     <p className="text-white/80 text-sm">You will proceed to the next Knowledge Check.</p>
                   </div>
                 </div>
