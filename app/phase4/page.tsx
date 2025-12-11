@@ -50,22 +50,29 @@ export default function Phase4IntroPage() {
     }
   };
 
+  const phaseColor = {
+    bg1: "#161019",
+    bg2: "#46385c",
+    accent: "#d9c7ff",
+    cardBorder: "rgba(217,199,255,0.35)",
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+    >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-orange-900/10 via-transparent to-transparent opacity-30"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(217,199,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(111,86,140,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(217,199,255,0.05),transparent)]"></div>
       </div>
 
       <ModuleBar currentPhase={4} />
 
-      <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-orange-500/20 py-3 px-4">
+      <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(28,20,35,0.9)] backdrop-blur-md border-b border-[rgba(217,199,255,0.35)] py-3 px-4">
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <Target className="h-6 w-6 text-orange-500 mr-2" />
-            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text">
+            <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
+            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text">
               Phase 4: Strategic Learning Plan
             </h2>
           </div>
@@ -79,11 +86,11 @@ export default function Phase4IntroPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-orange-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(24,17,28,0.78)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Target className="h-8 w-8 text-orange-500" />
-                <span className="bg-gradient-to-r from-orange-400 to-amber-500 bg-clip-text text-transparent">
+                <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text text-transparent">
                   Introduction to Strategic Planning
                 </span>
               </CardTitle>

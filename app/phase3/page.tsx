@@ -469,16 +469,20 @@ export default function Phase3Content() {
     router.push("/phase4")
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
-      {/* Animated stars background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
+  const phaseColor = {
+    bg1: "#1a1412",
+    bg2: "#4f3a36",
+    accent: "#f5c09a",
+    cardBorder: "rgba(245,192,154,0.35)",
+  }
 
-        {/* Nebula effect */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent opacity-30"></div>
+  return (
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+    >
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(245,192,154,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(128,82,62,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(245,192,154,0.05),transparent)]"></div>
       </div>
 
       {/* Add Module Bar */}
@@ -493,11 +497,11 @@ export default function Phase3Content() {
       />
 
       {/* Fixed Title Header */}
-      <div className="fixed top-0 left-0 right-0 z-20 bg-slate-900/95 backdrop-blur-md border-b border-purple-500/20 py-3 px-4">
+      <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(33,25,22,0.9)] backdrop-blur-md border-b border-[rgba(245,192,154,0.35)] py-3 px-4">
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <BookMarked className="h-6 w-6 text-purple-500 mr-2" />
-            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-purple-400 to-violet-500 bg-clip-text">
+            <BookMarked className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
+            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(245,192,154,1)] to-[rgba(255,210,180,1)] bg-clip-text">
               Phase 3: Effective Learning Strategies
             </h2>
           </div>
@@ -511,11 +515,11 @@ export default function Phase3Content() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-purple-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(26,19,17,0.75)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <BookMarked className="h-8 w-8 text-purple-500" />
-                <span className="bg-gradient-to-r from-purple-400 to-fuchsia-500 bg-clip-text text-transparent">
+                <BookMarked className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(245,192,154,1)] to-[rgba(255,210,180,1)] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
               </CardTitle>

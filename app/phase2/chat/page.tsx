@@ -29,8 +29,18 @@ export default function Phase2ChatPage() {
     router.push("/phase3")
   }
 
+  const phaseColor = {
+    bg1: "#0f1418",
+    bg2: "#1c2b2b",
+    accent: "#9be7c0",
+    cardBorder: "rgba(155,231,192,0.35)",
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+    >
       <div className="container mx-auto px-4">
         <ModuleBar currentPhase={2} />
 
@@ -40,11 +50,11 @@ export default function Phase2ChatPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-teal-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(20,26,28,0.8)] backdrop-blur-md border shadow-xl mb-6" style={{ borderColor: phaseColor.cardBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Target className="h-8 w-8 text-teal-500" />
-                <span className="bg-gradient-to-r from-teal-400 to-emerald-500 bg-clip-text text-transparent">
+                <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text text-transparent">
                   Define Your Learning Objective
                 </span>
               </CardTitle>

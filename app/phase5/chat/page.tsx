@@ -39,27 +39,31 @@ export default function Phase5ChatContent() {
     setIsComplete(true);
   }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white py-8">
-      {/* Animated background */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="stars"></div>
-        <div className="stars2"></div>
-        <div className="stars3"></div>
+  const phaseColor = {
+    bg1: "#171108",
+    bg2: "#4a422c",
+    accent: "#f7e3a5",
+    cardBorder: "rgba(247,227,165,0.35)",
+  }
 
-        {/* Nebula effect with amber tone */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-amber-900/10 via-transparent to-transparent opacity-30"></div>
+  return (
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+    >
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(247,227,165,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(122,106,60,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(247,227,165,0.05),transparent)]"></div>
       </div>
 
       {/* Add Module Bar */}
       <ModuleBar currentPhase={5} />
 
       {/* Fixed Title Header */}
-      <div className="fixed top-0 left-0 right-0 z-20 bg-gray-900/95 backdrop-blur-md border-b border-amber-500/20 py-3 px-4">
+      <div className="fixed top-0 left-0 right-0 z-20 bg-[rgba(24,18,12,0.9)] backdrop-blur-md border-b border-[rgba(247,227,165,0.35)] py-3 px-4">
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <LineChart className="h-7 w-7 text-amber-500 mr-2" />
-            <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
+            <LineChart className="h-7 w-7 mr-2" style={{ color: phaseColor.accent }} />
+            <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[rgba(247,227,165,1)] to-[rgba(255,240,200,1)] bg-clip-text text-transparent">
               Monitor Progress & Adapt Strategies
             </h1>
           </div>
@@ -73,11 +77,11 @@ export default function Phase5ChatContent() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto"
         >
-          <Card className="bg-gray-900/60 backdrop-blur-md border border-amber-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(24,18,12,0.8)] backdrop-blur-md border" style={{ borderColor: phaseColor.cardBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <LineChart className="h-8 w-8 text-amber-500" />
-                <span className="bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
+                <LineChart className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(247,227,165,1)] to-[rgba(255,240,200,1)] bg-clip-text text-transparent">
                   Create Your Monitoring System
                 </span>
               </CardTitle>
