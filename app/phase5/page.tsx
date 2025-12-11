@@ -391,21 +391,21 @@ export default function Phase5Content() {
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Pre-Assessment</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Pre-Assessment</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
                       </div>
-                      <ChevronRight className="h-5 w-5 text-slate-600" />
+                      <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: phaseColor.pill }}>
                           <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
                         </div>
-                        <span className="text-xs font-medium">Chat w/ SoL2LBot</span>
+                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Chat w/ SoL2LBot</span>
                       </div>
                     </div>
                   </div>
