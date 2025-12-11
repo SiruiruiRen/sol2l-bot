@@ -34,8 +34,21 @@ export default function ShortTermGoalPage() {
     setIsComplete(true);
   }
 
+  const phaseColor = {
+    bg1: "#161019",
+    bg2: "#46385c",
+    accent: "#d9c7ff",
+    cardBorder: "rgba(217,199,255,0.35)",
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-800 text-white py-8">
+    <div
+      className="min-h-screen text-white py-8"
+      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
+    >
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(217,199,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(111,86,140,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(217,199,255,0.05),transparent)]"></div>
+      </div>
       <div className="container mx-auto px-4">
         <ModuleBar currentPhase={4} />
         <motion.div
@@ -44,11 +57,11 @@ export default function ShortTermGoalPage() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto mt-16"
         >
-          <Card className="bg-slate-900/60 backdrop-blur-md border border-purple-500/30 shadow-xl mb-6">
+          <Card className="bg-[rgba(24,17,28,0.78)] backdrop-blur-md border shadow-xl mb-6" style={{ borderColor: phaseColor.cardBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <ListTodo className="h-8 w-8 text-purple-500" />
-                <span className="bg-gradient-to-r from-purple-400 to-fuchsia-500 bg-clip-text text-transparent">
+                <ListTodo className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <span className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text text-transparent">
                   Set Your SMART Objectives
                 </span>
               </CardTitle>
@@ -72,7 +85,7 @@ export default function ShortTermGoalPage() {
           <div className="flex justify-between mt-4">
             <Button
               variant="outline"
-              className="text-purple-400 border-purple-500/30 hover:bg-purple-900/20"
+              className="text-white/90 border-[rgba(217,199,255,0.35)] hover:bg-white/10"
               onClick={() => router.push('/phase4/tasks')}
             >
               <ChevronLeft className="h-4 w-4 mr-2" />
@@ -84,7 +97,7 @@ export default function ShortTermGoalPage() {
           {isComplete && (
             <div className="flex justify-center mt-6">
               <Button
-                className="bg-gradient-to-r from-purple-500 to-fuchsia-600 hover:from-purple-600 hover:to-fuchsia-700 text-white px-8 py-3 rounded-lg font-medium"
+                className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] text-[#1a1524] px-8 py-3 rounded-lg font-medium hover:opacity-90"
                 onClick={() => router.push('/phase4/tasks')}
               >
                 Continue to Next Task <ChevronRight className="h-4 w-4 ml-2" />
