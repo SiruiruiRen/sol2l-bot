@@ -17,7 +17,7 @@ Track design changes based on user feedback for research documentation and futur
 ## Recent Iterations (Last 6 Major Changes)
 
 ### Iteration 14: Evidence-Based Intro Content
-**Date**: 2025-12-12 | **Commit**: `[pending]` | **Status**: ✅ Complete
+**Date**: 2025-12-12 | **Commit**: `5c28e91` | **Status**: ✅ Complete
 **User Need**: "In the intro page, show the questions/pain points to the students, the core aim of the intervention, and the AI coach role, similar to the traditional intervention but with low cognitive load."
 **Key Changes**:
 - Updated the "Why this matters" section in `app/intro/page.tsx` to list specific student pain points (grades, time, retention) as questions.
