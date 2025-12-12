@@ -30,22 +30,28 @@ import ModuleBar from "@/components/module-bar"
 import VideoPlayer from "@/components/video-player"
 import { VerticalNav } from "@/components/vertical-nav"
 
-const phase2Colors = {
-  accent: "#9be7c0",
-  surface: "hsl(var(--card) / 0.82)",
-  cardBorder: "hsl(var(--border) / 0.65)",
-  pill: "hsl(var(--muted) / 0.35)",
-};
+const accent = "#d8b26f"
+const neutralSurface = "hsl(var(--card) / 0.9)"
+const neutralBorder = "hsl(var(--border) / 0.75)"
+const headerSurface = "hsl(var(--card) / 0.95)"
+const pillSurface = "hsl(var(--muted) / 0.4)"
+const mutedText = "hsl(var(--muted-foreground))"
+const primaryButtonStyle = {
+  backgroundImage: `linear-gradient(135deg, ${accent}, #e6c98c)`,
+  color: "#1f1408",
+  border: `1px solid ${neutralBorder}`,
+  boxShadow: "0 10px 24px rgba(0,0,0,0.14)",
+}
 
 const LearningObjectiveAnalysis = () => {
   return (
     <div
       className="p-4 rounded-lg border mb-4 max-w-4xl mx-auto"
-      style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}
+      style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
     >
-      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: phase2Colors.accent }}>
-        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: phase2Colors.pill }}>
-          <span style={{ color: phase2Colors.accent }}>🎯</span>
+      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: accent }}>
+        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: pillSurface }}>
+          <span style={{ color: accent }}>🎯</span>
         </div>
         Cognitive Levels of Understanding
       </h3>
@@ -56,25 +62,25 @@ const LearningObjectiveAnalysis = () => {
       {/* Visual hierarchy showing the three levels */}
       <div
         className="p-4 rounded-lg border mb-4"
-        style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}
+        style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
       >
         <div className="flex items-center justify-between mb-4 text-muted-foreground text-sm">
           <div className="text-center flex-1">
-            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Knowledge</div>
+            <div className="font-bold text-base mb-1" style={{ color: accent }}>Knowledge</div>
             <div>Define, List, Recall, Identify, Recite</div>
           </div>
           <div className="text-center flex-1">
-            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Comprehension</div>
+            <div className="font-bold text-base mb-1" style={{ color: accent }}>Comprehension</div>
             <div>Explain, Describe, Summarize, Interpret</div>
           </div>
           <div className="text-center flex-1">
-            <div className="font-bold text-base mb-1" style={{ color: phase2Colors.accent }}>Analysis</div>
+            <div className="font-bold text-base mb-1" style={{ color: accent }}>Analysis</div>
             <div>Compare, Analyze, Differentiate, Evaluate</div>
           </div>
         </div>
         
         <div className="mt-4 text-center text-muted-foreground text-sm">
-          <span className="font-medium" style={{ color: phase2Colors.accent }}>Key insight:</span> Different cognitive levels require different study strategies.
+          <span className="font-medium" style={{ color: accent }}>Key insight:</span> Different cognitive levels require different study strategies.
         </div>
       </div>
       
@@ -87,9 +93,9 @@ const LearningObjectiveAnalysis = () => {
           <div
             key={item.title}
             className="p-3 rounded border"
-            style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}
+            style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
           >
-            <p className="font-medium mb-1" style={{ color: phase2Colors.accent }}>{item.title}</p>
+            <p className="font-medium mb-1" style={{ color: accent }}>{item.title}</p>
             <p className="text-muted-foreground">{item.text}</p>
           </div>
         ))}
@@ -100,10 +106,10 @@ const LearningObjectiveAnalysis = () => {
 
 const PriorKnowledgeResourceAnalysis = () => {
   return (
-    <div className="p-4 rounded-lg border mb-4 max-w-4xl mx-auto" style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}>
-      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: phase2Colors.accent }}>
-        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: phase2Colors.pill }}>
-          <span style={{ color: phase2Colors.accent }}>📚</span>
+    <div className="p-4 rounded-lg border mb-4 max-w-4xl mx-auto" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+      <h3 className="text-lg font-medium mb-2 flex items-center gap-2" style={{ color: accent }}>
+        <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ backgroundColor: pillSurface }}>
+          <span style={{ color: accent }}>📚</span>
         </div>
         Why Prior Knowledge & Resources Matter
       </h3>
@@ -113,35 +119,35 @@ const PriorKnowledgeResourceAnalysis = () => {
       </p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="p-3 rounded border" style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}>
-          <h4 className="text-sm font-medium mb-2 flex items-center" style={{ color: phase2Colors.accent }}>
+        <div className="p-3 rounded border" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+          <h4 className="text-sm font-medium mb-2 flex items-center" style={{ color: accent }}>
             <Search className="h-4 w-4 mr-1" />
             Analyzing Prior Knowledge:
           </h4>
           <ul className="space-y-1">
             <li className="flex items-center text-muted-foreground text-sm">
-              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: phase2Colors.accent }}></div>
+              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: accent }}></div>
               Recognize knowledge gaps to address
             </li>
             <li className="flex items-center text-muted-foreground text-sm">
-              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: phase2Colors.accent }}></div>
+              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: accent }}></div>
               Connect new ideas to existing mental models
             </li>
           </ul>
         </div>
         
-        <div className="p-3 rounded border" style={{ backgroundColor: phase2Colors.surface, borderColor: phase2Colors.cardBorder }}>
-          <h4 className="text-sm font-medium mb-2 flex items-center" style={{ color: phase2Colors.accent }}>
+        <div className="p-3 rounded border" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
+          <h4 className="text-sm font-medium mb-2 flex items-center" style={{ color: accent }}>
             <BookOpen className="h-4 w-4 mr-1" />
             Selecting Effective Resources:
           </h4>
           <ul className="space-y-1">
             <li className="flex items-center text-muted-foreground text-sm">
-              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: phase2Colors.accent }}></div>
+              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: accent }}></div>
               Choose materials appropriate to your level
             </li>
             <li className="flex items-center text-muted-foreground text-sm">
-              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: phase2Colors.accent }}></div>
+              <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: accent }}></div>
               Seek diverse formats for complex topics
             </li>
           </ul>
@@ -197,7 +203,7 @@ const KnowledgeCheckQuestion = ({
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="h-10 w-10 rounded-full flex items-center justify-center" style={{ backgroundColor: pill }}>
-              <HelpCircle className="h-5 w-5" style={{ color: phase2Colors.accent }} />
+              <HelpCircle className="h-5 w-5" style={{ color: accent }} />
             </div>
             <h3 className="text-lg font-bold text-foreground">Knowledge Check {questionIndex + 1}</h3>
           </div>
@@ -287,7 +293,7 @@ const KnowledgeCheckQuestion = ({
                 onClick={handleSubmit}
                 disabled={!selectedOption}
                 className="shadow-md disabled:opacity-50"
-                style={{ background: "linear-gradient(135deg, #9be7c0, #b4f1d4)", color: "#0f172a" }}
+                style={primaryButtonStyle}
               >
                 Submit Answer
               </Button>
@@ -307,8 +313,8 @@ const KnowledgeCheckQuestion = ({
           {submitted && isCorrect && questionIndex < totalQuestions - 1 && (
             <Button
               onClick={onNextQuestion}
-                className="flex items-center gap-2 shadow-md"
-                style={{ background: "linear-gradient(135deg, #9be7c0, #b4f1d4)", color: "#0f172a" }}
+              className="flex items-center gap-2 shadow-md"
+              style={primaryButtonStyle}
             >
               Next Question <ArrowRight className="h-4 w-4" />
             </Button>
@@ -435,13 +441,7 @@ export default function Phase2Page() {
     }
   }, [])
 
-  const accent = "#d8b26f"
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
-  const neutralSurface = "hsl(var(--card) / 0.9)"
-  const neutralBorder = "hsl(var(--border) / 0.75)"
-  const headerSurface = "hsl(var(--card) / 0.95)"
-  const pillSurface = "hsl(var(--muted) / 0.4)"
-  const mutedText = "hsl(var(--muted-foreground))"
 
   return (
     <div
@@ -488,7 +488,7 @@ export default function Phase2Page() {
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
                 <Target className="h-8 w-8" style={{ color: accent }} />
-                <span className="bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#d8b26f] to-[#e6c98c] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
               </CardTitle>
