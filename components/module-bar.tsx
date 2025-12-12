@@ -420,7 +420,11 @@ export default function ModuleBar({ currentPhase = 0 }: ModuleBarProps) {
             {/* Background Path - positioned to not overlap with icons */}
             <div
               className="absolute top-[60px] bottom-0 w-0.5 left-1/2 transform -translate-x-1/2"
-              style={{ backgroundColor: "hsl(var(--muted) / 0.35)", height: "calc(100% - 120px)" }}
+              style={{
+                height: "calc(100% - 120px)",
+                backgroundImage:
+                  "repeating-linear-gradient(to bottom, hsl(var(--muted) / 0.45), hsl(var(--muted) / 0.45) 8px, transparent 8px, transparent 16px)"
+              }}
             />
             
             {/* Start point */}

@@ -435,9 +435,7 @@ export default function Phase2Page() {
     }
   }, [])
 
-  const phaseColor = {
-    accent: "#d8b26f",
-  }
+  const accent = "#d8b26f"
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
   const neutralSurface = "hsl(var(--card) / 0.9)"
   const neutralBorder = "hsl(var(--border) / 0.75)"
@@ -451,7 +449,7 @@ export default function Phase2Page() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(155,231,192,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(116,180,150,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(155,231,192,0.05),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(216,178,111,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(0,0,0,0.04),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(216,178,111,0.05),transparent)]"></div>
       </div>
 
       <div className="container mx-auto px-4">
@@ -461,12 +459,12 @@ export default function Phase2Page() {
           style={{ backgroundColor: headerSurface, borderColor: neutralBorder }}
         >
           <div className="container mx-auto">
-            <div className="flex items-center justify-center">
-              <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text">
-                Phase 2: Understand Your Tasks
-              </h2>
-            </div>
+          <div className="flex items-center justify-center">
+            <Target className="h-6 w-6 mr-2" style={{ color: accent }} />
+            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text">
+              Phase 2: Understand Your Tasks
+            </h2>
+          </div>
           </div>
         </div>
         <VerticalNav
@@ -503,37 +501,37 @@ export default function Phase2Page() {
                     className="p-4 rounded-lg border mb-6 text-left"
                     style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
                   >
-                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: accent }}>
                       <Map className="h-5 w-5" />
                       Phase 2 Workflow
                     </h3>
                     <div className="flex items-center justify-center space-x-2 sm:space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Target className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Target className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Analyze Tasks</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Analyze Tasks</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <FileQuestion className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Knowledge Check</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Knowledge Check</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Video className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <MessageCircle className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Chat w/ SoL2LBot</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Chat w/ SoL2LBot</span>
                       </div>
                     </div>
                   </div>
