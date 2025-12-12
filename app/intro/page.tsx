@@ -196,10 +196,10 @@ export default function IntroPage() {
               <CardHeader className="space-y-3">
                 <div className="flex items-center justify-center gap-3">
                   <Compass className="h-8 w-8" style={{ color: accent }} />
-                  <CardTitle className="text-2xl font-bold text-center">Welcome to SoLBot</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-center">Upgrade Your Learning in 60 Minutes</CardTitle>
                 </div>
                 <p className="text-center text-base" style={{ color: mutedText }}>
-                  A warm, low-distraction introduction to the learning intervention.
+                  Master evidence-based strategies to study smarter, not harder.
                 </p>
               </CardHeader>
             </Card>
@@ -327,11 +327,11 @@ export default function IntroPage() {
           >
             <Card style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold">Start the intervention</CardTitle>
+                <CardTitle className="text-xl font-semibold">Start your personalized session</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-sm" style={{ color: mutedText }}>
-                  Provide these details to personalize your run. Everything stays aligned with the warm light/dark palette for readability.
+                  We'll customize the AI coach to your specific context.
                 </p>
                 {isClient ? (
                   <div className="space-y-4">
