@@ -16,6 +16,17 @@ Track design changes based on user feedback for research documentation and futur
 
 ## Recent Iterations (Last 6 Major Changes)
 
+### Iteration 14: Evidence-Based Intro Content
+**Date**: 2025-12-12 | **Commit**: `[pending]` | **Status**: ✅ Complete
+**User Need**: "In the intro page, show the questions/pain points to the students, the core aim of the intervention, and the AI coach role, similar to the traditional intervention but with low cognitive load."
+**Key Changes**:
+- Updated the "Why this matters" section in `app/intro/page.tsx` to list specific student pain points (grades, time, retention) as questions.
+- Explicitly stated the core aim: teaching evidence-based strategies proven to improve performance.
+- Highlighted the "AI-Guided Coaching" role of SoLBot in applying these skills.
+- Formatted content as concise lists and bullet points to maintain low cognitive load within the warm single-column layout.
+**Files Modified**: `app/intro/page.tsx`
+**Research Impact**: Aligns the digital intervention's framing with the original research protocol's "traditional" introduction, ensuring participants understand the relevance (pain points) and mechanism (AI coaching) of the study.
+
 ### Iteration 13: Warm Intro + Phase 4/6 Unification
 **Date**: 2025-12-11 | **Commit**: `d130220` | **Status**: ✅ Complete  
 **User Need**: “Intro is too colorful and split into two columns; make it single-column and align all remaining pages with the warm light/dark palette.”  

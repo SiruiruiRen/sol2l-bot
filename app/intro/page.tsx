@@ -214,22 +214,38 @@ export default function IntroPage() {
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">Why this matters</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3 text-sm" style={{ color: mutedText }}>
-                <p>
-                  This intervention pairs evidence-based strategies with guided reflection to help you improve learning efficiency without overwhelming visuals.
-                </p>
+              <CardContent className="space-y-4 text-sm" style={{ color: mutedText }}>
                 <div className="space-y-2">
+                  <p className="font-medium text-foreground">Do any of these sound familiar?</p>
+                  <ul className="space-y-1 ml-1">
+                    <li className="flex items-start gap-2">
+                      <span style={{ color: accent }}>•</span>
+                      Are you having trouble achieving the grades you want?
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span style={{ color: accent }}>•</span>
+                      Is studying taking too much of your time?
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span style={{ color: accent }}>•</span>
+                      Do you soon forget what you studied?
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-2">
+                  <p className="font-medium text-foreground">The SoLBot Advantage</p>
                   <div className="flex items-start gap-2">
-                    <Sparkles className="h-4 w-4" style={{ color: accent }} />
-                    <p>Grounded in cognitive science and self-regulated learning research.</p>
+                    <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: accent }} />
+                    <p>
+                      <strong>Evidence-Based:</strong> This training teaches strategies proven to improve exam scores and course grades compared to standard studying.
+                    </p>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Sparkles className="h-4 w-4" style={{ color: accent }} />
-                    <p>Six phases with AI guidance, quick checks, and reflection prompts.</p>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <Sparkles className="h-4 w-4" style={{ color: accent }} />
-                    <p>Warm palettes for both light and dark modes to reduce visual noise.</p>
+                    <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: accent }} />
+                    <p>
+                      <strong>AI-Guided Coaching:</strong> SoLBot acts as your personal coach, providing interactive lessons and feedback to help you apply these skills directly to your current course.
+                    </p>
                   </div>
                 </div>
               </CardContent>
