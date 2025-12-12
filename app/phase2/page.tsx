@@ -487,7 +487,7 @@ export default function Phase2Page() {
           >
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
+                <Target className="h-8 w-8" style={{ color: accent }} />
                 <span className="bg-gradient-to-r from-[rgba(155,231,192,1)] to-[rgba(174,242,210,1)] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
@@ -566,7 +566,7 @@ export default function Phase2Page() {
                     className="mt-4 p-3 rounded-lg text-center border"
                     style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
                   >
-                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                    <p className="font-semibold" style={{ color: accent }}>After the video:</p>
                     <p className="text-muted-foreground text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
                   </div>
                 </div>
