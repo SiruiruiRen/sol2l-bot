@@ -510,14 +510,7 @@ export default function Phase3Content() {
     router.push("/phase4")
   }
 
-  const phaseColor = {
-    bg1: "#1a1412",
-    bg2: "#4f3a36",
-    accent: "#f5c09a",
-    cardBorder: "rgba(245,192,154,0.28)",
-    surface: "rgba(26,19,17,0.72)",
-    pill: "rgba(245,192,154,0.15)",
-  }
+  const accent = "#d8b26f"
 
   // Theme-aware neutrals so light/dark share the same structure
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
@@ -554,8 +547,8 @@ export default function Phase3Content() {
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <BookMarked className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(245,192,154,1)] to-[rgba(255,210,180,1)] bg-clip-text">
+            <BookMarked className="h-6 w-6 mr-2" style={{ color: accent }} />
+            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text">
               Phase 3: Effective Learning Strategies
             </h2>
           </div>
@@ -590,28 +583,28 @@ export default function Phase3Content() {
                       border: `1px solid ${neutralBorder}`,
                     }}
                   >
-                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: accent }}>
                       <Map className="h-5 w-5" />
                       Phase 3 Workflow
                     </h3>
                     <div className="flex items-center justify-center space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <BookOpen className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <BookOpen className="h-6 w-6" style={{ color: accent }} />
                         </div>
                         <span className="text-xs font-medium">Learn Strategies</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Video className="h-6 w-6" style={{ color: accent }} />
                         </div>
                         <span className="text-xs font-medium">Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <FileQuestion className="h-6 w-6" style={{ color: accent }} />
                         </div>
                         <span className="text-xs font-medium">Knowledge Check</span>
                       </div>
@@ -633,18 +626,18 @@ export default function Phase3Content() {
                       borderColor: neutralBorder,
                     }}
                   >
-                    <h3 className="text-lg font-medium mb-2" style={{ color: phaseColor.accent }}>In This Phase You'll Learn:</h3>
+                    <h3 className="text-lg font-medium mb-2" style={{ color: accent }}>In This Phase You'll Learn:</h3>
                     <div className="space-y-2">
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>📊</div>
+                        <div className="mt-0.5" style={{ color: accent }}>📊</div>
                         <p className="text-muted-foreground">How to use evidence-based learning strategies</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🔄</div>
+                        <div className="mt-0.5" style={{ color: accent }}>🔄</div>
                         <p className="text-muted-foreground">The power of spacing effect and distributed practice</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🧠</div>
+                        <div className="mt-0.5" style={{ color: accent }}>🧠</div>
                         <p className="text-muted-foreground">Self-explanation techniques for deeper understanding</p>
                       </div>
                     </div>
@@ -684,7 +677,7 @@ export default function Phase3Content() {
                       borderColor: neutralBorder,
                     }}
                   >
-                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                    <p className="font-semibold" style={{ color: accent }}>After the video:</p>
                     <p className="text-muted-foreground text-sm">You will proceed to the next Knowledge Check.</p>
                   </div>
                 </div>

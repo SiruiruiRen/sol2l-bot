@@ -45,10 +45,10 @@ const KnowledgeCheckQuestion = ({
   const [isCorrect, setIsCorrect] = useState(false);
   const explanation = isCorrect ? question.explanation : (question.explanations && selectedOption ? question.explanations[selectedOption] : question.explanation);
 
-  const accent = "#f7e3a5"
-  const surface = "hsl(var(--card) / 0.82)"
-  const border = "hsl(var(--border) / 0.65)"
-  const pill = "hsl(var(--muted) / 0.35)"
+  const accent = "#d8b26f"
+  const surface = "hsl(var(--card) / 0.9)"
+  const border = "hsl(var(--border) / 0.75)"
+  const pill = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   const handleSubmit = () => {
@@ -170,7 +170,8 @@ const KnowledgeCheckQuestion = ({
               <Button
                 onClick={handleSubmit}
                 disabled={!selectedOption}
-                className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 shadow-lg shadow-indigo-500/30 disabled:opacity-50"
+                className="shadow-md disabled:opacity-50"
+                style={{ background: "linear-gradient(135deg, #d8b26f, #c89b51)", color: "#3b2a1c" }}
               >
                 Submit Answer
               </Button>
@@ -178,7 +179,8 @@ const KnowledgeCheckQuestion = ({
               <Button
                 onClick={handleTryAgain}
                 variant="outline"
-                className="border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 hover:text-indigo-300"
+                className="hover:bg-[hsl(var(--muted)_/_0.25)]"
+                style={{ borderColor: border, color: mutedText }}
               >
                 Try Again
               </Button>
@@ -190,7 +192,7 @@ const KnowledgeCheckQuestion = ({
               <Button
                 onClick={onNextQuestion}
                 className="flex items-center gap-2 shadow-md"
-                style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
+                style={{ background: "linear-gradient(135deg, #d8b26f, #c89b51)", color: "#3b2a1c" }}
               >
                 Next Question <ArrowRight className="h-4 w-4" />
               </Button>
@@ -330,20 +332,12 @@ export default function Phase5Content() {
     router.push("/phase5/chat")
   }
 
-  const phaseColor = {
-    bg1: "#171108",
-    bg2: "#4a422c",
-    accent: "#f7e3a5",
-    cardBorder: "rgba(247,227,165,0.35)",
-    surface: "rgba(24,18,12,0.8)",
-    pill: "rgba(247,227,165,0.15)",
-  }
-
-  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%)"
-  const neutralSurface = "hsl(var(--card) / 0.82)"
-  const neutralBorder = "hsl(var(--border) / 0.65)"
-  const headerSurface = "hsl(var(--card) / 0.9)"
-  const pillSurface = "hsl(var(--muted) / 0.35)"
+  const accent = "#d8b26f"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.9)"
+  const neutralBorder = "hsl(var(--border) / 0.75)"
+  const headerSurface = "hsl(var(--card) / 0.95)"
+  const pillSurface = "hsl(var(--muted) / 0.4)"
   const mutedText = "hsl(var(--muted-foreground))"
 
   return (
@@ -352,7 +346,7 @@ export default function Phase5Content() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(247,227,165,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(122,106,60,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(247,227,165,0.05),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(216,178,111,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(0,0,0,0.04),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(216,178,111,0.05),transparent)]"></div>
       </div>
 
         <ModuleBar currentPhase={5} />
@@ -363,8 +357,8 @@ export default function Phase5Content() {
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <Brain className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(247,227,165,1)] to-[rgba(255,240,200,1)] bg-clip-text">
+            <Brain className="h-6 w-6 mr-2" style={{ color: accent }} />
+            <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text">
               Phase 5: Monitor & Adaptation
             </h2>
           </div>
@@ -389,8 +383,8 @@ export default function Phase5Content() {
           <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Brain className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                <span className="bg-gradient-to-r from-[rgba(247,227,165,1)] to-[rgba(255,240,200,1)] bg-clip-text text-transparent">
+                <Brain className="h-8 w-8" style={{ color: accent }} />
+                <span className="bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text text-transparent">
                   {cards[currentCardIndex].title}
                 </span>
               </CardTitle>
@@ -404,30 +398,30 @@ export default function Phase5Content() {
                     className="p-4 rounded-lg border mb-6 text-left"
                     style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}
                   >
-                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: accent }}>
                       <Map className="h-5 w-5" />
                       Phase 5 Workflow
                     </h3>
                     <div className="flex items-center justify-center space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <FileQuestion className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <FileQuestion className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Pre-Assessment</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Pre-Assessment</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Video className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Watch Video</span>
                       </div>
                       <ChevronRight className="h-5 w-5 text-slate-500" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <MessageCircle className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <MessageCircle className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Chat w/ SoL2LBot</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Chat w/ SoL2LBot</span>
                       </div>
                     </div>
                   </div>
@@ -466,7 +460,7 @@ export default function Phase5Content() {
                     videoTitle="Monitoring Your Learning"
                   />
                   <div className="mt-4 p-3 rounded-lg border text-center" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
-                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                    <p className="font-semibold" style={{ color: accent }}>After the video:</p>
                     <p className="text-muted-foreground text-sm">You will proceed to an interactive chat with SoL2LBot.</p>
                   </div>
                 </div>
@@ -487,7 +481,7 @@ export default function Phase5Content() {
                 {currentCardIndex < cards.length - 1 ? (
                   <Button 
                     className="shadow-md"
-                    style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
+                    style={{ background: "linear-gradient(135deg, #d8b26f, #c89b51)", color: "#3b2a1c" }}
                     onClick={nextCard}
                     disabled={currentCardIndex === 1 && !quizCompleted}
                   >
@@ -496,7 +490,7 @@ export default function Phase5Content() {
                 ) : (
                   <Button 
                     className="px-6 py-2 rounded-lg shadow-md"
-                    style={{ background: "linear-gradient(135deg, #f7e3a5, #f7cfa5)", color: "#1a1412" }}
+                    style={{ background: "linear-gradient(135deg, #d8b26f, #c89b51)", color: "#3b2a1c" }}
                     onClick={handleComplete}
                   >
                     Continue to Chat <ChevronRight className="h-4 w-4 ml-2" />

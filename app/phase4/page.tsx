@@ -50,11 +50,7 @@ export default function Phase4IntroPage() {
     }
   };
 
-  const phaseColor = {
-    accent: "#c2a7ff",
-    border: "rgba(194,167,255,0.5)",
-  }
-
+  const accent = "#d8b26f"
   const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
   const neutralSurface = "hsl(var(--card) / 0.9)"
   const neutralBorder = "hsl(var(--border) / 0.75)"
@@ -68,7 +64,7 @@ export default function Phase4IntroPage() {
       style={{ background: canvasGradient }}
     >
       <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(194,167,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(120,90,150,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(194,167,255,0.05),transparent)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(216,178,111,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(0,0,0,0.04),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(216,178,111,0.05),transparent)]"></div>
       </div>
 
       <ModuleBar currentPhase={4} />
@@ -79,8 +75,8 @@ export default function Phase4IntroPage() {
         >
         <div className="container mx-auto">
           <div className="flex items-center justify-center">
-            <Target className="h-6 w-6 mr-2" style={{ color: phaseColor.accent }} />
-              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(194,167,255,1)] to-[rgba(220,200,255,1)] bg-clip-text">
+              <Target className="h-6 w-6 mr-2" style={{ color: accent }} />
+              <h2 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text">
               Phase 4: Strategic Learning Plan
             </h2>
           </div>
@@ -97,8 +93,8 @@ export default function Phase4IntroPage() {
           <Card className="backdrop-blur-md border" style={{ borderColor: neutralBorder, backgroundColor: neutralSurface }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <Target className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                <span className="bg-gradient-to-r from-[rgba(194,167,255,1)] to-[rgba(220,200,255,1)] bg-clip-text text-transparent">
+                <Target className="h-8 w-8" style={{ color: accent }} />
+                <span className="bg-gradient-to-r from-[rgba(216,178,111,1)] to-[rgba(216,178,111,0.9)] bg-clip-text text-transparent">
                   Introduction to Strategic Planning
                 </span>
               </CardTitle>
@@ -114,30 +110,30 @@ export default function Phase4IntroPage() {
                       borderColor: neutralBorder,
                     }}
                   >
-                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: phaseColor.accent }}>
+                    <h3 className="text-lg font-medium mb-3 flex items-center gap-2" style={{ color: accent }}>
                       <Map className="h-5 w-5" />
                       Phase 4 Workflow
                     </h3>
                     <div className="flex items-center justify-center space-x-4 text-foreground">
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Video className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Video className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Watch Video</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Watch Video</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Edit className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Edit className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>Build Plan</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>Build Plan</span>
                       </div>
                       <ChevronRightIcon className="h-5 w-5 text-slate-600" />
                       <div className="flex flex-col items-center text-center">
                         <div className="p-2 rounded-full mb-1" style={{ backgroundColor: pillSurface }}>
-                          <Bot className="h-6 w-6" style={{ color: phaseColor.accent }} />
+                          <Bot className="h-6 w-6" style={{ color: accent }} />
                         </div>
-                        <span className="text-xs font-medium" style={{ color: phaseColor.accent }}>AI Coaching</span>
+                        <span className="text-xs font-medium" style={{ color: accent }}>AI Coaching</span>
                       </div>
                     </div>
                   </div>
@@ -152,19 +148,19 @@ export default function Phase4IntroPage() {
                       borderColor: neutralBorder,
                     }}
                   >
-                    <h3 className="text-lg font-medium mb-3" style={{ color: phaseColor.accent }}>📋 What's in This Phase:</h3>
+                    <h3 className="text-lg font-medium mb-3" style={{ color: accent }}>📋 What's in This Phase:</h3>
                     <div className="grid grid-cols-1 gap-3 text-sm">
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🎥</div>
-                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
+                        <div className="mt-0.5" style={{ color: accent }}>🎥</div>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: accent }}>Video:</span> Learn the MCII technique (Mental Contrasting with Implementation Intentions)</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>📝</div>
-                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
+                        <div className="mt-0.5" style={{ color: accent }}>📝</div>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: accent }}>3 Strategic Tasks:</span> Long-term goals, SMART objectives, and contingency plans</p>
                       </div>
                       <div className="flex items-start gap-2">
-                        <div className="mt-0.5" style={{ color: phaseColor.accent }}>🤖</div>
-                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: phaseColor.accent }}>AI Coaching:</span> Personalized feedback to refine each task</p>
+                        <div className="mt-0.5" style={{ color: accent }}>🤖</div>
+                        <p className="text-muted-foreground"><span className="font-medium" style={{ color: accent }}>AI Coaching:</span> Personalized feedback to refine each task</p>
                       </div>
                     </div>
                   </div>
@@ -191,7 +187,7 @@ export default function Phase4IntroPage() {
                       border: `1px solid ${neutralBorder}`,
                     }}
                   >
-                    <p className="font-semibold" style={{ color: phaseColor.accent }}>After the video:</p>
+                    <p className="font-semibold" style={{ color: accent }}>After the video:</p>
                     <p className="text-muted-foreground text-sm">You will proceed to interactive tasks to build your strategic plan.</p>
                   </div>
                 </div>
