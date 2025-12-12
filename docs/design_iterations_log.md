@@ -17,7 +17,7 @@ Track design changes based on user feedback for research documentation and futur
 ## Recent Iterations (Last 6 Major Changes)
 
 ### Iteration 13: Warm Intro + Phase 4/6 Unification
-**Date**: 2025-12-11 | **Commit**: `[pending]` | **Status**: ✅ Complete  
+**Date**: 2025-12-11 | **Commit**: `d130220` | **Status**: ✅ Complete  
 **User Need**: “Intro is too colorful and split into two columns; make it single-column and align all remaining pages with the warm light/dark palette.”  
 **Key Changes**: 
 - Rebuilt the intro page to a single-column, low-noise layout using global theme tokens and a warm gold accent; removed legacy gradients and per-phase colors.
