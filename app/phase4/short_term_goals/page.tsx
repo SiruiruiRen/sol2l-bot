@@ -14,6 +14,18 @@ export default function ShortTermGoalPage() {
   const [userId, setUserId] = useState<string | null>(null)
   const [isComplete, setIsComplete] = useState(false)
 
+  const accent = "#d8b26f"
+  const canvasGradient = "linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted) / 0.85) 100%)"
+  const neutralSurface = "hsl(var(--card) / 0.96)"
+  const neutralBorder = "hsl(var(--border) / 0.8)"
+  const mutedText = "hsl(var(--muted-foreground))"
+  const primaryButtonStyle = {
+    backgroundImage: `linear-gradient(135deg, ${accent}, #e6c98c)`,
+    color: "#1f1408",
+    border: `1px solid ${neutralBorder}`,
+    boxShadow: "0 10px 24px rgba(0,0,0,0.12)",
+  }
+
   useEffect(() => {
     const storedUserId = localStorage.getItem("user_id")
     if (storedUserId) {
@@ -34,39 +46,24 @@ export default function ShortTermGoalPage() {
     setIsComplete(true);
   }
 
-  const phaseColor = {
-    bg1: "#161019",
-    bg2: "#46385c",
-    accent: "#d9c7ff",
-    cardBorder: "rgba(217,199,255,0.35)",
-  }
-
   return (
-    <div
-      className="min-h-screen text-white py-8"
-      style={{ background: `linear-gradient(180deg, ${phaseColor.bg1} 0%, ${phaseColor.bg2} 100%)` }}
-    >
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div className="absolute inset-0 bg-[radial-gradient(120%_120%_at_20%_10%,rgba(217,199,255,0.08),transparent),radial-gradient(140%_120%_at_80%_20%,rgba(111,86,140,0.08),transparent),radial-gradient(160%_140%_at_50%_80%,rgba(217,199,255,0.05),transparent)]"></div>
-      </div>
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen text-foreground" style={{ background: canvasGradient }}>
+      <div className="container mx-auto px-4 py-8">
         <ModuleBar currentPhase={4} />
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto mt-16"
+          transition={{ duration: 0.35 }}
+          className="max-w-4xl mx-auto mt-10"
         >
-          <Card className="bg-[rgba(24,17,28,0.78)] backdrop-blur-md border shadow-xl mb-6" style={{ borderColor: phaseColor.cardBorder }}>
+          <Card className="shadow-sm" style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
             <CardHeader className="pb-2">
               <CardTitle className="flex items-center justify-center gap-3 text-2xl md:text-3xl font-bold text-center">
-                <ListTodo className="h-8 w-8" style={{ color: phaseColor.accent }} />
-                <span className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] bg-clip-text text-transparent">
-                  Set Your SMART Objectives
-                </span>
+                <ListTodo className="h-8 w-8" style={{ color: accent }} />
+                <span>Set Your SMART Objectives</span>
               </CardTitle>
             </CardHeader>
-            <CardContent className="min-h-[700px] p-2">
+            <CardContent className="min-h-[620px] p-3 text-sm" style={{ color: mutedText }}>
               {userId ? (
                 <GuidedShortTermGoal
                   userId={userId}
@@ -85,7 +82,8 @@ export default function ShortTermGoalPage() {
           <div className="flex justify-between mt-4">
             <Button
               variant="outline"
-              className="text-white/90 border-[rgba(217,199,255,0.35)] hover:bg-white/10"
+              className="border"
+              style={{ borderColor: neutralBorder, color: "hsl(var(--foreground))" }}
               onClick={() => router.push('/phase4/tasks')}
             >
               <ChevronLeft className="h-4 w-4 mr-2" />
@@ -93,11 +91,11 @@ export default function ShortTermGoalPage() {
             </Button>
           </div>
           
-          {/* Centered Continue Button */}
           {isComplete && (
             <div className="flex justify-center mt-6">
               <Button
-                className="bg-gradient-to-r from-[rgba(217,199,255,1)] to-[rgba(239,228,255,1)] text-[#1a1524] px-8 py-3 rounded-lg font-medium hover:opacity-90"
+                className="px-8 py-3 rounded-lg font-semibold"
+                style={primaryButtonStyle}
                 onClick={() => router.push('/phase4/tasks')}
               >
                 Continue to Next Task <ChevronRight className="h-4 w-4 ml-2" />
@@ -108,4 +106,5 @@ export default function ShortTermGoalPage() {
       </div>
     </div>
   )
-} 
+}
+
