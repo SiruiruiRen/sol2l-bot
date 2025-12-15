@@ -196,10 +196,12 @@ export default function IntroPage() {
               <CardHeader className="space-y-3">
                 <div className="flex items-center justify-center gap-3">
                   <Compass className="h-8 w-8" style={{ color: accent }} />
-                  <CardTitle className="text-2xl font-bold text-center">Upgrade Your Learning in 60 Minutes</CardTitle>
+                  <CardTitle className="text-2xl font-bold text-center">
+                    Science of Learning to Learn Bot
+                  </CardTitle>
                 </div>
                 <p className="text-center text-base" style={{ color: mutedText }}>
-                  Master evidence-based strategies to study smarter, not harder.
+                  A 60-minute, evidence-based session to help you study more effectively for this course.
                 </p>
               </CardHeader>
             </Card>
