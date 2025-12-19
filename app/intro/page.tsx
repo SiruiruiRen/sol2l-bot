@@ -79,6 +79,7 @@ export default function IntroPage() {
   const [userYear, setUserYear] = useState("")
   const [userMajor, setUserMajor] = useState("")
   const [challengingCourse, setChallengingCourse] = useState("")
+  const [coachTone, setCoachTone] = useState("balanced")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isClient, setIsClient] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
@@ -129,6 +130,7 @@ export default function IntroPage() {
       year: userYear,
       major: userMajor,
       challenging_course: challengingCourse,
+      coach_tone: coachTone,
     }
 
     try {
@@ -153,6 +155,7 @@ export default function IntroPage() {
       localStorage.setItem("session_id", result.data.session_id);
       localStorage.setItem("user_id", result.data.user_id);
       localStorage.setItem("solbot_user_name", userName);
+      localStorage.setItem("solbot_coach_tone", coachTone);
 
       router.push("/phase1");
 
@@ -201,7 +204,7 @@ export default function IntroPage() {
                   </CardTitle>
                 </div>
                 <p className="text-center text-base" style={{ color: mutedText }}>
-                  A 60-minute, evidence-based session to help you study more effectively for this course.
+                  A 60-minute, evidence-based session to help you study more effectively.
                 </p>
               </CardHeader>
             </Card>
@@ -246,7 +249,7 @@ export default function IntroPage() {
                   <div className="flex items-start gap-2">
                     <Sparkles className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: accent }} />
                     <p>
-                      <strong>AI-Guided Coaching:</strong> SoLBot acts as your personal coach, providing interactive lessons and feedback to help you apply these skills directly to your current course.
+                      <strong>AI-Guided Coaching:</strong> SoLBot acts as your personal coach, providing interactive lessons and feedback to help you apply these skills to any course you choose.
                     </p>
                   </div>
                 </div>
@@ -261,7 +264,7 @@ export default function IntroPage() {
           >
             <Card style={{ backgroundColor: neutralSurface, borderColor: neutralBorder }}>
               <CardHeader>
-                <CardTitle className="text-xl font-semibold">Intervention structure</CardTitle>
+                <CardTitle className="text-xl font-semibold">Your learning journey</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
                 {phaseInfo.map((phase, index) => (
@@ -397,15 +400,42 @@ export default function IntroPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="course" className="text-sm font-medium text-foreground">Current Course or Research Project</Label>
+                      <Label htmlFor="course" className="text-sm font-medium text-foreground">
+                        Target Course <span className="text-xs font-normal" style={{ color: mutedText }}>(optional – for planning examples)</span>
+                      </Label>
                       <Input
                         id="course"
                         value={challengingCourse}
                         onChange={(e) => setChallengingCourse(e.target.value)}
                         className="border"
                         style={{ backgroundColor: "hsl(var(--card))", borderColor: neutralBorder, color: "hsl(var(--foreground))" }}
-                        placeholder="Enter your current course or research project"
+                        placeholder="e.g., Organic Chemistry, Research Methods"
                       />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label className="text-sm font-medium text-foreground">How should SoLBot communicate with you?</Label>
+                      <div className="flex gap-2">
+                        {[
+                          { value: "warm", label: "Warm & encouraging" },
+                          { value: "balanced", label: "Balanced" },
+                          { value: "direct", label: "Concise & direct" },
+                        ].map((option) => (
+                          <button
+                            key={option.value}
+                            type="button"
+                            onClick={() => setCoachTone(option.value)}
+                            className="flex-1 px-3 py-2 rounded-lg text-sm font-medium border transition-all"
+                            style={{
+                              backgroundColor: coachTone === option.value ? accent : "hsl(var(--card))",
+                              borderColor: coachTone === option.value ? accent : neutralBorder,
+                              color: coachTone === option.value ? "#1f1408" : "hsl(var(--foreground))",
+                            }}
+                          >
+                            {option.label}
+                          </button>
+                        ))}
+                      </div>
                     </div>
 
                     <Button
