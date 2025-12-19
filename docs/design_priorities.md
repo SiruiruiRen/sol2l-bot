@@ -15,21 +15,24 @@ This document outlines prioritized design iterations for the Science of Learning
 | **3: Achieve Goals (MCII)** | Mental Contrasting, Implementation Intentions, Study Environment, Exam Preparation | Single integrated MCII flow, Pomodoro/distraction management, Grade expectations |
 
 ### Current Chatbot Implementation (60 min, 5 phases)
-| Phase | Topics | Current Elements |
-|-------|--------|-----------------|
-| **1: What's SRL** | SRL overview | Video + quiz |
-| **2: Understand Tasks** | Task definition, Learning objectives | Video + cognitive levels content + quiz + chat |
-| **3: Learning Strategies** | Self-explanation, Spacing | Strategy guides + video + quiz + chat |
-| **4: Achieve Goals** | MCII (3 separate tasks) | Video + Long-term goals + Short-term goals + Contingency strategies |
-| **5: Monitoring** | Monitoring & adaptation | Video + quiz + chat |
+
+| Phase | Video | Instructional Content | Knowledge Check | Chat/Interaction |
+|-------|-------|----------------------|-----------------|------------------|
+| **1: What's SRL** | `SoL_phase1.mp4` - SRL Introduction | — | 4-stage model fill-in | — |
+| **2: Understand Tasks** | `SoL_phase2.mp4` - Learning Task Analysis | Cognitive Levels + Prior Knowledge/Resources | Multiple choice on objectives | Chat page |
+| **3: Learning Strategies** | `SoL_phase3.mp4` - **Self-testing, Spacing, Self-explanation** | Self-Explanation Tips + Spacing Effect Guide | Multiple choice on strategies | Chat component |
+| **4: Achieve Goals** | `SoL_phase4.mp4` - MCII Framework | — | — | 3 tasks: Long-term → Short-term → Contingency |
+| **5: Monitoring** | `SoL_phase5.mp4` - Monitoring Your Learning | Intro content | Multiple choice on monitoring | Chat page + Monitoring subpage |
+
+**Note**: Self-testing/retrieval practice IS covered in Phase 3's video (not missing as initially thought).
 
 ### Key Gaps Identified
-1. **Self-testing strategy** not explicitly taught (original Module 1.1)
+1. ~~**Self-testing strategy** not explicitly taught~~ → ✅ Actually covered in Phase 3 video
 2. **Compare-to-sample-answer workflow** absent (important for self-assessment calibration)
 3. **Study environment / Pomodoro** section missing (original Module 3.2 Part II)
 4. **Looking ahead to exam** reflection missing
 5. **Resource identification** prompts (LMS, textbook, etc.) less structured
-6. **Reflection after each strategy** less explicit
+6. **Structured reflection prompts after strategies** → Current chat is open-ended, not required
 7. **Adaptive pre-testing** not implemented (original skips content if student already knows it)
 
 ---
@@ -53,37 +56,36 @@ This document outlines prioritized design iterations for the Science of Learning
 
 ---
 
-### 1.2 Add Explicit Self-Testing Strategy Section
-**Current Gap**: Self-testing is mentioned but not explicitly taught as Module 1.1 does in original
-**Proposed**: Add brief self-testing content before or within Phase 3
+### ~~1.2 Add Explicit Self-Testing Strategy Section~~ ✅ ALREADY COVERED
+**Correction**: Self-testing/retrieval practice IS already covered in Phase 3's video (`SoL_phase3.mp4` - "Science of Learning: Key Strategies"). The video covers:
+- Retrieval practice / self-testing
+- Spacing effect
+- Self-explanation
 
-**Theory**: Testing effect / retrieval practice is one of the most robust findings in learning science (Roediger & Karpicke, 2006). Students often don't know this.
+**No action needed** for adding self-testing content—it's already in place.
 
-**Content to add**:
-- Susan & David scenario (quick)
-- Key insight: Self-testing > rereading for long-term retention
-- Application prompt: "How could you use self-testing for [target course]?"
-
-**Recommendation**: ⭐ **HIGH PRIORITY** - Add 3-5 min section on self-testing.
+**Note**: Phase 1's video (`SoL_phase1.mp4`) covers the SRL introduction and 4-stage model.
 
 ---
 
-### 1.3 Add Structured Reflection Prompts
+### 1.2 Add Structured Reflection Prompts
 **Current Gap**: Chat enables reflection but doesn't require it
-**Proposed**: Add explicit reflection prompts after each major section
+**Proposed**: Add explicit reflection prompts after key learning moments
 
-**Example prompts** (from original):
-- "In a couple of sentences, explain one way you can use [strategy] to help you study this semester."
-- "Think of a recent time when monitoring your learning could have helped you. What could you have done differently?"
+**Specific placement recommendation**:
+| Phase | Location | Suggested Prompt |
+|-------|----------|------------------|
+| **Phase 3** | After knowledge check (before proceeding to Phase 4) | "In a few sentences, describe one specific way you plan to use self-testing, spacing, OR self-explanation to study for [your target course] this semester." |
+| **Phase 5** | After monitoring video | "Think of a recent time when monitoring your learning could have helped you. What could you have done differently?" |
 
-**Theory**: Reflection is a core metacognitive process in SRL (Zimmerman, 2002). Explicit prompts increase engagement with reflection vs. open-ended chat.
+**Theory**: Reflection is a core metacognitive process in SRL (Zimmerman, 2002). Explicit prompts increase engagement with reflection vs. open-ended chat. The original intervention uses this pattern extensively.
 
 **Implementation options**:
-1. Required text box before proceeding
+1. **Required text box before proceeding** (strongest, like original intervention)
 2. Chat prompt that waits for substantive response
 3. Optional "Reflection moment" card
 
-**Recommendation**: ⭐ **HIGH PRIORITY** - Add 1-2 structured reflection prompts per phase.
+**Recommendation**: ⭐ **HIGH PRIORITY** - Add reflection prompt after Phase 3 knowledge check (strategy application) and Phase 5 video (monitoring application).
 
 ---
 
@@ -216,8 +218,8 @@ This document outlines prioritized design iterations for the Science of Learning
 | Priority | Change | Effort | Impact | Theory Basis |
 |----------|--------|--------|--------|--------------|
 | **P0** | Combine Phase 4 into single MCII flow | Medium | High | Oettingen & Gollwitzer MCII research |
-| **P1** | Add self-testing strategy section | Low | High | Testing effect (Roediger & Karpicke) |
-| **P1** | Add structured reflection prompts | Low | High | Metacognition in SRL (Zimmerman) |
+| **P1** | Add structured reflection after Phase 3 knowledge check | Low | High | Metacognition in SRL (Zimmerman) |
+| ~~P1~~ | ~~Add self-testing strategy section~~ | — | — | ✅ Already in Phase 3 video |
 | **P2** | Add detail level preference | Low | Medium | Autonomy support (SDT) |
 | **P2** | Add "More details" / "See example" buttons | Medium | Medium | Progressive disclosure, learner control |
 | **P3** | Move individual difference measures to pre-survey | Low | Medium | Clean research design |
